@@ -10,11 +10,8 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@types/bootstrap": "^5.2.6",
+    "@nuxthq/ui": "^2.7.0",
     "@types/node": "^18.17.1",
-    "bootstrap": "^5.2.3",
-    "nuxt": "^3.6.5",
-    "sass": "^1.62.1",
-    "sass-loader": "^13.2.2"
+    "nuxt": "^3.6.5"
   }
 }
