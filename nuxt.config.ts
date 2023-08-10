@@ -1,8 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxthq/ui'],
+  modules: ["@pinia/nuxt", "@nuxthq/ui"],
   colorMode: {
-    preference: 'light'
-  }
-})
+    preference: "light",
+  },
+});
