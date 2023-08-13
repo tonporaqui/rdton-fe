@@ -4,9 +4,9 @@
       <a href="#" class="text-white hover:text-gray-300">Inicio</a>
       <a href="#" class="text-white hover:text-gray-300">Sobre mí</a>
       <a href="#" class="text-white hover:text-gray-300">Stack</a>
-      <buttomColor />
+      <buttonColor />
     </nav>
-    <h1 class="text-3xl font-bold mb-4 z-10">Gaston Sepulveda</h1>
+    <h1 class="text-3xl font-bold mb-4 z-10">{{ title }}</h1>
     <p class="max-w-lg mx-auto mb-6 z-10">
       Ingeniero Informático apasionado por la tecnología y la innovación. Especializado en Arquitectura de Software. Magíster en Gestión de Información y Telecomunicaciones. Liderazgo orientado a objetivos y proyectos ágiles.
     </p>    
@@ -14,10 +14,17 @@
 </template>
 
 <script>
-import buttomColor from './buttomColor.vue';
+import buttonColor from './buttonColor.vue';
 export default {
   components:{
-    buttomColor
+    buttonColor
+  },
+  setup(){
+    const title = ref('Rincon del Ton');
+
+    return{
+      title,
+    }
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
     <UContainer>
-        <AboutMe />
+        <AboutMe :aboutMeInfo="info.allAboutMe"/>
         <section class="card-container">
             <SkillCard title="Frontend" :skills="stack.allSkills.frontend" />
             <SkillCard title="Backend" :skills="stack.allSkills.backend" />
@@ -12,6 +12,7 @@
   
 <script>
 import { useStackStore } from '~/store/stack'
+import { useMainStore } from '~/store/aboutMeInfo'
 import SkillCard from '~/components/SkillCard.vue'
 import AboutMe from '~/components/AboutMe.vue'
 export default {
@@ -21,9 +22,11 @@ export default {
     },
     setup() {
         const stack = useStackStore()
+        const info  = useMainStore()
 
         return {
-            stack
+            stack,
+            info
         }
     }
 }
