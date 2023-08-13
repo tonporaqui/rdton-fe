@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-black text-white p-8 rounded-lg shadow-md">
+  <section class="text-white p-8 rounded-lg shadow-md">
     <h2 class="text-2xl font-bold mb-4">Sobre mí</h2>
     <p class="mb-4">
       Ingeniero Informático especializado en Arquitectura de Software apasionado por la investigación y nuevas tecnologías. Experiencia en aplicar metodologías ágiles en proyectos de desarrollo. Actualmente cursando un Magíster en Gestión de Información y Telecomunicaciones en la Universidad Andrés Bello, interesado en contribuir al avance tecnológico.
