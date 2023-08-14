@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@heroicons/vue':
+    specifier: ^2.0.18
+    version: 2.0.18(vue@3.3.4)
   '@pinia/nuxt':
     specifier: ^0.4.11
     version: 0.4.11(vue@3.3.4)
@@ -819,6 +822,14 @@ packages:
     dependencies:
       vue: 3.3.4
     dev: true
+
+  /@heroicons/vue@2.0.18(vue@3.3.4):
+    resolution: {integrity: sha512-BcTC9nq2TkwNSfQuqo96J7ehx4etezypc2YeTq7KsXWxrcrerhkgjLrxGRBnStN0wrXo0Gv4BInybqz5uBG6Cw==}
+    peerDependencies:
+      vue: '>= 3'
+    dependencies:
+      vue: 3.3.4
+    dev: false
 
   /@iconify-json/heroicons@1.1.12:
     resolution: {integrity: sha512-9tsn/xUU+HX56OngEDRTej4LzVm2qcMVLvEJ+q+1ZJBO4sjMDxycmbHq16HGl1LOeVG21fq4jNZHslVveVCwSQ==}
