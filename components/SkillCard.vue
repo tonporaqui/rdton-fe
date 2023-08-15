@@ -1,5 +1,5 @@
 <template>
-    <section class="p-8">
+    <section class="p-8 mt-10">
         <h2 class="text-3xl font-extrabold mb-6 dark:text-white">Stack</h2>
         <!-- Contenedor de las tarjetas con diseño de cuadrícula -->
         <div class="flex justify-center">
@@ -15,7 +15,7 @@
                         <li v-for="description in skill.description" :key="description">
                             <!-- Mostrar icono y descripción -->
                             <Icon :name=description.icon></Icon>
-                            <span>{{ description.title }}</span>
+                            <span class="pl-3">{{ description.title }}</span>
                         </li>
                     </ul>
                 </div>
