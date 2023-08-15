@@ -8,22 +8,40 @@ export const useStackStore = defineStore({
       {
         id: 1,
         title: "frontend",
-        description: ["vue.js", "nuxt.js", "php", "javascript"],
+        description: [
+          { title: "Vue.js", icon: "logos:vue" },
+          { title: "Nuxt.js", icon: "logos:nuxt-icon" },
+          { title: "PHP", icon: "logos:php" },
+          { title: "Javascript", icon: "logos:javascript" },
+        ],
       },
       {
         id: 2,
         title: "backend",
-        description: ["node.js", "express.js", "Python", "java", "c#"],
+        description: [
+          { title: "Node.js", icon: "logos:nodejs" },
+          { title: "Python", icon: "logos:python" },
+          { title: "Java", icon: "logos:java" },
+          { title: "c#", icon: "logos:c-sharp" },
+        ],
       },
       {
         id: 3,
         title: "databases",
-        description: ["Mysql", "MongoDB", "SQL Server", "Oracle DocumentDB"],
+        description: [
+          { title: "Mysql", icon: "logos:mysql" },
+          { title: "MongoDB", icon: "logos:mongodb-icon" },
+          { title: "Oracle", icon: "logos:oracle" },
+          { title: " DocumentDB", icon: "logos:aws-documentdb" },
+        ],
       },
       {
         id: 4,
         title: "cloud",
-        description: ["AWS", "Azure"],
+        description: [
+          { title: "AWS", icon: "logos:aws" },
+          { title: "Azure", icon: "logos:azure-icon" },
+        ],
       },
     ],
   }),

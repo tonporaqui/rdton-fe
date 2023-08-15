@@ -1,7 +1,6 @@
 <template>
     <section class="p-8">
         <h2 class="text-3xl font-extrabold mb-6 dark:text-white">Stack</h2>
-
         <!-- Contenedor de las tarjetas con diseño de cuadrícula -->
         <div class="flex justify-center">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -15,8 +14,8 @@
                     <ul>
                         <li v-for="description in skill.description" :key="description">
                             <!-- Mostrar icono y descripción -->
-                            <img :src="getIconPath(description)" alt="" class="inline-block w-6 h-6 mr-2">
-                            <span>{{ description }}</span>
+                            <Icon :name=description.icon></Icon>
+                            <span>{{ description.title }}</span>
                         </li>
                     </ul>
                 </div>
