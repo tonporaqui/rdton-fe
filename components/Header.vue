@@ -22,7 +22,7 @@
       <h1 class="text-3xl font-bold pt-8 mb-4 z-10 text-center text-indigo-200 
       dark:text-yellow-500">{{ title }}</h1>
       <!-- Profile Info -->
-      <figure class="md:flex rounded-xl p-8 md:p-0 mx-auto max-w-3xl shadow-md bg-white dark:bg-black dark:text-yellow-200 z-10">
+      <figure class="md:flex rounded-xl p-8 md:p-0 mx-auto max-w-3xl shadow-md bg-white dark:bg-gray-800 dark:text-yellow-200 z-10">
         <nuxt-img class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="/images/foto.jpg" alt="Gaston Sepulveda" />
         <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
           <blockquote>
