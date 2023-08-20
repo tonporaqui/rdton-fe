@@ -20,7 +20,7 @@
       <!-- Profile Info -->
       <figure class="md:flex rounded-xl p-8 md:p-0 mx-auto max-w-3xl shadow-md bg-white text-black  dark:bg-gray-800 dark:text-white z-20">
         <!-- <img class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="/path-to-your-avatar.jpg" alt="Gaston Sepulveda"> -->
-        <img class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="" alt="Gaston Sepulveda">
+        <nuxt-img class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="/images/foto.jpg" alt="Gaston Sepulveda" />
         <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
           <blockquote>
             <p class="text-sm font-medium">{{ description }}</p>
