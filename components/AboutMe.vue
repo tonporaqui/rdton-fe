@@ -1,6 +1,6 @@
 <template>
   <section class="p-8">
-    <h2 class="text-3xl font-extrabold mb-6 dark:text-white text-center">Sobre mí</h2>
+    <h2 class="text-3xl font-extrabold mb-6 text-blue-800 dark:text-yellow-500 text-center">Sobre mí</h2>
 
     <!-- Contenedor de las tarjetas con diseño de cuadrícula -->
     <div class="flex justify-center">
@@ -10,8 +10,8 @@
           class="transition transform hover:scale-105 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md"
           :data-aos="getAosEffect(index)" :data-aos-delay="(index + 1) * 100">
 
-          <h3 class="text-xl font-semibold mb-2 dark:text-white">{{ info.title }}</h3>
-          <p class="text-lg leading-relaxed dark:text-gray-300">{{ info.description }}</p>
+          <h3 class="text-xl font-semibold mb-2 text-blue-700 dark:text-yellow-400">{{ info.title }}</h3>
+          <p class="text-lg leading-relaxed text-blue-600 dark:text-yellow-200">{{ info.description }}</p>
         </div>
       </div>
     </div>
