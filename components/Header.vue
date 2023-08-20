@@ -1,5 +1,5 @@
 <template>
-  <header class="relative sm:py-8 md:py-16 sm:max-h-14 md:max-h-72 bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-gray-700 dark:to-gray-900 text-white">
+  <header class="relative sm:py-4 md:py-16 sm:max-h-10 md:max-h-72 bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-gray-700 dark:to-gray-900 text-white">
     <!-- Container for everything -->
     <div class="w-full max-w-screen-xl mx-auto px-4">
       <!-- Container for nav and switch -->
@@ -7,8 +7,8 @@
         <!-- Navigation -->
         <nav class="flex-grow flex justify-center space-x-4 z-10">
           <a href="#" class="transition-colors hover:bg-opacity-50 p-2 rounded text-white hover:bg-white dark:text-white dark:hover:bg-gray-700">Inicio</a>
-          <a href="#" class="transition-colors hover:bg-opacity-50 p-2 rounded text-white hover:bg-white dark:text-white bladarkck:hover:bg-gray-700">Sobre mí</a>
           <a href="#" class="transition-colors hover:bg-opacity-50 p-2 rounded text-white hover:bg-white dark:text-white dark:hover:bg-gray-700">Stack</a>
+          <a href="#" class="transition-colors hover:bg-opacity-50 p-2 rounded text-white hover:bg-white dark:text-white bladarkck:hover:bg-gray-700">Sobre mí</a>
         </nav>
         <!-- Spacer -->
         <div class="flex-grow"></div>
