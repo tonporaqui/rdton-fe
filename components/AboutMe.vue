@@ -1,6 +1,6 @@
 <template>
   <section class="p-8">
-    <h2 class="text-3xl font-extrabold mb-6 dark:text-white">Sobre mí</h2>
+    <h2 class="text-3xl font-extrabold mb-6 dark:text-white text-center">Sobre mí</h2>
 
     <!-- Contenedor de las tarjetas con diseño de cuadrícula -->
     <div class="flex justify-center">
