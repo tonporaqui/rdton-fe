@@ -1,6 +1,6 @@
 <template>
   <ClientOnly>
-    <UToggle v-model="selected" :class="[selected.value ? 'bg-yellow-500' : 'bg-indigo-400']" />
+    <UToggle v-model="selected" :class="[selected.value ? 'bg-yellow-500' : 'bg-indigo-200']" />
     <component :is="currentIconComponent" class="ml-4 h-6 w-6 text-yellow-500 dark:text-white " />
     <template #fallback>
       <div class="w-2 h-2" />
