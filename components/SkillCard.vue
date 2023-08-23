@@ -1,5 +1,5 @@
 <template>
-    <section class="p-20 sm:p-20 md:p-10 lg:p-8 mt-32 sm:mt-32 md:mt-30 lg:mt-20">
+    <section id="stack-section" class="p-20 sm:p-20 md:p-10 lg:p-8 mt-32 sm:mt-32 md:mt-30 lg:mt-20">
         <h2 class="text-3xl font-extrabold mb-6 text-indigo-950 dark:text-yellow-500 text-center">Stack</h2>
         <!-- Contenedor de las tarjetas con diseño de cuadrícula -->
         <div class="flex justify-center">

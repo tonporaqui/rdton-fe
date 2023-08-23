@@ -1,17 +1,17 @@
 <template>
-  <header class="relative py-4 sm:py-4 md:py-16 max-h-60 sm:max-h-60 md:max-h-64 lg:max-h-72  bg-gradient-to-r from-indigo-500 to-blue-500 dark:from-yellow-500 dark:to-black text-indigo-950 dark:text-white">
+  <header id="header-inicio" class="relative py-4 sm:py-4 md:py-16 max-h-60 sm:max-h-60 md:max-h-64 lg:max-h-72  bg-gradient-to-r from-indigo-500 to-blue-500 dark:from-yellow-500 dark:to-black text-indigo-950 dark:text-white">
     <!-- Container for everything -->
     <div class="w-full max-w-screen-xl mx-auto px-4">
       <!-- Container for nav and switch -->
       <div class="flex items-center justify-center mb-6 fixed top-0 left-0 w-full bg-gradient-to-r from-indigo-500 to-blue-500  dark:from-yellow-500 dark:to-black bg-opacity-40 z-50 shadow-lg">
         <!-- Navigation -->
         <nav class="flex-grow flex justify-center space-x-4 z-10">
-          <a href="#" class="transition-colors hover:bg-opacity-50 p-2 rounded text-indigo-200 
-          hover:text-blue-800 dark:text-yellow-300 dark:hover:text-yellow-500">Inicio</a>
-          <a href="#" class="transition-colors hover:bg-opacity-50 p-2 rounded text-indigo-200 
-          hover:text-indigo-800 dark:text-yellow-300 dark:hover:text-yellow-500">Stack</a>
-          <a href="#" class="transition-colors hover:bg-opacity-50 p-2 rounded text-indigo-200 
-          hover:text-indigo-800 dark:text-yellow-300 dark:hover:text-yellow-500">Sobre mí</a>
+          <NuxtLink :to="{ path: '/', hash: '#header-inicio' }" class="transition-colors hover:bg-opacity-50 p-2 rounded text-indigo-200 
+          hover:text-blue-800 dark:text-yellow-300 dark:hover:text-yellow-500">Inicio</NuxtLink>
+          <NuxtLink :to="{ path: '/', hash: '#stack-section'}" class="transition-colors hover:bg-opacity-50 p-2 rounded text-indigo-200 
+          hover:text-indigo-800 dark:text-yellow-300 dark:hover:text-yellow-500">Stack</NuxtLink>
+          <NuxtLink :to="{ path: '/', hash: '#about-me-section' }" class="transition-colors hover:bg-opacity-50 p-2 rounded text-indigo-200 
+          hover:text-indigo-800 dark:text-yellow-300 dark:hover:text-yellow-500">Sobre mí</NuxtLink>
         </nav>
         <!-- Spacer -->
         <div class="flex-grow"></div>

@@ -1,5 +1,5 @@
 <template>
-  <section class="p-8 text-indigo-950 dark:text-yellow-500">
+  <section id="about-me-section" class="p-20 sm:p-20 md:p-10 lg:p-8 text-indigo-950 dark:text-yellow-500">
     <h2 class="text-3xl font-extrabold mb-6 text-center">Sobre mí</h2>
 
     <!-- Contenedor de las tarjetas con diseño de cuadrícula -->
