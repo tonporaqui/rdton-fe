@@ -9,7 +9,8 @@
         <div v-for="(info, index) in aboutMeInfo" :key="info.id"
           class="transition transform hover:scale-105 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark: shadow-gray-800"
           :data-aos="getAosEffect(index)" :data-aos-delay="(index + 1) * 100">
-
+          <img :src="info.image || 'https://stackdiary.com/140x100.png'" alt="image.ref"
+            class="w-full h-48 object-cover rounded-t-lg">
           <h3 class="text-xl font-semibold mb-2 text-indigo-800 dark:text-yellow-400">{{ info.title }}</h3>
           <p class="text-lg leading-relaxed dark:text-yellow-200">{{ info.description }}</p>
         </div>

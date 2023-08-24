@@ -8,8 +8,6 @@
 import { MoonIcon, SunIcon } from '@heroicons/vue/24/solid'
 const colorMode = useColorMode()
 
-console.log(colorMode.preference)
-
 const toggleDarkMode = () => {
     if (colorMode.preference === 'dark') {
         colorMode.preference = 'light'

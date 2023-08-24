@@ -3,19 +3,19 @@
         <h2 class="text-3xl font-extrabold mb-6 text-indigo-950 dark:text-yellow-500 text-center">Stack</h2>
         <!-- Contenedor de las tarjetas con diseño de cuadrícula -->
         <div class="flex justify-center">
-            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 <!-- Iterar sobre las habilidades para mostrar cada item -->
                 <div v-for="(skill, index) in skills" :key="skill.id"
-                    class="transition transform hover:scale-105 p-1 bg-white dark:bg-gray-800 rounded-lg shadow-md dark: shadow-gray-800"
+                    class="transform transition hover:scale-100 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark: shadow-gray-800"
                     :data-aos="getAosEffect(index)" :data-aos-delay="(index + 1) * 100">
-
-                    <h3 class="text-xl  font-semibold mb-2 text-indigo-800 dark:text-yellow-400">{{ skill.title }}</h3>
+                    <img :src="skill.image || 'https://stackdiary.com/140x100.png'" alt="image ref" class="w-full h-48 object-cover rounded-t-lg">
+                    <h3 class="text-xl  font-semibold mb-4 mt-4 text-indigo-800 dark:text-yellow-400">{{ skill.title }}</h3>
 
                     <ul>
                         <li v-for="description in skill.description" :key="description">
                             <!-- Mostrar icono y descripción -->
-                            <Icon :name=description.icon></Icon>
-                            <span class="pl-1 leading-relaxed text-indigo-950 dark:text-yellow-200">{{ description.title }}</span>
+                            <Icon :name=description.icon size="27px"></Icon>
+                            <span class="pl-2 leading-relaxed text-indigo-950 dark:text-yellow-200">{{ description.title }}</span>
                         </li>
                     </ul>
                 </div>
