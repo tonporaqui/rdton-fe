@@ -49,7 +49,7 @@ export default {
     const title = ref('Rincon del Ton');
     const nombre = 'Gaston Sepulveda'
     const tituloUniersitario= 'Ingeniero Informático'
-    const description = 'Apasionado por la tecnología y la innovación /  Especializado en Arquitectura de Software Magíster en Gestión de Información y Telecomunicaciones / Liderazgo orientado a objetivos y proyectos ágiles.'
+    const description = 'Apasionado por la tecnología y la innovación, especializado en Arquitectura de Software, cursando Magíster en Gestión de Información y Telecomunicaciones, y con un claro enfoque al liderazgo orientado a objetivos y proyectos ágiles.'
     return {
       title,
       nombre,
