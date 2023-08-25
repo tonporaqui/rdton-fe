@@ -12,6 +12,8 @@
           hover:text-indigo-800 dark:text-yellow-300 dark:hover:text-yellow-500">Stack</NuxtLink>
           <NuxtLink :to="{ path: '/', hash: '#about-me-section' }" class="transition-colors hover:bg-opacity-50 p-2 rounded text-indigo-200 
           hover:text-indigo-800 dark:text-yellow-300 dark:hover:text-yellow-500">Sobre mí</NuxtLink>
+          <NuxtLink :to="{ path: '/', hash: '#timeline-section' }" class="transition-colors hover:bg-opacity-50 p-2 rounded text-indigo-200 
+          hover:text-indigo-800 dark:text-yellow-300 dark:hover:text-yellow-500">Mí Time Line</NuxtLink>
         </nav>
         <!-- Spacer -->
         <div class="flex-grow"></div>
