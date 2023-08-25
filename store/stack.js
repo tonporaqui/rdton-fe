@@ -52,22 +52,22 @@ export const useStackStore = defineStore({
         title: "Versionado",
         image: "",
         description: [
-          { title: "GitHub", icon: "logos:github-octocat"},
-          { title: "SVN", icon: "logos:subversion"}
-        ]
+          { title: "GitHub", icon: "logos:github-octocat" },
+          { title: "SVN", icon: "logos:subversion" },
+        ],
       },
       {
-        id:5,
+        id: 5,
         title: "Agile",
         image: "",
-        description: [          
-          { title:"Jira", icon:"logos:jira"},
-          { title:"Confluence", icon:"logos:confluence"},
-          { title:"Microsoft Teams", icon:"logos:microsoft-teams"},
-          { title: "Slack", icon:"logos:slack-icon"},
-          { title:"Trello", icon:"logos:trello"},
-        ]
-      }
+        description: [
+          { title: "Jira", icon: "logos:jira" },
+          { title: "Confluence", icon: "logos:confluence" },
+          { title: "Microsoft Teams", icon: "logos:microsoft-teams" },
+          { title: "Slack", icon: "logos:slack-icon" },
+          { title: "Trello", icon: "logos:trello" },
+        ],
+      },
     ],
   }),
   getters: {
