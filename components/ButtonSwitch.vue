@@ -1,23 +1,19 @@
 <template>
-    <div @click="toggleDarkMode">
-        <component :is="currentIcon" class="ml-4 h-6 w-6 text-yellow-500 dark:text-white" />
+    <div @click="toggleDarkMode" role="button" aria-label="Toggle Dark Mode" style="cursor: pointer;">
+        <Icon :name="currentIcon" size="27px" class="ml-4 h-6 w-6 text-light-primary100 dark:text-dark-accent100"></Icon>
+        <!-- <component :is="currentIcon" class="ml-4 h-6 w-6 text-yellow-500 dark:text-white" /> -->
     </div>
 </template>
 
 <script setup>
-import { MoonIcon, SunIcon } from '@heroicons/vue/24/solid'
 const colorMode = useColorMode()
-
+console.log(colorMode.preference)
 const toggleDarkMode = () => {
-    if (colorMode.preference === 'dark') {
-        colorMode.preference = 'light'
-    } else {
-        colorMode.preference = 'dark'
-    }
+    colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
 }
 
 const currentIcon = computed(() => {
-    return colorMode.preference === 'dark' ? MoonIcon : SunIcon
+    return colorMode.preference === 'dark' ? 'i-carbon-moon' : 'i-carbon:sun'
 })
 </script>
 
