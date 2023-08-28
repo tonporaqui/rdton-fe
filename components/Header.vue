@@ -1,64 +1,57 @@
 <template>
-  <header
-    id="header-inicio"
-    class="relative py-4 sm:py-4 md:py-16 max-h-60 sm:max-h-60 md:max-h-64 lg:max-h-72 bg-gradient-to-r from-light-accent100  to-light-accent200 dark:from-yellow-500 dark:to-black text-indigo-950 dark:text-white"
-  >
+  <header id="header-inicio"
+    class="relative py-4 sm:py-4 md:py-16 max-h-60 sm:max-h-60 md:max-h-64 lg:max-h-72 bg-gradient-to-r from-light-bg100 to-light-bg200 dark:from-dark-bg100 dark:to-dark-bg200 text-light-text100 dark:text-dark-text100">
     <!-- Container for everything -->
     <div class="w-full max-w-screen-xl mx-auto px-4">
-      <!-- Container for nav and switch -->
+      <!-- Container for nav, title and switch -->
       <div
-        class="flex items-center justify-center mb-6 fixed top-0 left-0 w-full bg-gradient-to-r from-light-accent100  to-light-accent200 dark:from-yellow-500 dark:to-black bg-opacity-40 z-50 shadow-lg"
-      >
-        <!-- Navigation -->
-        <nav class="flex-grow flex justify-center space-x-4 z-10">
-          <NuxtLink
-            :to="{ path: '/', hash: '#header-inicio' }"
-            class="transition-colors hover:bg-opacity-50 p-2 rounded text-light-primary100 hover:text-light-accent200 dark:text-yellow-300 dark:hover:text-yellow-500"
-            >Inicio</NuxtLink
-          >
-          <NuxtLink
-            :to="{ path: '/', hash: '#stack-section' }"
-            class="transition-colors hover:bg-opacity-50 p-2 rounded text-light-primary100 hover:text-light-accent200 dark:text-yellow-300 dark:hover:text-yellow-500"
-            >Stack</NuxtLink
-          >
-          <NuxtLink
-            :to="{ path: '/', hash: '#about-me-section' }"
-            class="transition-colors hover:bg-opacity-50 p-2 rounded text-light-primary100 hover:text-light-accent200 dark:text-yellow-300 dark:hover:text-yellow-500"
-            >Sobre mí</NuxtLink
-          >
-          <NuxtLink
-            :to="{ path: '/', hash: '#timeline-section' }"
-            class="transition-colors hover:bg-opacity-50 p-2 rounded text-light-primary100 hover:text-light-accent200 dark:text-yellow-300 dark:hover:text-yellow-500"
-            >Mí Time Line</NuxtLink
-          >
-        </nav>
-        <!-- Spacer -->
-        <div class="flex-grow"></div>
-        <!-- ButtonSwitch -->
-        <ButtonSwitch />
+        class="flex items-center justify-between mb-6 fixed top-0 left-0 w-full px-4 md:px-0 bg-gradient-to-r from-light-accent100 to-light-accent200 dark:from-dark-primary100 dark:to-dark-primary200 bg-opacity-40 z-50 shadow-lg">
+        <!-- Container for title, nav, and switch -->
+        <div class="container mx-auto flex items-center justify-between">
+          <!-- Title for larger screens -->
+          <h1 class="hidden md:block text-3xl font-bold z-10 text-light-accent200 dark:text-dark-accent200">
+            {{ title }}
+          </h1>
+          <!-- Navigation -->
+          <nav class="flex space-x-4 z-10 ml-8">
+            <NuxtLink :to="{ path: '/', hash: '#header-inicio' }"
+              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              Inicio
+            </NuxtLink>
+            <NuxtLink :to="{ path: '/', hash: '#stack-section' }"
+              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              Stack
+            </NuxtLink>
+            <NuxtLink :to="{ path: '/', hash: '#about-me-section' }"
+              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              Sobre mí
+            </NuxtLink>
+            <NuxtLink :to="{ path: '/', hash: '#timeline-section' }"
+              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              Mí Time Line
+            </NuxtLink>
+          </nav>
+          <!-- ButtonSwitch -->
+          <div class="flex-grow"></div>
+          <ButtonSwitch />
+        </div>
       </div>
-      <!-- Title -->
-      <h1
-        class="text-3xl font-bold pt-8 mb-4 z-10 text-center text-indigo-200 dark:text-yellow-500"
-      >
+      <!-- Title for smaller screens -->
+      <h1 class="md:hidden text-3xl font-bold pt-8 mb-4 z-10 text-center text-light-accent200 dark:text-dark-primary200">
         {{ title }}
       </h1>
       <!-- Profile Info -->
       <figure
-        class="md:flex rounded-xl p-8 md:p-0 mx-auto max-w-3xl shadow-md dark: shadow-gray-700 bg-white dark:bg-gray-800 dark:text-yellow-200 z-10"
-      >
-        <nuxt-img
-          class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto"
-          src="/images/foto.jpg"
-          alt="Gaston Sepulveda"
-        />
+        class="md:flex rounded-xl p-8 md:mt-20 md:p-0 mx-auto max-w-3xl shadow-md dark:shadow-dark-bg200 bg-light-bg100 dark:bg-dark-bg300 dark:text-dark-text200 z-20">
+        <nuxt-img class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="/images/foto.jpg"
+          alt="Gaston Sepulveda" />
         <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
           <blockquote>
-            <p class="text-sm font-medium text-dark-text200 dark:text-light-text200">{{ description }}</p>
+            <p class="text-sm font-medium text-light-text200 dark:text-dark-text200">{{ description }}</p>
           </blockquote>
           <figcaption class="font-medium">
-            <div class="text-indigo-800 dark:text-yellow-400">{{ nombre }}</div>
-            <div class="text-sm font-medium dark:text-yellow-200">
+            <div class="text-light-accent200 dark:text-dark-accent100">{{ nombre }}</div>
+            <div class="text-sm font-medium text-light-text100 dark:text-dark-text200">
               {{ tituloUniersitario }}
             </div>
           </figcaption>

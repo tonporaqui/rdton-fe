@@ -15,7 +15,7 @@ export default defineNuxtPlugin((nuxtApp) => {
           }
           setTimeout(() => {
             resolve(findEl(hash, 1));
-          }, 300);
+          }, 500);
         })
       );
     };

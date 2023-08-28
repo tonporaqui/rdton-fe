@@ -1,6 +1,6 @@
 <template>
-    <div class="container mx-auto">
-         <SkillCard :skills="stack.allSkills" />
+    <div class="container mx-auto ">
+        <SkillCard :skills="stack.allSkills" />
         <AboutMe :aboutMeInfo="info.allAboutMe" />
         <TimeLine :timeLineMe="timeLine.sortedTimeLine" />
     </div>
@@ -12,7 +12,7 @@ import { useMainStore } from '~/store/aboutMeInfo'
 import { useTimeLineStore } from '~/store/timeLineMe'
 import SkillCard from '~/components/SkillCard.vue'
 import AboutMe from '~/components/AboutMe.vue'
-import  TimeLine  from '~/components/TimeLine.vue'
+import TimeLine from '~/components/TimeLine.vue'
 
 export default {
     components: {
@@ -24,6 +24,11 @@ export default {
         const stack = useStackStore()
         const info = useMainStore()
         const timeLine = useTimeLineStore()
+        useHead({
+            bodyAttrs: {
+                class: 'dark:to-dark-bg200'
+            }
+        })
 
         return {
             stack,

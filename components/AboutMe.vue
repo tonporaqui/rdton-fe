@@ -1,9 +1,13 @@
 <template>
   <section
     id="about-me-section"
-    class="p-20 sm:p-20 md:p-10 lg:p-8 text-indigo-950 dark:text-yellow-500"
+    class="p-20 sm:p-20 md:p-10 mt-32 sm:mt-32 md:mt-30"
   >
-    <h2 class="text-3xl font-extrabold mb-6 text-center">Sobre mí</h2>
+    <h2
+      class="text-3xl font-extrabold mb-6 text-center text-light-accent200 dark:text-dark-accent200"
+    >
+      Sobre mí
+    </h2>
 
     <!-- Contenedor de las tarjetas con diseño de cuadrícula -->
     <div class="flex justify-center">
@@ -12,7 +16,7 @@
         <div
           v-for="(info, index) in aboutMeInfo"
           :key="info.id"
-          class="transition transform hover:scale-105 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark: shadow-gray-800"
+          class="transition transform hover:scale-105 p-4 bg-light-bg100 dark:bg-dark-bg300 rounded-lg shadow-md dark:shadow-dark-bg200"
           :data-aos="getAosEffect(index)"
           :data-aos-delay="(index + 1) * 100"
         >
@@ -22,11 +26,11 @@
             class="w-full h-48 object-cover rounded-t-lg"
           />
           <h3
-            class="text-xl font-semibold mb-2 text-indigo-800 dark:text-yellow-400"
+            class="text-xl font-semibold mb-2 text-light-accent200 dark:text-dark-accent100"
           >
             {{ info.title }}
           </h3>
-          <p class="text-lg leading-relaxed dark:text-yellow-200">
+          <p class="text-lg leading-relaxed text-light-text200 dark:text-dark-text200">
             {{ info.description }}
           </p>
         </div>
@@ -53,5 +57,5 @@ export default {
 </script>
 
 <style scoped>
-/* Tu CSS aquí */
+/* Puedes agregar estilos adicionales aquí si lo necesitas */
 </style>

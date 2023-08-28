@@ -1,10 +1,10 @@
 <template>
   <section
     id="stack-section"
-    class="p-20 sm:p-20 md:p-10 lg:p-8 mt-32 sm:mt-32 md:mt-30 lg:mt-20"
+    class="p-20 sm:p-20 md:p-10 mt-32 sm:mt-32 md:mt-30"
   >
     <h2
-      class="text-3xl font-extrabold mb-6 text-indigo-950 dark:text-yellow-500 text-center"
+      class="text-3xl font-extrabold mb-6 text-light-accent200 dark:text-dark-accent200 text-center"
     >
       Stack
     </h2>
@@ -15,7 +15,7 @@
         <div
           v-for="(skill, index) in skills"
           :key="skill.id"
-          class="transform transition hover:scale-100 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark: shadow-gray-800"
+          class="transform transition hover:scale-100 p-4 bg-light-bg100 dark:bg-dark-bg300 rounded-lg shadow-md dark:shadow-dark-bg200"
           :data-aos="getAosEffect(index)"
           :data-aos-delay="(index + 1) * 100"
         >
@@ -25,7 +25,7 @@
             class="w-full h-48 object-cover rounded-t-lg"
           />
           <h3
-            class="text-xl font-semibold mb-4 mt-4 text-indigo-800 dark:text-yellow-400"
+            class="text-xl font-semibold mb-4 mt-4 text-light-accent200 dark:text-dark-accent100"
           >
             {{ skill.title }}
           </h3>
@@ -35,7 +35,7 @@
               <!-- Mostrar icono y descripción -->
               <Icon :name="description.icon" size="27px"></Icon>
               <span
-                class="pl-2 leading-relaxed text-indigo-950 dark:text-yellow-200"
+                class="pl-2 leading-relaxed text-light-text200 dark:text-dark-text200"
                 >{{ description.title }}</span
               >
             </li>
@@ -62,3 +62,7 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+/* Puedes agregar estilos aquí si lo necesitas */
+</style>
