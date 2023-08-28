@@ -1,9 +1,9 @@
 <template>
-    <UContainer>
-        <SkillCard :skills="stack.allSkills" />
+    <div class="container mx-auto">
+         <SkillCard :skills="stack.allSkills" />
         <AboutMe :aboutMeInfo="info.allAboutMe" />
         <TimeLine :timeLineMe="timeLine.sortedTimeLine" />
-    </UContainer>
+    </div>
 </template>
 
 <script>

@@ -54,7 +54,7 @@
         />
         <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
           <blockquote>
-            <p class="text-sm font-medium">{{ description }}</p>
+            <p class="text-sm font-medium text-dark-text200 dark:text-light-text200">{{ description }}</p>
           </blockquote>
           <figcaption class="font-medium">
             <div class="text-indigo-800 dark:text-yellow-400">{{ nombre }}</div>
