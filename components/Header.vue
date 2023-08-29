@@ -1,6 +1,6 @@
 <template>
   <header id="header-inicio"
-    class="relative py-4 sm:py-4 md:py-16 max-h-60 sm:max-h-60 md:max-h-64 lg:max-h-72 bg-gradient-to-r from-light-bg300 to-light-bg100 dark:from-dark-bg100 dark:to-dark-bg300 text-light-text100 dark:text-dark-text100">
+    class="relative py-4 sm:py-4 md:py-16 max-h-60 sm:max-h-60 md:max-h-64 lg:max-h-72 bg-gradient-to-r from-light-accent100 to-light-accent100 dark:from-dark-bg100 dark:to-dark-bg300 text-light-text100 dark:text-dark-text100">
     <!-- Container for everything -->
     <div class="w-full max-w-screen-xl mx-auto px-4">
       <!-- Container for nav, title and switch -->
@@ -15,19 +15,19 @@
           <!-- Navigation -->
           <nav class="flex space-x-4 z-10 ml-8">
             <NuxtLink :to="{ path: '/', hash: '#header-inicio' }"
-              class="transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              class="transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-primary100 hover:text-light-accent200 dark:text-dark-accent200 dark:hover:text-dark-primary100">
               Inicio
             </NuxtLink>
             <NuxtLink :to="{ path: '/', hash: '#stack-section' }"
-              class="transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              class="transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-primary100 hover:text-light-accent200 dark:text-dark-accent200 dark:hover:text-dark-primary100">
               Habilidades
             </NuxtLink>
             <NuxtLink :to="{ path: '/', hash: '#about-me-section' }"
-              class="transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              class="transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-primary100 hover:text-light-accent200 dark:text-dark-accent200 dark:hover:text-dark-primary100">
               Sobre mí
             </NuxtLink>
             <NuxtLink :to="{ path: '/', hash: '#timeline-section' }"
-              class="transition-transform transform font-semibold  text-sm first-letter:hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              class="transition-transform transform font-semibold  text-sm first-letter:hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-primary100 hover:text-light-accent200 dark:text-dark-accent200 dark:hover:text-dark-primary100">
               Mi línea de tiempo
             </NuxtLink>
           </nav>
