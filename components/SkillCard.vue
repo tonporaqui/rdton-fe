@@ -4,7 +4,7 @@
     class="p-20 sm:p-20 md:p-10 mt-32 sm:mt-32 md:mt-30"
   >
     <h2
-      class="text-3xl font-extrabold mb-6 text-light-accent200 dark:text-dark-accent200 text-center"
+      class="text-3xl font-extrabold mb-6 text-light-accent200 dark:text-dark-primary100 text-center"
     >
       Stack
     </h2>
@@ -25,7 +25,7 @@
             class="w-full h-48 object-cover rounded-t-lg"
           />
           <h3
-            class="text-xl font-semibold mb-4 mt-4 text-light-accent200 dark:text-dark-accent100"
+            class="text-xl font-semibold mb-4 mt-4 text-light-accent200 dark:text-dark-primary100"
           >
             {{ skill.title }}
           </h3>
@@ -35,7 +35,7 @@
               <!-- Mostrar icono y descripción -->
               <Icon :name="description.icon" size="27px"></Icon>
               <span
-                class="pl-2 leading-relaxed text-light-text200 dark:text-dark-text200"
+                class="pl-2 leading-relaxed text-light-text200 dark:text-dark-text100"
                 >{{ description.title }}</span
               >
             </li>

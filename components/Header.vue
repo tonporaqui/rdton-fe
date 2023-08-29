@@ -1,11 +1,11 @@
 <template>
   <header id="header-inicio"
-    class="relative py-4 sm:py-4 md:py-16 max-h-60 sm:max-h-60 md:max-h-64 lg:max-h-72 bg-gradient-to-r from-light-bg100 to-light-bg200 dark:from-dark-bg100 dark:to-dark-bg200 text-light-text100 dark:text-dark-text100">
+    class="relative py-4 sm:py-4 md:py-16 max-h-60 sm:max-h-60 md:max-h-64 lg:max-h-72 bg-gradient-to-r from-light-bg300 to-light-bg100 dark:from-dark-bg100 dark:to-dark-bg300 text-light-text100 dark:text-dark-text100">
     <!-- Container for everything -->
     <div class="w-full max-w-screen-xl mx-auto px-4">
       <!-- Container for nav, title and switch -->
       <div
-        class="flex items-center justify-between mb-6 fixed top-0 left-0 w-full px-4 md:px-0 bg-gradient-to-r from-light-accent100 to-light-accent200 dark:from-dark-primary100 dark:to-dark-primary200 bg-opacity-40 z-50 shadow-lg">
+        class="flex items-center justify-between mb-6 fixed top-0 left-0 w-full px-4 md:px-0 bg-gradient-to-r from-light-accent100 to-light-accent100 dark:from-dark-primary100 dark:to-dark-primary200 bg-opacity-40 z-50 shadow-lg">
         <!-- Container for title, nav, and switch -->
         <div class="container mx-auto flex items-center justify-between">
           <!-- Title for larger screens -->
@@ -15,19 +15,19 @@
           <!-- Navigation -->
           <nav class="flex space-x-4 z-10 ml-8">
             <NuxtLink :to="{ path: '/', hash: '#header-inicio' }"
-              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
               Inicio
             </NuxtLink>
             <NuxtLink :to="{ path: '/', hash: '#stack-section' }"
-              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
               Stack
             </NuxtLink>
             <NuxtLink :to="{ path: '/', hash: '#about-me-section' }"
-              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
               Sobre mí
             </NuxtLink>
             <NuxtLink :to="{ path: '/', hash: '#timeline-section' }"
-              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
               Mí Time Line
             </NuxtLink>
           </nav>
@@ -47,11 +47,11 @@
           alt="Gaston Sepulveda" />
         <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
           <blockquote>
-            <p class="text-sm font-medium text-light-text200 dark:text-dark-text200">{{ description }}</p>
+            <p class="text-sm font-medium text-light-text200 dark:text-dark-text100">{{ description }}</p>
           </blockquote>
           <figcaption class="font-medium">
-            <div class="text-light-accent200 dark:text-dark-accent100">{{ nombre }}</div>
-            <div class="text-sm font-medium text-light-text100 dark:text-dark-text200">
+            <div class="text-light-accent200 dark:text-dark-primary100">{{ nombre }}</div>
+            <div class="text-sm font-medium text-light-text100 dark:text-dark-text100">
               {{ tituloUniersitario }}
             </div>
           </figcaption>

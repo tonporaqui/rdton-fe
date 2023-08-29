@@ -4,7 +4,7 @@
       class="p-20 sm:p-20 md:p-10 mt-32 sm:mt-32 md:mt-30"
     >
       <h2
-        class="text-3xl font-extrabold mb-6 text-indigo-950 dark:text-yellow-500 text-center"
+        class="text-3xl font-extrabold mb-6 text-light-accent200 dark:text-dark-primary100 text-center"
       >
         Mí Time Line
       </h2>
@@ -28,17 +28,17 @@
           >
             <div class="order-1 w-5/12"></div>
             <div
-              class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full"
+              class="z-20 flex items-center order-1 bg-gray-800 dark:bg-dark-bg300 shadow-xl w-8 h-8 rounded-full"
             >
-              <h1 class="mx-auto text-white font-semibold text-lg">
+              <h1 class="mx-auto text-white dark:text-dark-text100font-semibold text-lg">
                 {{ index + 1 }}
               </h1>
             </div>
             <div
               :class="
                 event.type === 'Estudios'
-                  ? 'order-1 bg-light-bg200 dark:bg-dark-bg200 rounded-lg shadow-md w-5/12 px-6 py-4 flex flex-col items-start'
-                  : 'order-1 bg-gray-300 dark:bg-dark-bg300 rounded-lg shadow-md w-5/12 px-6 py-4 flex flex-col items-start'
+                  ? 'order-1 bg-light-bg100 dark:bg-dark-bg300 rounded-lg shadow-md w-5/12 px-6 py-4 flex flex-col items-start'
+                  : 'order-1 bg-light-bg300 dark:bg-dark-bg200 rounded-lg shadow-md w-5/12 px-6 py-4 flex flex-col items-start'
               "
             >
               <!-- Contenedor para el ícono y el tipo -->
@@ -48,8 +48,8 @@
                   size="27px"
                   :class="
                     event.type === 'Estudios'
-                      ? 'text-light-accent100 dark:text-dark-text200 mr-2'
-                      : 'text-light-primary300 dark:text-dark-primary100 mr-2'
+                      ? 'text-light-text100 dark:text-dark-text100 mr-2'
+                      : 'text-light-text100 dark:text-dark-text100 mr-2'
                   "
                 >
                 </Icon>
@@ -57,8 +57,8 @@
                   class="leading-relaxed"
                   :class="
                     event.type === 'Estudios'
-                      ? 'text-light-accent100 dark:text-dark-text200'
-                      : 'text-light-accent300 dark:text-dark-primary100'
+                      ? 'text-light-text100 dark:text-dark-text100'
+                      : 'text-light-text100 dark:text-dark-text100'
                   "
                 >
                   {{ event.type }}
@@ -69,21 +69,21 @@
                 class="mb-2 font-bold"
                 :class="
                   event.type === 'Estudios'
-                    ? 'text-light-accent200 dark:text-dark-accent100'
-                    : 'text-light-accent200 dark:text-dark-primary200'
+                    ? 'text-light-accent200 dark:text-dark-primary100'
+                    : 'text-light-accent200 dark:text-dark-primary100'
                 "
               >
-                {{ event.title }}
+                {{ event.title || event.position}}
               </h3>
-              <p class="text-lg leading-relaxed text-light-accent200 dark:text-dark-primary100">
+              <p class="text-lg leading-relaxed text-light-accent200 dark:text-dark-accent100">
                 {{ event.institution || event.company }}
               </p>
               <p
                 class="text-sm"
                 :class="
                   event.type === 'Estudios'
-                    ? 'text-light-accent100 dark:text-dark-text200'
-                    : 'text-light-accent300 dark:text-dark-primary200'
+                    ? 'text-light-text200 dark:text-dark-text100'
+                    : 'text-light-text100 dark:text-dark-text100'
                 "
               >
                 {{ formatDate(event.startDate) }} -

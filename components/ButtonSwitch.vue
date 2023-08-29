@@ -6,7 +6,7 @@
         style="cursor: pointer;" 
         class="transition-transform transform hover:scale-105"
     >
-        <Icon :name="currentIcon" size="27px" class="ml-4 h-6 w-6 text-light-primary100 hover:text-light-accent100 dark:text-dark-accent200 dark:hover:text-dark-primary100"></Icon>
+        <Icon :name="currentIcon" size="27px" class="ml-4 h-6 w-6 text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100"></Icon>
     </div>
 </template>
 

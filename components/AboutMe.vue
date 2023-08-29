@@ -4,7 +4,7 @@
     class="p-20 sm:p-20 md:p-10 mt-32 sm:mt-32 md:mt-30"
   >
     <h2
-      class="text-3xl font-extrabold mb-6 text-center text-light-accent200 dark:text-dark-accent200"
+      class="text-3xl font-extrabold mb-6 text-center text-light-accent200 dark:text-dark-primary100"
     >
       Sobre mí
     </h2>
@@ -26,11 +26,11 @@
             class="w-full h-48 object-cover rounded-t-lg"
           />
           <h3
-            class="text-xl font-semibold mb-2 text-light-accent200 dark:text-dark-accent100"
+            class="text-xl font-semibold mb-2 text-light-accent200 dark:text-dark-primary100"
           >
             {{ info.title }}
           </h3>
-          <p class="text-lg leading-relaxed text-light-text200 dark:text-dark-text200">
+          <p class="text-lg leading-relaxed text-light-text100 dark:text-dark-text100">
             {{ info.description }}
           </p>
         </div>
