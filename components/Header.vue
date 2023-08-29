@@ -9,26 +9,26 @@
         <!-- Container for title, nav, and switch -->
         <div class="container mx-auto flex items-center justify-between">
           <!-- Title for larger screens -->
-          <h1 class="hidden md:block text-3xl font-bold z-10 text-light-accent200 dark:text-dark-accent200">
+          <h1 class="hidden md:block text-3xl  font-semibold z-10 text-light-accent200 dark:text-dark-accent200">
             {{ title }}
           </h1>
           <!-- Navigation -->
           <nav class="flex space-x-4 z-10 ml-8">
             <NuxtLink :to="{ path: '/', hash: '#header-inicio' }"
-              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              class="transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
               Inicio
             </NuxtLink>
             <NuxtLink :to="{ path: '/', hash: '#stack-section' }"
-              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
-              Stack
+              class="transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              Habilidades
             </NuxtLink>
             <NuxtLink :to="{ path: '/', hash: '#about-me-section' }"
-              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              class="transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
               Sobre mí
             </NuxtLink>
             <NuxtLink :to="{ path: '/', hash: '#timeline-section' }"
-              class="transition-transform transform hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
-              Mí Time Line
+              class="transition-transform transform font-semibold  text-sm first-letter:hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+              Mi línea de tiempo
             </NuxtLink>
           </nav>
           <!-- ButtonSwitch -->
@@ -37,7 +37,8 @@
         </div>
       </div>
       <!-- Title for smaller screens -->
-      <h1 class="md:hidden text-3xl font-bold pt-8 mb-4 z-10 text-center text-light-accent200 dark:text-dark-primary200">
+      <h1
+        class="md:hidden text-3xl font-semibold pt-8 mb-4 z-10 text-center text-light-accent200 dark:text-dark-primary200">
         {{ title }}
       </h1>
       <!-- Profile Info -->
@@ -49,9 +50,9 @@
           <blockquote>
             <p class="text-sm font-medium text-light-text200 dark:text-dark-text100">{{ description }}</p>
           </blockquote>
-          <figcaption class="font-medium">
-            <div class="text-light-accent200 dark:text-dark-primary100">{{ nombre }}</div>
-            <div class="text-sm font-medium text-light-text100 dark:text-dark-text100">
+          <figcaption>
+            <div class="font-medium text-light-accent200 dark:text-dark-primary100">{{ nombre }}</div>
+            <div class="font-light text-sm text-light-text100 dark:text-dark-text100">
               {{ tituloUniersitario }}
             </div>
           </figcaption>
@@ -84,6 +85,7 @@ export default {
 };
 </script>
 
-<style scoped>
-/* Puedes agregar estilos aquí si lo necesitas */
+<style lang="scss">
+/* Estilos css */
+
 </style>

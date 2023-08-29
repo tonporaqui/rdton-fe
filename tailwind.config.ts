@@ -34,6 +34,9 @@ export default <Partial<Config>> {
           bg300: '#cccbc8',
         },
       },
+      fontFamily:{
+        'montserrat':['Montserrat Alternates','sans-serif']
+      }
     }
   }
 }

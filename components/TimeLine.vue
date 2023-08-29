@@ -6,7 +6,7 @@
       <h2
         class="text-3xl font-extrabold mb-6 text-light-accent200 dark:text-dark-primary100 text-center"
       >
-        Mí Time Line
+        Mi línea de tiempo
       </h2>
       <div class="flex justify-center">
         <div class="relative wrap overflow-hidden p-10 h-full">
