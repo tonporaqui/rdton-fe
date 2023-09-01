@@ -7,7 +7,7 @@ export const useMainStore = defineStore({
 			{
 				id: 1,
 				title: "Experto en Arquitectura de Software",
-				image: "/images/sw-arquitecture.png",
+				image: "/images/softwarearchitecture.png",
 				description:
 					"Ingeniero Informático especializado en Arquitectura de Software, apasionado por la investigación y nuevas tecnologías.",
 			},
