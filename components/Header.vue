@@ -15,7 +15,8 @@
 					<h1
 						class="hidden md:block text-3xl font-semibold z-10 text-light-accent200 dark:text-dark-accent200"
 					>
-						{{ title }}
+						<span class="font-light">{{ titleNamePage }}</span>
+						<span class="ml-2 font-bold">{{ titlePage }}</span>
 					</h1>
 					<div class="md:hidden">
 						<button
@@ -74,9 +75,10 @@
 			</div>
 			<!-- Title for smaller screens -->
 			<h1
-				class="md:hidden text-3xl font-semibold pt-14 sm:pt-56 mb-4 z-10 text-center text-light-accent200 dark:text-dark-primary200"
+				class="md:hidden text-3xl pt-14 sm:pt-56 mb-4 z-10 text-center text-light-accent200 dark:text-dark-primary200"
 			>
-				{{ title }}
+				<span class="font-light">{{ titleNamePage }}</span>
+				<span class="ml-2 font-bold">{{ titlePage }}</span>
 			</h1>
 			<!-- Profile Info -->
 			<figure
@@ -122,7 +124,8 @@ export default {
 		ButtonSwitch,
 	},
 	setup() {
-		const title = ref("Rincon del Ton")
+		const titleNamePage = "Rincon del"
+		const titlePage = "Ton"
 		const nombre = "Gaston Sepulveda"
 		const tituloUniersitario = "Ingeniero Informático"
 		const description =
@@ -130,7 +133,8 @@ export default {
 		const isOpen = ref(false)
 		const toggleNav = () => (isOpen.value = !isOpen.value)
 		return {
-			title,
+			titleNamePage,
+			titlePage,
 			nombre,
 			tituloUniersitario,
 			description,
