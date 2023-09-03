@@ -1,11 +1,9 @@
 <template>
 	<section
 		id="stack-section"
-		class="p-20 sm:p-20 md:p-10 lg:p-20 mt-32 sm:mt-32 md:mt-30"
-	>
+		class="p-20 sm:p-20 md:p-10 lg:p-20 mt-32 sm:mt-32 md:mt-30">
 		<h2
-			class="text-3xl font-extrabold mb-6 text-light-accent200 dark:text-dark-primary100 text-center"
-		>
+			class="text-3xl font-extrabold mb-6 text-light-accent200 dark:text-dark-primary100 text-center">
 			Habilidades
 		</h2>
 		<!-- Contenedor de las tarjetas con diseño de cuadrícula -->
@@ -17,23 +15,24 @@
 					:key="skill.id"
 					class="transform transition p-4 bg-light-bg100 dark:bg-dark-bg300 rounded-lg shadow-md dark:shadow-dark-bg200"
 					:data-aos="getAosEffect(index)"
-					:data-aos-delay="(index + 1) * 100"
-				>
+					:data-aos-delay="(index + 1) * 100">
 					<img
 						:src="skill.image || 'https://stackdiary.com/140x100.png'"
 						alt="image ref"
-						class="w-full h-48 object-cover rounded-t-lg"
-					/>
+						class="w-full h-48 object-cover rounded-t-lg" />
 					<h3
-						class="text-xl font-semibold text-center mb-4 mt-4 text-light-accent200 dark:text-dark-primary100"
-					>
+						class="text-xl font-semibold text-center mb-4 mt-4 text-light-accent200 dark:text-dark-primary100">
 						{{ skill.title }}
 					</h3>
 
 					<ul>
-						<li v-for="description in skill.description" :key="description">
+						<li
+							v-for="description in skill.description"
+							:key="description">
 							<!-- Mostrar icono y descripción -->
-							<Icon :name="description.icon" size="27px"></Icon>
+							<Icon
+								:name="description.icon"
+								size="27px"></Icon>
 							<span
 								class="pl-2 leading-relaxed text-light-text200 dark:text-dark-text100"
 								>{{ description.title }}</span
@@ -56,7 +55,7 @@ export default {
 	},
 	methods: {
 		getAosEffect(index) {
-			const effects = ["fade-up-right", "fade-up-left", "fade-up", "zoom-in"]
+			const effects = ['fade-up-right', 'fade-up-left', 'fade-up', 'zoom-in']
 			return effects[index % effects.length]
 		},
 	},

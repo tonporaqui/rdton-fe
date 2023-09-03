@@ -1,18 +1,18 @@
 <template>
 	<div class="container mx-auto overflow-x-hidden">
 		<SkillCard :skills="stack.allSkills" />
-		<AboutMe :aboutMeInfo="info.allAboutMe" />
-		<TimeLine :timeLineMe="timeLine.sortedTimeLine" />
+		<AboutMe :about-me-info="info.allAboutMe" />
+		<TimeLine :time-line-me="timeLine.sortedTimeLine" />
 	</div>
 </template>
 
 <script>
-import { useStackStore } from "~/store/stack"
-import { useMainStore } from "~/store/aboutMeInfo"
-import { useTimeLineStore } from "~/store/timeLineMe"
-import SkillCard from "~/components/SkillCard.vue"
-import AboutMe from "~/components/AboutMe.vue"
-import TimeLine from "~/components/TimeLine.vue"
+import { useStackStore } from '~/store/stack'
+import { useMainStore } from '~/store/aboutMeInfo'
+import { useTimeLineStore } from '~/store/timeLineMe'
+import SkillCard from '~/components/SkillCard.vue'
+import AboutMe from '~/components/AboutMe.vue'
+import TimeLine from '~/components/TimeLine.vue'
 
 export default {
 	components: {
@@ -26,7 +26,7 @@ export default {
 		const timeLine = useTimeLineStore()
 		useHead({
 			bodyAttrs: {
-				class: "dark:to-dark-bg200",
+				class: 'dark:to-dark-bg200',
 			},
 		})
 
