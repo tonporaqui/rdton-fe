@@ -6,14 +6,14 @@ export const useBibliotecaStore = defineStore({
 	state: () => ({
 		items: [
 			{
-				titulo: 'Nombre del recurso',
-				tipo: 'back-end',
+				titulo: 'Portafolio',
+				tipo: 'front-end',
 				descripcion: 'Descripción del recurso',
 				icono: 'url_del_icono',
 				fecha: '2023-09-03',
 			},
 			{
-				titulo: 'Nombre del recurso',
+				titulo: 'API Portafolio',
 				tipo: 'back-end',
 				descripcion: 'Descripción del recurso',
 				icono: 'url_del_icono',

@@ -1,5 +1,5 @@
 <template>
-	<div class="content mx-auto text-center h-48">
+	<div class="content mx-auto text-center h-40">
 		Rincon del Ton. {{ currentYear }}
 	</div>
 </template>

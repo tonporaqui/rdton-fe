@@ -73,33 +73,6 @@
 				<span class="font-light">{{ titleNamePage }}</span>
 				<span class="ml-2 font-bold">{{ titlePage }}</span>
 			</h1>
-			<!-- Profile Info -->
-			<figure
-				class="md:flex rounded-xl md:mt-32 lg:mt-40 pt-2 pb-2 md:p-0 md:z-20 mx-auto max-w-3xl shadow-md dark:shadow-dark-bg200 bg-light-bg100 dark:bg-dark-bg300 dark:text-dark-text200">
-				<nuxt-img
-					class="w-28 h-28 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto"
-					src="/images/foto.jpg"
-					alt="Gaston Sepulveda" />
-
-				<div class="pt-6 md:p-8 text-center md:text-left space-y-4">
-					<blockquote>
-						<p
-							class="text-sm font-medium text-light-text200 dark:text-dark-text100">
-							{{ description }}
-						</p>
-					</blockquote>
-					<figcaption>
-						<div
-							class="font-semibold text-light-accent200 dark:text-dark-primary100">
-							{{ nombre }}
-						</div>
-						<div
-							class="font-light text-sm text-light-text100 dark:text-dark-text100">
-							{{ tituloUniersitario }}
-						</div>
-					</figcaption>
-				</div>
-			</figure>
 		</div>
 	</header>
 </template>
@@ -110,10 +83,6 @@ import ButtonSwitch from './ButtonSwitch.vue'
 
 const titleNamePage = 'Rincon del'
 const titlePage = 'Ton'
-const nombre = 'Gaston Sepulveda'
-const tituloUniersitario = 'Ingeniero Informático'
-const description =
-	'Apasionado por la tecnología y la innovación, especializado en Arquitectura de Software, cursando Magíster en Gestión de Información y Telecomunicaciones, y con un claro enfoque al liderazgo orientado a objetivos y proyectos ágiles.'
 const isOpen = ref(false)
 
 const toggleNav = (): void => {
