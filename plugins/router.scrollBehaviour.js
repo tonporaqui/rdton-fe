@@ -1,6 +1,6 @@
 import { defineNuxtPlugin } from '#app'
 
-export default defineNuxtPlugin(nuxtApp => {
+export default defineNuxtPlugin((nuxtApp) => {
 	nuxtApp.$router.options.scrollBehavior = async (to, from, savedPosition) => {
 		if (savedPosition) {
 			return savedPosition
@@ -9,7 +9,7 @@ export default defineNuxtPlugin(nuxtApp => {
 		const findEl = async (hash, x = 0) => {
 			return (
 				document.querySelector(hash) ||
-				new Promise(resolve => {
+				new Promise((resolve) => {
 					if (x > 0) {
 						return resolve(document.querySelector('#app'))
 					}

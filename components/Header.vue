@@ -20,9 +20,7 @@
 							type="button"
 							class="flex px-2 pt-2 pb-4 text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100 focus:outline-none"
 							@click="toggleNav">
-							<svg
-								class="h-6 w-6 fill-current"
-								viewBox="0 0 24 24">
+							<svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
 								<path
 									v-if="isOpen"
 									fill-rule="evenodd"

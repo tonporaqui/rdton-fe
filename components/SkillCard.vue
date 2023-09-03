@@ -30,9 +30,7 @@
 							v-for="(description, descIndex) in skill.description"
 							:key="descIndex">
 							<!-- Mostrar icono y descripción -->
-							<Icon
-								:name="description.icon"
-								size="27px"></Icon>
+							<Icon :name="description.icon" size="27px"></Icon>
 							<span
 								class="pl-2 leading-relaxed text-light-text200 dark:text-dark-text100"
 								>{{ description.title }}</span

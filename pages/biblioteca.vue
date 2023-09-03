@@ -12,9 +12,7 @@
 		<!-- Panel Derecho -->
 		<div class="w-3/4 p-4">
 			<!-- Buscador -->
-			<input
-				v-model="search"
-				placeholder="Buscar..." />
+			<input v-model="search" placeholder="Buscar..." />
 
 			<!-- Filtro -->
 			<select v-model="sortOrder">
@@ -24,13 +22,8 @@
 
 			<!-- Resultados -->
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-				<div
-					v-for="item in filteredItems"
-					:key="item.titulo"
-					class="card">
-					<img
-						:src="item.icono"
-						alt="Icono" />
+				<div v-for="item in filteredItems" :key="item.titulo" class="card">
+					<img :src="item.icono" alt="Icono" />
 					<h2>{{ item.titulo }}</h2>
 					<p>{{ item.descripcion }}</p>
 				</div>
