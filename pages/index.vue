@@ -1,5 +1,5 @@
 <template>
-	<div class="container mx-auto">
+	<div class="container mx-auto overflow-x-hidden">
 		<SkillCard :skills="stack.allSkills" />
 		<AboutMe :aboutMeInfo="info.allAboutMe" />
 		<TimeLine :timeLineMe="timeLine.sortedTimeLine" />
