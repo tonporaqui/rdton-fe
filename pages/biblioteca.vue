@@ -14,14 +14,23 @@
 
         <!-- Right Panel -->
         <div class="w-3/4 p-4 bg-light-bg200 dark:bg-dark-bg200 rounded-lg shadow-md">
-            <!-- Search Bar -->
-            <input v-model="search" placeholder="Buscar..." class="mb-4 p-2 rounded border border-light-accent100 dark:border-dark-accent100" />
+            <!-- Search Bar and Dropdown -->
+            <div class="flex items-center mb-4">
+                <input v-model="search" placeholder="Buscar..." class="p-2 rounded border border-light-accent100 dark:border-dark-accent100" />
 
-            <!-- Sort Dropdown -->
-            <select v-model="sortOrder" class="mb-4 p-2 rounded border border-light-accent100 dark:border-dark-accent100">
-                <option value="desc">Fecha Mayor a Menor</option>
-                <option value="asc">Fecha Menor a Mayor</option>
-            </select>
+                <!-- Custom Dropdown -->
+                <div class="relative ml-2 ">
+                    <button @click="isDropdownOpen = !isDropdownOpen" class="p-2 bg-light-bg100 dark:bg-dark-bg100 rounded border border-light-accent100 dark:border-dark-accent100">
+                        <!-- <Icon :name="dropdownIcon" class="mr-1 bg-dark-accent100" size="27px"></Icon> -->
+						<Icon :name="dropdownIcon" size="27px"
+						class="h-6 w-6 font-semibold text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"/>
+                    </button>
+                    <div v-if="isDropdownOpen" class="absolute right-0 mt-2 w-48 bg-white dark:bg-dark-bg100 rounded-md shadow-lg z-10">
+                        <button @click="setOrder('desc')" class="block w-full px-4 py-2 text-left hover:bg-light-accent100 dark:hover:bg-dark-accent100">Fecha Mayor a Menor</button>
+                        <button @click="setOrder('asc')" class="block w-full px-4 py-2 text-left hover:bg-light-accent100 dark:hover:bg-dark-accent100">Fecha Menor a Mayor</button>
+                    </div>
+                </div>
+            </div>
 
             <!-- Results -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -50,6 +59,7 @@ const store = useBibliotecaStore()
 const search = ref('')
 const filter = ref('')
 const sortOrder = ref('desc')
+const isDropdownOpen = ref(false)
 
 interface BibliotecaItem {
   titulo: string
@@ -82,6 +92,14 @@ const resetFilters = () => {
   search.value = ''
   filter.value = ''
 }
+const setOrder = (order: string) => {
+    sortOrder.value = order
+    isDropdownOpen.value = false
+}
+
+const dropdownIcon = computed(() => {
+    return isDropdownOpen.value ? 'mdi:arrow-up-drop-circle-outline' : 'mdi:arrow-down-drop-circle-outline';
+})
 </script>
 
 <style scoped>

@@ -12,6 +12,8 @@
 		["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
 		["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
 	],
+	"editor.wordWrap": "wordWrapColumn",
+	"editor.wordWrapColumn": 80,
 	"json.schemaDownload.enable": true,
 	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
 	"editor.formatOnPaste": true, // required
