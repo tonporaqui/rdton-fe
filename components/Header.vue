@@ -58,6 +58,11 @@
 							class="mt-1 block px-2 py-1 sm:ml-2 transition-transform transform font-semibold text-sm first-letter:hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
 							Mi línea de tiempo
 						</NuxtLink>
+						<NuxtLink
+							to="/biblioteca"
+							class="mt-1 block px-2 py-1 sm:ml-2 transition-transform transform font-semibold text-sm first-letter:hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+							Bibliotecla
+						</NuxtLink>
 					</nav>
 					<!-- ButtonSwitch -->
 					<div class="flex"></div>
@@ -101,32 +106,20 @@
 	</header>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref } from 'vue'
 import ButtonSwitch from './ButtonSwitch.vue'
 
-export default {
-	components: {
-		ButtonSwitch,
-	},
-	setup() {
-		const titleNamePage = 'Rincon del'
-		const titlePage = 'Ton'
-		const nombre = 'Gaston Sepulveda'
-		const tituloUniersitario = 'Ingeniero Informático'
-		const description =
-			'Apasionado por la tecnología y la innovación, especializado en Arquitectura de Software, cursando Magíster en Gestión de Información y Telecomunicaciones, y con un claro enfoque al liderazgo orientado a objetivos y proyectos ágiles.'
-		const isOpen = ref(false)
-		const toggleNav = () => (isOpen.value = !isOpen.value)
-		return {
-			titleNamePage,
-			titlePage,
-			nombre,
-			tituloUniersitario,
-			description,
-			isOpen,
-			toggleNav,
-		}
-	},
+const titleNamePage = 'Rincon del'
+const titlePage = 'Ton'
+const nombre = 'Gaston Sepulveda'
+const tituloUniersitario = 'Ingeniero Informático'
+const description =
+	'Apasionado por la tecnología y la innovación, especializado en Arquitectura de Software, cursando Magíster en Gestión de Información y Telecomunicaciones, y con un claro enfoque al liderazgo orientado a objetivos y proyectos ágiles.'
+const isOpen = ref(false)
+
+const toggleNav = (): void => {
+	isOpen.value = !isOpen.value
 }
 </script>
 

@@ -4,6 +4,6 @@
 	</div>
 </template>
 
-<script setup>
-const currentYear = new Date().getUTCFullYear()
+<script setup lang="ts">
+const currentYear: number = new Date().getUTCFullYear()
 </script>

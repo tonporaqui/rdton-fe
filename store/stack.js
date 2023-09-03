@@ -22,6 +22,7 @@ export const useStackStore = defineStore({
 				image: '/images/back-end.png',
 				description: [
 					{ title: 'Node.js', icon: 'logos:nodejs' },
+					{ title: 'Next.js', icon: 'logos:nextjs-icon' },
 					{ title: 'Python', icon: 'logos:python' },
 					{ title: 'Java', icon: 'logos:java' },
 					{ title: 'c#', icon: 'logos:c-sharp' },

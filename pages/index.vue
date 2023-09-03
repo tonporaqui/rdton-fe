@@ -6,7 +6,7 @@
 	</div>
 </template>
 
-<script>
+<script setup lang="ts">
 import { useStackStore } from '~/store/stack'
 import { useMainStore } from '~/store/aboutMeInfo'
 import { useTimeLineStore } from '~/store/timeLineMe'
@@ -14,27 +14,13 @@ import SkillCard from '~/components/SkillCard.vue'
 import AboutMe from '~/components/AboutMe.vue'
 import TimeLine from '~/components/TimeLine.vue'
 
-export default {
-	components: {
-		AboutMe,
-		SkillCard,
-		TimeLine,
-	},
-	setup() {
-		const stack = useStackStore()
-		const info = useMainStore()
-		const timeLine = useTimeLineStore()
-		useHead({
-			bodyAttrs: {
-				class: 'dark:to-dark-bg200',
-			},
-		})
+const stack = useStackStore()
+const info = useMainStore()
+const timeLine = useTimeLineStore()
 
-		return {
-			stack,
-			info,
-			timeLine,
-		}
+useHead({
+	bodyAttrs: {
+		class: 'dark:to-dark-bg200',
 	},
-}
+})
 </script>

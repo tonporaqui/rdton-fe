@@ -9,7 +9,7 @@
 		<div class="flex justify-center">
 			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
 				<div
-					v-for="(info, index) in aboutMeInfo"
+					v-for="(info, index) in props.aboutMeInfo"
 					:key="info.id"
 					class="transform transition p-4 bg-light-bg100 dark:bg-dark-bg300 rounded-lg shadow-md dark:shadow-dark-bg200 flex flex-col items-center"
 					:data-aos="getAosEffect(index)"
@@ -34,20 +34,24 @@
 	</section>
 </template>
 
-<script>
-export default {
-	props: {
-		aboutMeInfo: {
-			type: Array,
-			required: true,
-		},
+<script setup lang="ts">
+interface AboutMeInfo {
+	id: string
+	image?: string
+	title: string
+	description: string
+}
+
+const props = defineProps({
+	aboutMeInfo: {
+		type: Array as () => AboutMeInfo[],
+		required: true,
 	},
-	methods: {
-		getAosEffect(index) {
-			const effects = ['fade-up-right', 'fade-up-left', 'fade-up', 'zoom-in']
-			return effects[index % effects.length]
-		},
-	},
+})
+
+const getAosEffect = (index: number): string => {
+	const effects = ['fade-up-right', 'fade-up-left', 'fade-up', 'zoom-in']
+	return effects[index % effects.length]
 }
 </script>
 

@@ -13,7 +13,7 @@
 					style="left: 50%"></div>
 
 				<div
-					v-for="(event, index) in timeLineMe"
+					v-for="(event, index) in props.timeLineMe"
 					:key="index"
 					:class="
 						event.type === 'Estudios'
@@ -88,23 +88,32 @@
 	</section>
 </template>
 
-<script>
-export default {
-	props: {
-		timeLineMe: {
-			type: Array,
-			required: true,
-		},
+<script setup lang="ts">
+interface TimeLineEvent {
+	type: string
+	icon: string
+	title?: string
+	position?: string
+	institution?: string
+	company?: string
+	startDate: string
+	endDate?: string
+}
+
+const props = defineProps({
+	timeLineMe: {
+		type: Array as () => TimeLineEvent[],
+		required: true,
 	},
-	methods: {
-		getAosEffect(type) {
-			return type === 'Estudios' ? 'fade-left' : 'fade-right'
-		},
-		formatDate(dateStr) {
-			const date = new Date(dateStr + '-01')
-			return date.toLocaleString('es-ES', { month: 'long', year: 'numeric' })
-		},
-	},
+})
+
+const getAosEffect = (type: string): string => {
+	return type === 'Estudios' ? 'fade-left' : 'fade-right'
+}
+
+const formatDate = (dateStr: string): string => {
+	const date = new Date(dateStr + '-01')
+	return date.toLocaleString('es-ES', { month: 'long', year: 'numeric' })
 }
 </script>
 

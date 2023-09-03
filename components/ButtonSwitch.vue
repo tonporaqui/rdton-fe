@@ -12,14 +12,16 @@
 	</div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { computed } from 'vue'
+
 const colorMode = useColorMode()
 
-const toggleDarkMode = () => {
+const toggleDarkMode = (): void => {
 	colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
 }
 
-const currentIcon = computed(() => {
+const currentIcon = computed<string>(() => {
 	return colorMode.preference === 'dark' ? 'i-carbon-moon' : 'i-carbon:sun'
 })
 </script>

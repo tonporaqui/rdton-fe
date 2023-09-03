@@ -70,6 +70,9 @@ devDependencies:
   sass-loader:
     specifier: ^13.3.2
     version: 13.3.2(sass@1.66.1)(webpack@5.88.2)
+  vue-eslint-parser:
+    specifier: ^9.3.1
+    version: 9.3.1(eslint@8.48.0)
 
 packages:
   /@aashutoshrathi/word-wrap@1.2.6:

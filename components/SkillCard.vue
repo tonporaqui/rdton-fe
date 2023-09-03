@@ -11,8 +11,8 @@
 			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 				<!-- Iterar sobre las habilidades para mostrar cada item -->
 				<div
-					v-for="(skill, index) in skills"
-					:key="skill.id"
+					v-for="(skill, index) in props.skills"
+					:key="index"
 					class="transform transition p-4 bg-light-bg100 dark:bg-dark-bg300 rounded-lg shadow-md dark:shadow-dark-bg200"
 					:data-aos="getAosEffect(index)"
 					:data-aos-delay="(index + 1) * 100">
@@ -27,8 +27,8 @@
 
 					<ul>
 						<li
-							v-for="description in skill.description"
-							:key="description">
+							v-for="(description, descIndex) in skill.description"
+							:key="descIndex">
 							<!-- Mostrar icono y descripción -->
 							<Icon
 								:name="description.icon"
@@ -45,20 +45,24 @@
 	</section>
 </template>
 
-<script>
-export default {
-	props: {
-		skills: {
-			type: Array,
-			required: true,
-		},
+<script setup lang="ts">
+interface Skill {
+	id: string
+	image?: string
+	title: string
+	description: { icon: string; title: string }[]
+}
+
+const props = defineProps({
+	skills: {
+		type: Array as () => Skill[],
+		required: true,
 	},
-	methods: {
-		getAosEffect(index) {
-			const effects = ['fade-up-right', 'fade-up-left', 'fade-up', 'zoom-in']
-			return effects[index % effects.length]
-		},
-	},
+})
+
+const getAosEffect = (index: number): string => {
+	const effects = ['fade-up-right', 'fade-up-left', 'fade-up', 'zoom-in']
+	return effects[index % effects.length]
 }
 </script>
 
