@@ -12,7 +12,7 @@
 					<!-- Title for larger screens -->
 					<h1
 						class="hidden md:block text-3xl font-semibold z-10 text-light-accent200 dark:text-dark-accent200">
-						<span class="font-light">{{ titleNamePage }}</span>
+						<span class="font-light italic text-2xl">{{ titleNamePage }}</span>
 						<span class="ml-2 font-bold">{{ titlePage }}</span>
 					</h1>
 					<div class="md:hidden">
@@ -69,8 +69,8 @@
 			</div>
 			<!-- Title for smaller screens -->
 			<h1
-				class="md:hidden text-3xl pt-14 sm:pt-56 mb-4 z-10 text-center text-light-accent200 dark:text-dark-primary200">
-				<span class="font-light">{{ titleNamePage }}</span>
+				class="md:hidden text-3xl pt-14 mb-4 z-10 text-center text-light-accent200 dark:text-dark-primary200">
+				<span class="font-light italic text-2xl">{{ titleNamePage }}</span>
 				<span class="ml-2 font-bold">{{ titlePage }}</span>
 			</h1>
 		</div>
@@ -81,8 +81,8 @@
 import { ref } from 'vue'
 import ButtonSwitch from './ButtonSwitch.vue'
 
-const titleNamePage = 'Rincon del'
-const titlePage = 'Ton'
+const titleNamePage = 'Rinc@n del'
+const titlePage = 'T@n'
 const isOpen = ref(false)
 
 const toggleNav = (): void => {
