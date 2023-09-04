@@ -1,0 +1,24 @@
+{
+	"root": true,
+	"parser": "vue-eslint-parser",
+	"parserOptions": {
+		"parser": "@typescript-eslint/parser"
+	},
+	"env": {
+		"node": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:vue/vue3-recommended",
+		"@vue/typescript/recommended",
+		"prettier"
+	],
+	"rules": {
+		"quotes": ["error", "single"],
+		"no-undef": "off",
+		"vue/multi-word-component-names": "off",
+		"vue/script-setup-no-uses-vars": "off",
+		"vue/no-reserved-component-names": "off",
+		"vue/component-name-in-template-casing": ["error", "PascalCase"]
+	}
+}

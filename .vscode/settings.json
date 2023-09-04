@@ -12,16 +12,10 @@
 		["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
 		["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
 	],
-	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
-	"[vue]": {
-		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-	},
-	"editor.formatOnPaste": false, // required
-	"editor.formatOnType": false, // required
-	"editor.formatOnSave": false,
-	// Runs Prettier, then ESLint
+	"editor.formatOnPaste": true,
+	"editor.formatOnType": true,
+	"editor.formatOnSave": true,
 	"editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
-	"editor.formatOnSaveMode": "file", // required to format on save
-	"files.autoSave": "onFocusChange", // optional but recommended
-	"vs-code-prettier-eslint.prettierLast": true
+	"editor.formatOnSaveMode": "file",
+	"files.autoSave": "onFocusChange",
 }
