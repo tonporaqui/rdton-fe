@@ -40,19 +40,16 @@
 					<input
 						v-model="search"
 						placeholder="Buscar..."
-						class="p-2 rounded border border-light-accent100 dark:border-dark-accent100" />
+						class="bg-light-bg200 p-2 appearance-none border rounded border-light-accent200 dark:border-dark-accent100 focus:outline-none focus:bg-white focus:border-light-accent100" />
 
 					<!-- Custom Dropdown -->
 					<div class="relative ml-2">
-						<button
-							class="p-2 bg-light-bg100 dark:bg-dark-bg100 rounded border border-light-accent100 dark:border-dark-accent100"
-							@click="isDropdownOpen = !isDropdownOpen">
-							<!-- <Icon :name="dropdownIcon" class="mr-1 bg-dark-accent100" size="27px"></Icon> -->
-							<Icon
-								:name="dropdownIcon"
-								size="27px"
-								class="h-6 w-6 font-semibold text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200" />
-						</button>
+						<Icon
+							:name="dropdownIcon"
+							size="27px"
+							class="h-6 w-6 font-semibold text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
+							@click="isDropdownOpen = !isDropdownOpen" />
+
 						<div
 							v-if="isDropdownOpen"
 							class="absolute right-0 mt-2 w-48 bg-white dark:bg-dark-bg100 rounded-md shadow-lg z-10">

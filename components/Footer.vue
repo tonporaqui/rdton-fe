@@ -1,7 +1,7 @@
 <template>
-	<div class="content mx-auto text-center h-40">
+	<div class="content mx-auto text-center h-32">
 		<h1
-			class="flex justify-center items-center text-3xl pt-14 sm:pt-56 mb-4 z-10 text-light-accent200 dark:text-dark-primary200">
+			class="flex justify-center items-center text-3xl pt-5 pb-5 text-light-accent200 dark:text-dark-primary200">
 			<div class="font-light italic text-2xl">
 				{{ titleNamePage }}
 			</div>
