@@ -12,16 +12,16 @@
 		["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
 		["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
 	],
-	"editor.wordWrap": "wordWrapColumn",
-	"editor.wordWrapColumn": 80,
-	"json.schemaDownload.enable": true,
 	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
-	"editor.formatOnPaste": true, // required
-	"editor.formatOnType": true, // required
-	"editor.formatOnSave": true, // optional
+	"[vue]": {
+		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+	},
+	"editor.formatOnPaste": false, // required
+	"editor.formatOnType": false, // required
+	"editor.formatOnSave": false,
+	// Runs Prettier, then ESLint
+	"editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
 	"editor.formatOnSaveMode": "file", // required to format on save
 	"files.autoSave": "onFocusChange", // optional but recommended
-	"vs-code-prettier-eslint.prettierLast": true,
-	"spellright.language": ["es"],
-	"spellright.documentTypes": ["markdown", "latex", "plaintext"] // set as "true" to run 'prettier' last not first
+	"vs-code-prettier-eslint.prettierLast": true
 }
