@@ -108,8 +108,8 @@
 import { ref } from 'vue'
 import ButtonSwitch from './ButtonSwitch.vue'
 
-const titleNamePage = 'Rinc@n del'
-const titlePage = 'T@n'
+const titleNamePage = titleNameGlobal().value.titleNamePage
+const titlePage = titleNameGlobal().value.titlePage
 const nombre = 'Gaston Sepulveda'
 const tituloUniersitario = 'Ingeniero Informático'
 const description =

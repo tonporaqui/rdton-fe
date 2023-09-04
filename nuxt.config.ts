@@ -18,4 +18,10 @@ export default defineNuxtConfig({
 		classSuffix: '',
 		storageKey: 'nuxt-color-mode',
 	},
+	imports: {
+		dirs: [
+			// Scan top-level modules
+			'composables',
+		],
+	},
 })

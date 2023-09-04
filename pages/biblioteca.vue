@@ -77,8 +77,8 @@
 						:key="item.titulo"
 						class="card p-4 bg-light-bg100 dark:bg-dark-bg100 rounded-lg shadow-md transition-transform transform hover:scale-105">
 						<img
-							:src="item.icono"
-							alt="Icono"
+							:src="item.image"
+							alt="Image"
 							class="mb-2 w-full h-32 object-cover rounded" />
 						<h2
 							class="text-lg font-semibold text-light-text100 dark:text-dark-text100">
@@ -114,6 +114,7 @@ interface BibliotecaItem {
 	descripcion: string
 	icono: string
 	fecha: string
+	image: string
 }
 
 const filteredItems = computed(() => {

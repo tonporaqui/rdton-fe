@@ -12,10 +12,15 @@
 		["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
 		["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
 	],
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"eslint.format.enable": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true,
+		"source.fixAll.eslint": true
+	},
 	"editor.formatOnPaste": true,
 	"editor.formatOnType": true,
 	"editor.formatOnSave": true,
-	"editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
 	"editor.formatOnSaveMode": "file",
-	"files.autoSave": "onFocusChange",
+	"files.autoSave": "onFocusChange"
 }

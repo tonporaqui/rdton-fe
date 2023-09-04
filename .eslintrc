@@ -8,9 +8,11 @@
 		"node": true
 	},
 	"extends": [
+		"plugin:@typescript-eslint/recommended",
+		"plugin:nuxt/recommended",
 		"eslint:recommended",
 		"plugin:vue/vue3-recommended",
-		"@vue/typescript/recommended",
+		"plugin:prettier/recommended",
 		"prettier"
 	],
 	"rules": {

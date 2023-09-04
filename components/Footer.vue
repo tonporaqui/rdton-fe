@@ -1,16 +1,18 @@
 <template>
 	<div class="content mx-auto text-center h-40">
 		<h1
-			class="text-3xl pt-14 sm:pt-56 mb-4 z-10 text-center text-light-accent200 dark:text-dark-primary200">
-			<span class="font-light italic text-2xl">{{ titleNamePage }}</span>
-			<span class="ml-2 font-bold">{{ titlePage }}</span>
+			class="flex justify-center items-center text-3xl pt-14 sm:pt-56 mb-4 z-10 text-light-accent200 dark:text-dark-primary200">
+			<div class="font-light italic text-2xl">
+				{{ titleNamePage }}
+			</div>
+			<div class="ml-2 font-bold">{{ titlePage }}</div>
+			<div class="mr-5 font-light italic text-xl ml-4">{{ currentYear }}</div>
 		</h1>
-		{{ currentYear }}
 	</div>
 </template>
 
 <script setup lang="ts">
-const titleNamePage = 'Rinc@n del'
-const titlePage = 'T@n'
+const titleNamePage = titleNameGlobal().value.titleNamePage
+const titlePage = titleNameGlobal().value.titlePage
 const currentYear: number = new Date().getUTCFullYear()
 </script>
