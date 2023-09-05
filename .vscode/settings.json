@@ -22,5 +22,8 @@
 	"editor.formatOnType": true,
 	"editor.formatOnSave": true,
 	"editor.formatOnSaveMode": "file",
-	"files.autoSave": "onFocusChange"
+	"files.autoSave": "onFocusChange",
+	"editor.wordWrap": "wordWrapColumn",
+	"editor.wrappingIndent": "same",
+	"editor.wordWrapColumn": 80
 }
