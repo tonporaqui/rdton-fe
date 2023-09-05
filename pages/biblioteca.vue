@@ -37,11 +37,18 @@
 				class="w-3/4 p-4 bg-light-bg200 dark:bg-dark-bg200 rounded-lg shadow-md">
 				<!-- Search Bar and Dropdown -->
 				<div class="flex items-center mb-4">
-					<input
-						v-model="search"
-						placeholder="Buscar..."
-						class="bg-light-bg200 p-2 appearance-none border rounded border-light-accent200 dark:border-dark-accent100 focus:outline-none focus:bg-white focus:border-light-accent100" />
+					<div
+						class="relative ml-2 border rounded border-light-accent200 dark:border-dark-accent100">
+						<Icon
+							name="mdi:magnify"
+							size="27px"
+							class="ml-2 h-6 w-6 font-semibold text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200" />
 
+						<input
+							v-model="search"
+							placeholder="Buscar..."
+							class="bg-light-bg200 ml-2 mr-1 p-2 appearance-none focus:outline-none focus:bg-light-bg100 focus:border-light-accent100 dark:bg-dark-bg200 dark:focus:bg-dark-bg100" />
+					</div>
 					<!-- Custom Dropdown -->
 					<div class="relative ml-2">
 						<Icon
@@ -52,16 +59,16 @@
 
 						<div
 							v-if="isDropdownOpen"
-							class="absolute right-0 mt-2 w-48 bg-white dark:bg-dark-bg100 rounded-md shadow-lg z-10">
+							class="absolute right-0 mt-2 w-48 bg-light-bg200 dark:bg-dark-bg200 rounded-md shadow-lg z-10">
 							<button
-								class="block w-full px-4 py-2 text-left hover:bg-light-accent100 dark:hover:bg-dark-accent100"
+								class="block w-full px-4 py-2 text-left hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 								@click="setOrder('desc')">
-								Fecha Mayor a Menor
+								Por Fecha Mayor
 							</button>
 							<button
-								class="block w-full px-4 py-2 text-left hover:bg-light-accent100 dark:hover:bg-dark-accent100"
+								class="block w-full px-4 py-2 text-left hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 								@click="setOrder('asc')">
-								Fecha Menor a Mayor
+								Por Fecha Menor
 							</button>
 						</div>
 					</div>
