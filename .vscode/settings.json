@@ -25,5 +25,11 @@
 	"files.autoSave": "onFocusChange",
 	"editor.wordWrap": "wordWrapColumn",
 	"editor.wrappingIndent": "same",
-	"editor.wordWrapColumn": 80
+	"editor.wordWrapColumn": 80,
+	"editor.cursorBlinking": "expand",
+	"editor.guides.bracketPairs": true,
+	"editor.guides.bracketPairsHorizontal": true,
+	"editor.cursorSmoothCaretAnimation": "on",
+	"breadcrumbs.symbolSortOrder": "position",
+	"breadcrumbs.symbolPath": "on"
 }
