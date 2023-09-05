@@ -27,9 +27,15 @@
 	"editor.wrappingIndent": "same",
 	"editor.wordWrapColumn": 80,
 	"editor.cursorBlinking": "expand",
+	"editor.cursorWidth": 4,
+	"editor.cursorStyle": "line",
+	"terminal.integrated.cursorStyle": "line",
+	"terminal.integrated.cursorWidth": 4,
+	"terminal.integrated.cursorBlinking": false,
 	"editor.guides.bracketPairs": true,
 	"editor.guides.bracketPairsHorizontal": true,
 	"editor.cursorSmoothCaretAnimation": "on",
 	"breadcrumbs.symbolSortOrder": "position",
-	"breadcrumbs.symbolPath": "on"
+	"breadcrumbs.symbolPath": "on",
+	"editor.fontFamily": "'Cascadia Code',Consolas, 'Courier New', monospace"
 }
