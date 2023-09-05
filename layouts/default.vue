@@ -1,5 +1,5 @@
 <template>
-	<div class="font-montserrat bg-light-bg200 dark:bg-dark-bg100">
+	<div class="bg-light-bg200 font-montserrat dark:bg-dark-bg100">
 		<Header />
 		<slot />
 

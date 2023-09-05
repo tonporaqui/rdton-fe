@@ -36,9 +36,12 @@
 		"vue-eslint-parser": "^9.3.1"
 	},
 	"dependencies": {
+		"-": "^0.0.1",
 		"@heroicons/vue": "^2.0.18",
 		"@pinia/nuxt": "^0.4.11",
+		"D": "^1.0.0",
 		"aos": "^2.3.4",
-		"nuxt-icon": "^0.5.0"
+		"nuxt-icon": "^0.5.0",
+		"prettier-plugin-tailwindcss": "^0.5.4"
 	}
 }

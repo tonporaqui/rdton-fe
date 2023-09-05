@@ -1,15 +1,15 @@
 <template>
 	<section
 		id="timeline-section"
-		class="p-20 sm:p-20 md:p-10 lg:p-20 mt-32 sm:mt-32 md:mt-30">
+		class="md:mt-30 mt-32 p-20 sm:mt-32 sm:p-20 md:p-10 lg:p-20">
 		<h2
-			class="text-3xl font-extrabold mb-6 text-light-accent200 dark:text-dark-primary100 text-center">
+			class="mb-6 text-center text-3xl font-extrabold text-light-accent200 dark:text-dark-primary100">
 			Mi línea de tiempo
 		</h2>
 		<div class="flex justify-center">
-			<div class="relative wrap overflow-hidden p-10 h-full">
+			<div class="wrap relative h-full overflow-hidden p-10">
 				<div
-					class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border"
+					class="border-2-2 absolute h-full border border-gray-700 border-opacity-20"
 					style="left: 50%"></div>
 
 				<div
@@ -17,34 +17,34 @@
 					:key="index"
 					:class="
 						event.type === 'Estudios'
-							? 'mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline'
-							: 'mb-8 flex justify-between items-center w-full right-timeline'
+							? 'left-timeline mb-8 flex w-full flex-row-reverse items-center justify-between'
+							: 'right-timeline mb-8 flex w-full items-center justify-between'
 					"
 					:data-aos="getAosEffect(event.type)"
 					:data-aos-delay="(index + 1) * 100">
 					<div class="order-1 w-5/12"></div>
 					<div
-						class="z-20 flex items-center order-1 bg-gray-800 dark:bg-dark-bg300 shadow-xl w-8 h-8 rounded-full">
+						class="z-20 order-1 flex h-8 w-8 items-center rounded-full bg-gray-800 shadow-xl dark:bg-dark-bg300">
 						<h1
-							class="mx-auto text-white dark:text-dark-text100font-semibold text-lg">
+							class="dark:text-dark-text100font-semibold mx-auto text-lg text-white">
 							{{ index + 1 }}
 						</h1>
 					</div>
 					<div
 						:class="
 							event.type === 'Estudios'
-								? 'order-1 bg-light-bg100 dark:bg-dark-bg300 rounded-lg shadow-md w-5/12 px-6 py-4 flex flex-col items-start'
-								: 'order-1 bg-light-bg300 dark:bg-dark-bg200 rounded-lg shadow-md w-5/12 px-6 py-4 flex flex-col items-start'
+								? 'order-1 flex w-5/12 flex-col items-start rounded-lg bg-light-bg100 px-6 py-4 shadow-md dark:bg-dark-bg300'
+								: 'order-1 flex w-5/12 flex-col items-start rounded-lg bg-light-bg300 px-6 py-4 shadow-md dark:bg-dark-bg200'
 						">
 						<!-- Contenedor para el ícono y el tipo -->
-						<div class="flex items-center mb-2">
+						<div class="mb-2 flex items-center">
 							<Icon
 								:name="event.icon"
 								size="27px"
 								:class="
 									event.type === 'Estudios'
-										? 'text-light-text100 dark:text-dark-text100 mr-2'
-										: 'text-light-text100 dark:text-dark-text100 mr-2'
+										? 'mr-2 text-light-text100 dark:text-dark-text100'
+										: 'mr-2 text-light-text100 dark:text-dark-text100'
 								">
 							</Icon>
 							<h2

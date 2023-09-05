@@ -1,31 +1,39 @@
 <template>
 	<section class="py-8">
+		<h3
+			class="mb-6 text-center text-3xl font-extrabold text-light-accent200 dark:text-dark-primary100">
+			{{ titleNamePage }}
+		</h3>
 		<h2
-			class="text-3xl font-extrabold mb-6 text-center text-light-accent200 dark:text-dark-primary100">
-			Biblioteca
+			class="mb-6 text-center font-semibold text-light-text100 dark:text-dark-text100">
+			{{ subtitlePage }}
 		</h2>
-		<div class="flex justify-center container mx-auto gap-8">
+		<h1
+			class="mx-4 mb-6 text-center font-light text-light-text200 dark:text-dark-text100 md:mx-auto md:max-w-lg">
+			{{ descriptionPage }}
+		</h1>
+		<div class="container mx-auto flex justify-center gap-8">
 			<!-- Left Panel -->
 			<div
-				class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-2p-4 ml-5 bg-light-bg200 dark:bg-dark-bg200 rounded-lg shadow-md text-center">
+				class="gap-2p-4 ml-5 grid grid-cols-1 rounded-lg bg-light-bg200 text-center shadow-md dark:bg-dark-bg200 sm:grid-cols-1 md:grid-cols-1">
 				<ul>
 					<li
-						class="m-5 cursor-pointer transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
+						class="m-5 cursor-pointer rounded p-2 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:bg-opacity-50 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 						@click="resetFilters">
 						Mostrar todo
 					</li>
 					<li
-						class="ml-5 mr-5 cursor-pointer transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
+						class="mx-5 cursor-pointer rounded p-2 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:bg-opacity-50 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 						@click="setFilter('back-end')">
 						Back-end
 					</li>
 					<li
-						class="ml-5 mr-5 cursor-pointer transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
+						class="mx-5 cursor-pointer rounded p-2 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:bg-opacity-50 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 						@click="setFilter('front-end')">
 						Front-end
 					</li>
 					<li
-						class="ml-5 mr-5 cursor-pointer transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
+						class="mx-5 cursor-pointer rounded p-2 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:bg-opacity-50 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 						@click="setFilter('librerias')">
 						Librerías
 					</li>
@@ -34,39 +42,38 @@
 
 			<!-- Right Panel -->
 			<div
-				class="w-3/4 p-4 bg-light-bg200 dark:bg-dark-bg200 rounded-lg shadow-md">
+				class="w-3/4 rounded-lg bg-light-bg200 p-4 shadow-md dark:bg-dark-bg200">
 				<!-- Search Bar and Dropdown -->
-				<div class="flex items-center mb-4">
+				<div class="mb-4 flex items-center">
+					<!-- Icono de búsqueda e Input -->
 					<div
-						class="relative ml-2 border rounded border-light-accent200 dark:border-dark-accent100">
+						class="relative ml-2 flex items-center rounded border border-light-accent200 dark:border-dark-accent100">
 						<Icon
 							name="mdi:magnify"
 							size="27px"
 							class="ml-2 h-6 w-6 font-semibold text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200" />
-
 						<input
 							v-model="search"
 							placeholder="Buscar..."
-							class="bg-light-bg200 ml-2 mr-1 p-2 appearance-none focus:outline-none focus:bg-light-bg100 focus:border-light-accent100 dark:bg-dark-bg200 dark:focus:bg-dark-bg100" />
+							class="ml-2 mr-1 w-full appearance-none bg-light-bg200 p-2 focus:border-light-accent100 focus:bg-light-bg100 focus:outline-none dark:bg-dark-bg200 dark:focus:bg-dark-bg100" />
 					</div>
-					<!-- Custom Dropdown -->
-					<div class="relative ml-2">
+					<!-- Icono desplegable -->
+					<div class="relative ml-2 flex items-center">
 						<Icon
 							:name="dropdownIcon"
 							size="27px"
 							class="h-6 w-6 font-semibold text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 							@click="isDropdownOpen = !isDropdownOpen" />
-
 						<div
 							v-if="isDropdownOpen"
-							class="absolute right-0 mt-2 w-48 bg-light-bg200 dark:bg-dark-bg200 rounded-md shadow-lg z-10">
+							class="absolute right-0 z-10 mt-2 w-48 rounded-md bg-light-bg200 shadow-lg dark:bg-dark-bg200">
 							<button
-								class="block w-full px-4 py-2 text-left hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
+								class="block w-full rounded p-2 px-4 text-left text-light-accent200 hover:scale-105 hover:bg-opacity-50 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 								@click="setOrder('desc')">
 								Por Fecha Mayor
 							</button>
 							<button
-								class="block w-full px-4 py-2 text-left hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
+								class="block w-full rounded p-2 px-4 text-left text-light-accent200 hover:scale-105 hover:bg-opacity-50 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 								@click="setOrder('asc')">
 								Por Fecha Menor
 							</button>
@@ -75,15 +82,15 @@
 				</div>
 
 				<!-- Results -->
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+				<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 					<div
 						v-for="item in filteredItems"
 						:key="item.titulo"
-						class="card p-4 bg-light-bg100 dark:bg-dark-bg100 rounded-lg shadow-md transition-transform transform hover:scale-105">
+						class="card rounded-lg bg-light-bg100 p-4 shadow-md transition-transform hover:scale-105 dark:bg-dark-bg100">
 						<img
 							:src="item.image"
 							alt="Image"
-							class="mb-2 w-full h-32 object-cover rounded" />
+							class="mb-2 h-32 w-full rounded object-cover" />
 						<h2
 							class="text-lg font-semibold text-light-text100 dark:text-dark-text100">
 							{{ item.titulo }}
@@ -111,6 +118,9 @@ const search = ref('')
 const filter = ref('')
 const sortOrder = ref('desc')
 const isDropdownOpen = ref(false)
+const titleNamePage = titleNameGlobal().value.titleBiblioteca
+const subtitlePage = titleNameGlobal().value.subTitleBiblioteca
+const descriptionPage = titleNameGlobal().value.descriptionBibliotecaTitle
 
 interface BibliotecaItem {
 	titulo: string

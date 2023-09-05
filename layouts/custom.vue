@@ -1,8 +1,8 @@
 <template>
 	<div
-		class="font-montserrat bg-light-bg200 dark:bg-dark-bg100 flex flex-col min-h-screen">
+		class="flex min-h-screen flex-col bg-light-bg200 font-montserrat dark:bg-dark-bg100">
 		<HeaderCustom />
-		<slot class="flex-grow" />
+		<slot class="grow" />
 		<Footer />
 	</div>
 </template>

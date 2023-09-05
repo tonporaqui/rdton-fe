@@ -1,24 +1,24 @@
 <template>
 	<header
 		id="header-inicio"
-		class="relative py-4 sm:py-4 md:py-16 max-h-60 sm:max-h-60 md:max-h-64 lg:max-h-72 sm:flex sm:justify-between sm:items-center bg-gradient-to-r from-light-accent100 to-light-accent100 dark:from-dark-bg100 dark:to-dark-bg300 text-light-text100 dark:text-dark-text100">
+		class="relative max-h-60 bg-gradient-to-r from-light-accent100 to-light-accent100 py-4 text-light-text100 dark:from-dark-bg100 dark:to-dark-bg300 dark:text-dark-text100 sm:flex sm:max-h-60 sm:items-center sm:justify-between sm:py-4 md:max-h-64 md:py-16 lg:max-h-72">
 		<!-- Container for everything -->
-		<div class="w-full max-w-screen-xl mx-auto px-4">
+		<div class="mx-auto w-full max-w-screen-xl px-4">
 			<!-- Container for nav, title and switch -->
 			<div
-				class="flex items-center justify-between mb-6 fixed top-0 left-0 w-full px-4 md:px-0 bg-gradient-to-r from-light-accent100 to-light-accent100 dark:from-dark-primary100 dark:to-dark-primary200 bg-opacity-40 z-50 shadow-lg">
+				class="fixed left-0 top-0 z-50 mb-6 flex w-full items-center justify-between bg-opacity-40 bg-gradient-to-r from-light-accent100 to-light-accent100 px-4 shadow-lg dark:from-dark-primary100 dark:to-dark-primary200 md:px-0">
 				<!-- Container for title, nav, and switch -->
 				<div class="container mx-auto flex items-center justify-between">
 					<!-- Title for larger screens -->
 					<h1
-						class="hidden md:block text-3xl font-semibold z-10 text-light-accent200 dark:text-dark-accent200">
-						<span class="font-light italic text-2xl">{{ titleNamePage }}</span>
+						class="z-10 hidden text-3xl font-semibold text-light-accent200 dark:text-dark-accent200 md:block">
+						<span class="text-2xl font-light italic">{{ titleNamePage }}</span>
 						<span class="ml-2 font-bold">{{ titlePage }}</span>
 					</h1>
 					<div class="md:hidden">
 						<button
 							type="button"
-							class="flex px-2 pt-2 pb-4 text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100 focus:outline-none"
+							class="flex px-2 pb-4 pt-2 text-light-accent200 hover:text-light-primary100 focus:outline-none dark:text-dark-accent200 dark:hover:text-dark-primary100"
 							@click="toggleNav">
 							<svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
 								<path
@@ -35,30 +35,30 @@
 					<!-- Navigation -->
 					<nav
 						:class="isOpen ? 'block' : 'hidden'"
-						class="px-2 pt-2 pb-4 md:flex md:p-0 flex lg:space-x-4 lg:z-10">
+						class="flex px-2 pb-4 pt-2 md:flex md:p-0 lg:z-10 lg:space-x-4">
 						<NuxtLink
 							:to="{ path: '/', hash: '#header-inicio' }"
-							class="mt-1 block px-2 py-1 transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+							class="mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:bg-opacity-50 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
 							Inicio
 						</NuxtLink>
 						<NuxtLink
 							:to="{ path: '/', hash: '#stack-section' }"
-							class="mt-1 block px-2 py-1 sm:ml-2 transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+							class="mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:bg-opacity-50 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100 sm:ml-2">
 							Habilidades
 						</NuxtLink>
 						<NuxtLink
 							:to="{ path: '/', hash: '#about-me-section' }"
-							class="mt-1 block px-2 py-1 sm:ml-2 transition-transform transform font-semibold text-sm hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+							class="mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:bg-opacity-50 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100 sm:ml-2">
 							Sobre mí
 						</NuxtLink>
 						<NuxtLink
 							:to="{ path: '/', hash: '#timeline-section' }"
-							class="mt-1 block px-2 py-1 sm:ml-2 transition-transform transform font-semibold text-sm first-letter:hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+							class="mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:bg-opacity-50 hover:text-light-primary100 first-letter:hover:scale-105 dark:text-dark-accent200 dark:hover:text-dark-primary100 sm:ml-2">
 							Mi línea de tiempo
 						</NuxtLink>
 						<NuxtLink
 							to="/biblioteca"
-							class="mt-1 block px-2 py-1 sm:ml-2 transition-transform transform font-semibold text-sm first-letter:hover:scale-105 hover:bg-opacity-50 p-2 rounded text-light-accent200 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+							class="mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:bg-opacity-50 hover:text-light-primary100 first-letter:hover:scale-105 dark:text-dark-accent200 dark:hover:text-dark-primary100 sm:ml-2">
 							Bibliotecla
 						</NuxtLink>
 					</nav>
@@ -69,19 +69,19 @@
 			</div>
 			<!-- Title for smaller screens -->
 			<h1
-				class="md:hidden text-3xl pt-14 sm:pt-56 mb-4 z-10 text-center text-light-accent200 dark:text-dark-primary200">
-				<span class="font-light italic text-2xl">{{ titleNamePage }}</span>
+				class="z-10 mb-4 pt-14 text-center text-3xl text-light-accent200 dark:text-dark-primary200 sm:pt-56 md:hidden">
+				<span class="text-2xl font-light italic">{{ titleNamePage }}</span>
 				<span class="ml-2 font-bold">{{ titlePage }}</span>
 			</h1>
 			<!-- Profile Info -->
 			<figure
-				class="md:flex rounded-xl md:mt-32 lg:mt-40 pt-2 pb-2 md:p-0 md:z-20 mx-auto max-w-3xl shadow-md dark:shadow-dark-bg200 bg-light-bg100 dark:bg-dark-bg300 dark:text-dark-text200">
+				class="mx-auto max-w-3xl rounded-xl bg-light-bg100 py-2 shadow-md dark:bg-dark-bg300 dark:text-dark-text200 dark:shadow-dark-bg200 md:z-20 md:mt-32 md:flex md:p-0 lg:mt-40">
 				<nuxt-img
-					class="w-28 h-28 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto"
+					class="mx-auto h-28 w-28 rounded-full md:h-auto md:w-48 md:rounded-none"
 					src="/images/foto.jpg"
 					alt="Gaston Sepulveda" />
 
-				<div class="pt-6 md:p-8 text-center md:text-left space-y-4">
+				<div class="space-y-4 pt-6 text-center md:p-8 md:text-left">
 					<blockquote>
 						<p
 							class="text-sm font-medium text-light-text200 dark:text-dark-text100">
@@ -94,7 +94,7 @@
 							{{ nombre }}
 						</div>
 						<div
-							class="font-light text-sm text-light-text100 dark:text-dark-text100">
+							class="text-sm font-light text-light-text100 dark:text-dark-text100">
 							{{ tituloUniersitario }}
 						</div>
 					</figcaption>

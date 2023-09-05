@@ -1,12 +1,12 @@
 <template>
-	<div class="content mx-auto text-center h-32">
+	<div class="content mx-auto h-32 text-center">
 		<h1
-			class="flex justify-center items-center text-3xl pt-5 pb-5 text-light-accent200 dark:text-dark-primary200">
-			<div class="font-light italic text-2xl">
+			class="flex items-center justify-center py-5 text-3xl text-light-accent200 dark:text-dark-primary200">
+			<div class="text-2xl font-light italic">
 				{{ titleNamePage }}
 			</div>
 			<div class="ml-2 font-bold">{{ titlePage }}</div>
-			<div class="mr-5 font-light italic text-xl ml-4">{{ currentYear }}</div>
+			<div class="ml-4 mr-5 text-xl font-light italic">{{ currentYear }}</div>
 		</h1>
 	</div>
 </template>
