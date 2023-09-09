@@ -1,41 +1,43 @@
 {
-	"files.associations": {
-		"*.css": "tailwindcss"
-	},
-	"editor.quickSuggestions": {
-		"strings": true
-	},
+	"breadcrumbs.symbolPath": "on",
+	"breadcrumbs.symbolSortOrder": "position",
 	"css.customData": [".vscode/tailwind.json"],
-	"scss.lint.unknownAtRules": "ignore",
-	"tailwindCSS.experimental.configFile": "tailwind.config.ts",
-	"tailwindCSS.experimental.classRegex": [
-		["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
-		["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
-	],
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"eslint.format.enable": true,
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
 		"source.fixAll.eslint": true
 	},
+	"editor.cursorBlinking": "expand",
+	"editor.cursorSmoothCaretAnimation": "on",
+	"editor.cursorStyle": "line",
+	"editor.cursorWidth": 4,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.fontFamily": "'Cascadia Code',Consolas, 'Courier New', monospace",
 	"editor.formatOnPaste": true,
-	"editor.formatOnType": true,
 	"editor.formatOnSave": true,
 	"editor.formatOnSaveMode": "file",
-	"files.autoSave": "onFocusChange",
-	"editor.wordWrap": "wordWrapColumn",
-	"editor.wrappingIndent": "same",
-	"editor.wordWrapColumn": 80,
-	"editor.cursorBlinking": "expand",
-	"editor.cursorWidth": 4,
-	"editor.cursorStyle": "line",
-	"terminal.integrated.cursorStyle": "line",
-	"terminal.integrated.cursorWidth": 4,
-	"terminal.integrated.cursorBlinking": false,
+	"editor.formatOnType": true,
 	"editor.guides.bracketPairs": true,
 	"editor.guides.bracketPairsHorizontal": true,
-	"editor.cursorSmoothCaretAnimation": "on",
-	"breadcrumbs.symbolSortOrder": "position",
-	"breadcrumbs.symbolPath": "on",
-	"editor.fontFamily": "'Cascadia Code',Consolas, 'Courier New', monospace"
+	"editor.quickSuggestions": {
+		"strings": true
+	},
+	"editor.wordWrap": "wordWrapColumn",
+	"editor.wordWrapColumn": 80,
+	"editor.wrappingIndent": "same",
+	"eslint.format.enable": true,
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"files.autoSave": "onFocusChange",
+	"json.sortOnSave.enable": true,
+	"scss.lint.unknownAtRules": "ignore",
+	"tailwindCSS.experimental.classRegex": [
+		["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
+		["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
+	],
+	"tailwindCSS.experimental.configFile": "tailwind.config.ts",
+	"terminal.integrated.cursorBlinking": false,
+	"terminal.integrated.cursorStyle": "line",
+	"terminal.integrated.cursorWidth": 4,
+	"terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font"
 }
