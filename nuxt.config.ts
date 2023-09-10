@@ -1,14 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+	postcss: {
+		plugins: {
+			tailwindcss: {},
+			autoprefixer: {},
+		},
+	},
+
 	devtools: { enabled: true },
-	modules: [
-		'@pinia/nuxt',
-		'nuxt-icon',
-		'@nuxt/image',
-		'@nuxtjs/tailwindcss',
-		'@nuxtjs/color-mode',
-	],
-	css: ['~/assets/styles/main.scss'],
+	modules: ['@pinia/nuxt', 'nuxt-icon', '@nuxt/image', '@nuxtjs/color-mode'],
+	css: ['~/assets/styles/main.scss', '~/assets/css/main.css'],
 	colorMode: {
 		preference: 'system', // default value of $colorMode.preference
 		fallback: 'light', // fallback value if not system preference found

@@ -78,7 +78,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import ButtonSwitch from './ButtonSwitch.vue'
 
 const titleNamePage = titleNameGlobal().value.titleNamePage

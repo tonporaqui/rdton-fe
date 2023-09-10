@@ -1,14 +1,19 @@
-import type { Config } from 'tailwindcss'
-
-export default <Partial<Config>>{
+/** @type {import('tailwindcss').Config} */
+module.exports = {
 	darkMode: 'class',
-	content: ['docs/content/**/*.md'],
-	extend: {
-		animation: { shine: 'shine 1s' },
-		keyframes: { shine: { '100%': { left: '125%' } } },
-	},
+	content: [
+		'./components/**/*.{js,vue,ts}',
+		'./layouts/**/*.vue',
+		'./pages/**/*.vue',
+		'./plugins/**/*.{js,ts}',
+		'./nuxt.config.{js,ts}',
+		'./app.vue',
+		'docs/content/**/*.md',
+	],
 	theme: {
 		extend: {
+			animation: { shine: 'shine 1s' },
+			keyframes: { shine: { '100%': { left: '125%' } } },
 			colors: {
 				dark: {
 					primary100: '#FFD700',

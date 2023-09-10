@@ -14,8 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-
 const colorMode = useColorMode()
 
 const toggleDarkMode = (): void => {
