@@ -5,6 +5,7 @@ FROM node:18
 WORKDIR /usr/src/app/
 
 # Establecer en ENVE de dev
+ENV HOST 0.0.0.0
 ENV NODE_ENV=development
 
 # Instala pnpm globalmente en el contenedor
