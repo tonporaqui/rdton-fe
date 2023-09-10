@@ -1,0 +1,26 @@
+# Usa una imagen base de Node.js
+FROM node:18
+
+# Establece el directorio de trabajo
+WORKDIR /usr/src/app/
+
+# Establecer en ENVE de dev
+ENV NODE_ENV=development
+
+# Instala pnpm globalmente en el contenedor
+RUN npm install -g pnpm
+
+# Copia el archivo package.json y pnpm-lock.yaml
+COPY package*.json pnpm-lock.yaml ./
+
+# Instala las dependencias usando pnpm
+RUN pnpm install
+
+# Copia el resto de los archivos del proyecto
+COPY . .
+
+# Expone el puerto 3000
+EXPOSE 3000
+
+# Comando para iniciar la aplicación
+CMD ["pnpm", "run", "dev"]

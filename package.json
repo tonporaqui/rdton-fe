@@ -1,47 +1,49 @@
 {
-	"name": "nuxt-app",
-	"private": true,
-	"scripts": {
-		"build": "nuxt build",
-		"dev": "nuxt dev",
-		"generate": "nuxt generate",
-		"preview": "nuxt preview",
-		"postinstall": "nuxt prepare",
-		"lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
-		"lint:prettier": "prettier --check .",
-		"lint": "pnpm lint:js && pnpm lint:prettier",
-		"lintfix": "prettier --write --list-different . && pnpm lint:js --fix"
+	"dependencies": {
+		"@heroicons/vue": "^2.0.18",
+		"@pinia/nuxt": "^0.4.11",
+		"aos": "^2.3.4",
+		"nuxt-icon": "^0.5.0",
+		"vue": "^3.3.4",
+		"vue-router": "^4.2.4"
 	},
 	"devDependencies": {
 		"@nuxt/devtools": "latest",
 		"@nuxt/image": "1.0.0-rc.1",
 		"@nuxtjs/color-mode": "^3.3.0",
-		"@nuxtjs/tailwindcss": "^6.8.0",
 		"@types/aos": "^3.0.4",
 		"@types/node": "^18.17.1",
 		"@typescript-eslint/eslint-plugin": "^6.5.0",
 		"@typescript-eslint/parser": "^6.5.0",
 		"@vue/eslint-config-standard": "^8.0.1",
+		"autoprefixer": "^10.4.15",
 		"eslint": "^8.48.0",
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-nuxt": "^4.0.0",
 		"eslint-plugin-prettier": "^5.0.0",
 		"eslint-plugin-vue": "^9.17.0",
 		"nuxt": "^3.6.5",
+		"postcss": "^8.4.29",
 		"prettier": "^3.0.3",
+		"prettier-plugin-tailwindcss": "^0.5.4",
 		"sass": "^1.66.1",
 		"sass-loader": "^13.3.2",
 		"tailwind-scrollbar": "^3.0.5",
+		"tailwindcss": "^3.3.3",
 		"typescript": "^5.2.2",
 		"vue-eslint-parser": "^9.3.1"
 	},
-	"dependencies": {
-		"-": "^0.0.1",
-		"@heroicons/vue": "^2.0.18",
-		"@pinia/nuxt": "^0.4.11",
-		"D": "^1.0.0",
-		"aos": "^2.3.4",
-		"nuxt-icon": "^0.5.0",
-		"prettier-plugin-tailwindcss": "^0.5.4"
+	"name": "rdton-fe",
+	"private": true,
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"lint": "pnpm lint:js && pnpm lint:prettier",
+		"lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
+		"lint:prettier": "prettier --check .",
+		"lintfix": "prettier --write --list-different . && pnpm lint:js --fix",
+		"postinstall": "nuxt prepare",
+		"preview": "nuxt preview"
 	}
 }
