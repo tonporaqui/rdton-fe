@@ -4,7 +4,8 @@
 	"css.customData": [".vscode/tailwind.json"],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
-		"source.fixAll.eslint": true
+		"source.fixAll.eslint": true,
+		"source.organizeImports": true
 	},
 	"editor.cursorBlinking": "expand",
 	"editor.cursorSmoothCaretAnimation": "on",
@@ -18,6 +19,9 @@
 	"editor.formatOnType": true,
 	"editor.guides.bracketPairs": true,
 	"editor.guides.bracketPairsHorizontal": true,
+	"editor.linkedEditing": true,
+	"editor.minimap.autohide": true,
+	"editor.minimap.maxColumn": 60,
 	"editor.quickSuggestions": {
 		"strings": true
 	},
