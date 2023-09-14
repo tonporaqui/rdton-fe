@@ -34,7 +34,7 @@
 					</div>
 					<!-- Navigation -->
 					<nav
-						:class="isOpen ? 'block' : 'hidden'"
+						:class="isOpen ? 'flex flex-col' : 'hidden'"
 						class="flex px-2 pb-4 pt-2 md:flex md:p-0 lg:z-10 lg:space-x-4">
 						<NuxtLink
 							:to="{ path: '/', hash: '#header-inicio' }"
