@@ -7,6 +7,23 @@
 			<!-- Container for nav, title and switch -->
 			<div
 				class="fixed left-0 top-0 z-50 mb-6 flex w-full items-center justify-between bg-opacity-40 bg-gradient-to-r from-light-accent100 to-light-accent100 px-4 shadow-lg dark:from-dark-primary100 dark:to-dark-primary200 md:px-0">
+				<div class="md:hidden">
+					<button
+						type="button"
+						class="flex px-2 pb-4 pt-2 text-light-accent200 hover:text-light-primary100 focus:outline-none dark:text-dark-accent200 dark:hover:text-dark-primary100"
+						@click="toggleNav">
+						<svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+							<path
+								v-if="isOpen"
+								fill-rule="evenodd"
+								d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" />
+							<path
+								v-if="!isOpen"
+								fill-rule="evenodd"
+								d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
+						</svg>
+					</button>
+				</div>
 				<!-- Container for title, nav, and switch -->
 				<div class="container mx-auto flex items-center justify-between">
 					<!-- Title for larger screens -->
@@ -21,23 +38,6 @@
 							</span>
 						</div>
 
-						<div class="md:hidden">
-							<button
-								type="button"
-								class="flex px-2 pb-4 pt-2 text-light-accent200 hover:text-light-primary100 focus:outline-none dark:text-dark-accent200 dark:hover:text-dark-primary100"
-								@click="toggleNav">
-								<svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-									<path
-										v-if="isOpen"
-										fill-rule="evenodd"
-										d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" />
-									<path
-										v-if="!isOpen"
-										fill-rule="evenodd"
-										d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
-								</svg>
-							</button>
-						</div>
 						<!-- Navigation -->
 						<nav
 							:class="isOpen ? 'flex flex-col' : 'hidden'"
