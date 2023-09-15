@@ -108,9 +108,9 @@
 <script setup lang="ts">
 import { useBibliotecaStore } from '~/store/biblioteca'
 
-definePageMeta({
-	layout: 'custom',
-})
+// definePageMeta({
+// 	layout: 'custom',
+// })
 
 const store = useBibliotecaStore()
 const search = ref('')
