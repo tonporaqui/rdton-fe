@@ -6,9 +6,14 @@ export default defineNuxtConfig({
 			autoprefixer: {},
 		},
 	},
-
 	devtools: { enabled: true },
-	modules: ['@pinia/nuxt', 'nuxt-icon', '@nuxt/image', '@nuxtjs/color-mode'],
+	modules: [
+		'@pinia/nuxt',
+		'nuxt-icon',
+		'@nuxt/image',
+		'@nuxtjs/color-mode',
+		'@nuxtjs/tailwindcss',
+	],
 	css: ['~/assets/styles/main.scss', '~/assets/css/main.css'],
 	colorMode: {
 		preference: 'system', // default value of $colorMode.preference

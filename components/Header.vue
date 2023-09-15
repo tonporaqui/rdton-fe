@@ -6,7 +6,7 @@
 		<div class="mx-auto w-full max-w-screen-xl px-4">
 			<!-- Container for nav, title and switch -->
 			<div
-				class="fixed left-0 top-0 z-50 mb-6 flex w-full items-center justify-between bg-opacity-40 bg-gradient-to-r from-light-accent100 to-light-accent100 px-4 shadow-lg dark:from-dark-primary100 dark:to-dark-primary200 md:px-0">
+				class="fixed left-0 top-0 z-50 mb-6 flex w-full items-center justify-between bg-gradient-to-r from-light-accent100 to-light-accent100 px-4 shadow-lg dark:from-dark-primary100 dark:to-dark-primary200 md:px-0">
 				<div class="lg:hidden">
 					<button
 						type="button"
@@ -44,27 +44,27 @@
 							class="flex px-2 pb-4 pt-2 sm:flex-col lg:z-10 lg:space-x-4 lg:p-0">
 							<NuxtLink
 								:to="{ path: '/', hash: '#header-inicio' }"
-								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:bg-opacity-50 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
 								Inicio
 							</NuxtLink>
 							<NuxtLink
 								:to="{ path: '/', hash: '#stack-section' }"
-								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:bg-opacity-50 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
 								Habilidades
 							</NuxtLink>
 							<NuxtLink
 								:to="{ path: '/', hash: '#about-me-section' }"
-								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:bg-opacity-50 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
 								Sobre mí
 							</NuxtLink>
 							<NuxtLink
 								:to="{ path: '/', hash: '#timeline-section' }"
-								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:bg-opacity-50 hover:text-light-primary100 first-letter:hover:scale-105 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:text-light-primary100 first-letter:hover:scale-105 dark:text-dark-accent200 dark:hover:text-dark-primary100">
 								Mi línea de tiempo
 							</NuxtLink>
 							<NuxtLink
 								to="/biblioteca"
-								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:bg-opacity-50 hover:text-light-primary100 first-letter:hover:scale-105 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:text-light-primary100 first-letter:hover:scale-105 dark:text-dark-accent200 dark:hover:text-dark-primary100">
 								Bibliotecla
 							</NuxtLink>
 						</nav>

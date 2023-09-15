@@ -7,12 +7,12 @@
 </template>
 
 <script setup lang="ts">
-import { useStackStore } from '~/store/stack'
-import { useMainStore } from '~/store/aboutMeInfo'
-import { useTimeLineStore } from '~/store/timeLineMe'
-import SkillCard from '~/components/SkillCard.vue'
 import AboutMe from '~/components/AboutMe.vue'
+import SkillCard from '~/components/SkillCard.vue'
 import TimeLine from '~/components/TimeLine.vue'
+import { useMainStore } from '~/store/aboutMeInfo'
+import { useStackStore } from '~/store/stack'
+import { useTimeLineStore } from '~/store/timeLineMe'
 
 const stack = useStackStore()
 const info = useMainStore()
