@@ -1,15 +1,15 @@
 <template>
 	<section
 		id="timeline-section"
-		class="md:mt-30 mt-32 p-20 sm:mt-32 sm:p-20 md:p-10 lg:p-20">
+		class="mt-32 p-20 sm:mt-32 sm:p-20 md:p-10 lg:p-20">
 		<h2
 			class="mb-6 text-center text-3xl font-extrabold text-light-accent200 dark:text-dark-primary100">
 			Mi línea de tiempo
 		</h2>
 		<div class="flex justify-center">
-			<div class="wrap relative h-full overflow-hidden p-10">
+			<div class="relative h-full overflow-hidden p-10">
 				<div
-					class="border-2-2 absolute h-full border border-gray-700 border-opacity-20"
+					class="absolute h-full border border-gray-700"
 					style="left: 50%"></div>
 
 				<div
@@ -26,7 +26,7 @@
 					<div
 						class="z-20 order-1 flex h-8 w-8 items-center rounded-full bg-gray-800 shadow-xl dark:bg-dark-bg300">
 						<h1
-							class="dark:text-dark-text100font-semibold mx-auto text-lg text-white">
+							class="mx-auto text-lg font-semibold text-white dark:text-dark-text100">
 							{{ index + 1 }}
 						</h1>
 					</div>

@@ -1,7 +1,7 @@
 <template>
 	<section
 		id="stack-section"
-		class="md:mt-30 mt-32 p-20 sm:mt-32 sm:p-20 md:p-10 lg:p-20">
+		class="mt-32 p-20 sm:mt-32 sm:p-20 md:p-10 lg:p-20">
 		<h2
 			class="mb-6 text-center text-3xl font-extrabold text-light-accent200 dark:text-dark-primary100">
 			Habilidades

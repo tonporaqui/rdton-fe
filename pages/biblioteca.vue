@@ -15,25 +15,25 @@
 		<div class="container mx-auto flex justify-center gap-8">
 			<!-- Left Panel -->
 			<div
-				class="gap-2p-4 ml-5 grid grid-cols-1 rounded-lg bg-light-bg200 text-center shadow-md dark:bg-dark-bg200 sm:grid-cols-1 md:grid-cols-1">
+				class="ml-5 grid grid-cols-1 gap-2 rounded-lg bg-light-bg200 p-4 text-center shadow-md dark:bg-dark-bg200 sm:grid-cols-1 md:grid-cols-1">
 				<ul>
 					<li
-						class="m-5 cursor-pointer rounded p-2 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:bg-opacity-50 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
+						class="m-5 cursor-pointer rounded p-2 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 						@click="resetFilters">
 						Mostrar todo
 					</li>
 					<li
-						class="mx-5 cursor-pointer rounded p-2 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:bg-opacity-50 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
+						class="mx-5 cursor-pointer rounded p-2 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 						@click="setFilter('back-end')">
 						Back-end
 					</li>
 					<li
-						class="mx-5 cursor-pointer rounded p-2 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:bg-opacity-50 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
+						class="mx-5 cursor-pointer rounded p-2 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 						@click="setFilter('front-end')">
 						Front-end
 					</li>
 					<li
-						class="mx-5 cursor-pointer rounded p-2 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:bg-opacity-50 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
+						class="mx-5 cursor-pointer rounded p-2 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 						@click="setFilter('librerias')">
 						Librerías
 					</li>
@@ -68,12 +68,12 @@
 							v-if="isDropdownOpen"
 							class="absolute right-0 z-10 mt-2 w-48 rounded-md bg-light-bg200 shadow-lg dark:bg-dark-bg200">
 							<button
-								class="block w-full rounded p-2 px-4 text-left text-light-accent200 hover:scale-105 hover:bg-opacity-50 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
+								class="block w-full rounded p-2 px-4 text-left text-light-accent200 hover:scale-105 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 								@click="setOrder('desc')">
 								Por Fecha Mayor
 							</button>
 							<button
-								class="block w-full rounded p-2 px-4 text-left text-light-accent200 hover:scale-105 hover:bg-opacity-50 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
+								class="block w-full rounded p-2 px-4 text-left text-light-accent200 hover:scale-105 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 								@click="setOrder('asc')">
 								Por Fecha Menor
 							</button>
@@ -86,7 +86,7 @@
 					<div
 						v-for="item in filteredItems"
 						:key="item.titulo"
-						class="card rounded-lg bg-light-bg100 p-4 shadow-md transition-transform hover:scale-105 dark:bg-dark-bg100">
+						class="rounded-lg bg-light-bg100 p-4 shadow-md transition-transform hover:scale-105 dark:bg-dark-bg100">
 						<img
 							:src="item.image"
 							alt="Image"
@@ -107,10 +107,6 @@
 
 <script setup lang="ts">
 import { useBibliotecaStore } from '~/store/biblioteca'
-
-definePageMeta({
-	layout: 'custom',
-})
 
 const store = useBibliotecaStore()
 const search = ref('')

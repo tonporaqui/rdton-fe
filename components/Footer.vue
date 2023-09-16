@@ -1,5 +1,5 @@
 <template>
-	<div class="content mx-auto h-32 text-center">
+	<div class="mx-auto h-32 text-center">
 		<h1
 			class="flex items-center justify-center py-5 text-3xl text-light-accent200 dark:text-dark-primary200">
 			<div class="text-2xl font-light italic">

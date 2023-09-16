@@ -30,7 +30,8 @@
 	"editor.wrappingIndent": "same",
 	"eslint.format.enable": true,
 	"files.associations": {
-		"*.css": "tailwindcss"
+		"*.css": "tailwindcss",
+		"*.json": "json"
 	},
 	"files.autoSave": "onFocusChange",
 	"json.sortOnSave.enable": true,
@@ -39,7 +40,12 @@
 		["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
 		["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
 	],
-	"tailwindCSS.experimental.configFile": "tailwind.config.ts",
+	"tailwindCSS.experimental.configFile": "tailwind.config.js",
+	"tailwindCSS.includeLanguages": {
+		"css": "css",
+		"html": "html",
+		"javascript": "javascript"
+	},
 	"terminal.integrated.cursorBlinking": false,
 	"terminal.integrated.cursorStyle": "line",
 	"terminal.integrated.cursorWidth": 4,
