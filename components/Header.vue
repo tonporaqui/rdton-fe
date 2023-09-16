@@ -10,7 +10,7 @@
 				<div class="lg:hidden">
 					<button
 						type="button"
-						class="flex px-2 pb-4 pt-2 text-light-accent200 hover:text-light-primary100 focus:outline-none dark:text-dark-accent200 dark:hover:text-dark-primary100"
+						class="flex px-2 pb-4 pt-2 text-light-accent200 hover:text-light-primary100 focus:outline-none dark:text-dark-accent200 dark:hover:text-dark-primary300"
 						@click="toggleNav">
 						<svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
 							<path
@@ -25,12 +25,13 @@
 					</button>
 				</div>
 				<!-- Container for title, nav, and switch -->
-				<div class="container mx-auto flex items-center justify-between">
+				<div
+					class="container mx-auto flex items-center justify-around md:justify-between lg:justify-around">
 					<!-- Title for larger screens -->
 					<div
-						class="flex flex-col items-center justify-between text-light-accent200 dark:text-dark-accent200 sm:flex-col md:flex-col lg:flex-row">
-						<div class="ml-2 block">
-							<span>
+						class="flex flex-col text-light-accent200 dark:text-dark-accent200 sm:flex-col md:flex-col lg:flex-row">
+						<div class="block">
+							<span class="text-xl italic">
 								{{ titleNamePage }}
 							</span>
 							<span class="ml-1 text-2xl font-bold">
@@ -44,33 +45,33 @@
 							class="flex px-2 pb-4 pt-2 sm:flex-col lg:z-10 lg:space-x-4 lg:p-0">
 							<NuxtLink
 								:to="{ path: '/', hash: '#header-inicio' }"
-								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary300">
 								Inicio
 							</NuxtLink>
 							<NuxtLink
 								:to="{ path: '/', hash: '#stack-section' }"
-								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary300">
 								Habilidades
 							</NuxtLink>
 							<NuxtLink
 								:to="{ path: '/', hash: '#about-me-section' }"
-								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary300">
 								Sobre mí
 							</NuxtLink>
 							<NuxtLink
 								:to="{ path: '/', hash: '#timeline-section' }"
-								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:text-light-primary100 first-letter:hover:scale-105 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:text-light-primary100 first-letter:hover:scale-105 dark:text-dark-accent200 dark:hover:text-dark-primary300">
 								Mi línea de tiempo
 							</NuxtLink>
 							<NuxtLink
 								to="/biblioteca"
-								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:text-light-primary100 first-letter:hover:scale-105 dark:text-dark-accent200 dark:hover:text-dark-primary100">
+								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:text-light-primary100 first-letter:hover:scale-105 dark:text-dark-accent200 dark:hover:text-dark-primary300">
 								Bibliotecla
 							</NuxtLink>
 						</nav>
 					</div>
 					<!-- ButtonSwitch -->
-					<div class="flex"></div>
+					<!-- <div class="flex"></div> -->
 					<ButtonSwitch />
 				</div>
 			</div>
