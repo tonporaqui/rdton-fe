@@ -6,7 +6,8 @@
 		<div class="mx-auto w-full max-w-screen-xl px-4">
 			<!-- Container for nav, title and switch -->
 			<div
-				class="fixed left-0 top-0 z-50 mb-6 flex w-full items-center justify-between bg-gradient-to-r from-light-accent100 to-light-accent100 px-4 shadow-lg dark:from-dark-primary100 dark:to-dark-primary200 md:px-0">
+				class="fixed left-0 top-0 z-50 mb-6 flex w-full items-center justify-between bg-gradient-to-r from-light-accent100 to-light-accent100 px-4 shadow-lg dark:from-dark-primary100 dark:to-dark-primary200 md:px-0"
+				:class="animationClasses">
 				<div class="lg:hidden">
 					<button
 						type="button"
@@ -60,12 +61,12 @@
 							</NuxtLink>
 							<NuxtLink
 								:to="{ path: '/', hash: '#timeline-section' }"
-								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:text-light-primary100 first-letter:hover:scale-105 dark:text-dark-accent200 dark:hover:text-dark-primary300">
+								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary300">
 								Mi línea de tiempo
 							</NuxtLink>
 							<NuxtLink
 								to="/biblioteca"
-								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:text-light-primary100 first-letter:hover:scale-105 dark:text-dark-accent200 dark:hover:text-dark-primary300">
+								class="ml-2 mt-1 block rounded p-2 py-1 text-sm font-semibold text-light-accent200 transition-transform hover:scale-105 hover:text-light-primary100 dark:text-dark-accent200 dark:hover:text-dark-primary300">
 								Bibliotecla
 							</NuxtLink>
 						</nav>
@@ -88,10 +89,18 @@ const titleNamePage = titleNameGlobal().value.titleNamePage
 const titlePage = titleNameGlobal().value.titlePage
 
 const isOpen = ref(false)
+const isToggled = ref(false)
 
 const toggleNav = (): void => {
+	isToggled.value = true
 	isOpen.value = !isOpen.value
 }
+const animationClasses = computed(() => {
+	if (!isToggled.value) return ''
+	return isOpen.value
+		? 'animate-fade-down animate-duration-300 animate-delay-75 animate-ease-linear'
+		: 'animate-fade-up animate-duration-300 animate-delay-75 animate-ease-linear'
+})
 </script>
 
 <style lang="scss">

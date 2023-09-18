@@ -3,7 +3,7 @@
 		role="button"
 		aria-label="Toggle Dark Mode"
 		style="cursor: pointer"
-		class="px-2 pb-4 pt-2 transition-transform hover:scale-105"
+		class="hover:animate-bounce"
 		@click="toggleDarkMode">
 		<Icon
 			:name="currentIcon"

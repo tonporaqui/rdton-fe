@@ -1,5 +1,5 @@
 <template>
-	<section class="py-8">
+	<section class="min-h-screen py-8">
 		<h3
 			class="mb-6 text-center text-3xl font-extrabold text-light-accent200 dark:text-dark-primary100">
 			{{ titleNamePage }}
