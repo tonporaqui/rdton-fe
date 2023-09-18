@@ -9,7 +9,7 @@
 			{{ subtitlePage }}
 		</h2>
 		<h1
-			class="mx-4 mb-6 text-center font-light text-light-text200 dark:text-dark-text100 md:mx-auto md:max-w-lg">
+			class="mx-4 mb-6 text-center font-light text-light-text200 shadow-sm dark:text-dark-text100 md:mx-auto md:max-w-lg">
 			{{ descriptionPage }}
 		</h1>
 		<div class="container mx-auto flex justify-center gap-8">
@@ -66,7 +66,7 @@
 							@click="isDropdownOpen = !isDropdownOpen" />
 						<div
 							v-if="isDropdownOpen"
-							class="absolute right-0 z-10 mt-2 w-48 rounded-md bg-light-bg200 shadow-lg dark:bg-dark-bg200">
+							class="absolute right-0 z-10 mt-32 w-48 rounded-md bg-light-bg200 shadow-lg dark:bg-dark-bg200">
 							<button
 								class="block w-full rounded p-2 px-4 text-left text-light-accent200 hover:scale-105 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200"
 								@click="setOrder('desc')">
@@ -90,7 +90,9 @@
 						<img
 							:src="item.image"
 							alt="Image"
-							class="mb-2 h-32 w-full rounded object-cover" />
+							class="mb-2 h-48 w-full rounded object-cover"
+							quality="80"
+							sizes="70px" />
 						<h2
 							class="text-lg font-semibold text-light-text100 dark:text-dark-text100">
 							{{ item.titulo }}
@@ -98,6 +100,13 @@
 						<p class="text-sm text-light-text200 dark:text-dark-text200">
 							{{ item.descripcion }}
 						</p>
+						<span v-for="(icono, iconIndex) in item.iconos" :key="iconIndex">
+							<!-- Mostrar icono y descripción -->
+							<Icon
+								:name="icono"
+								size="27px"
+								class="m-1 rounded-md border p-1 shadow-md"></Icon>
+						</span>
 					</div>
 				</div>
 			</div>
@@ -121,7 +130,7 @@ interface BibliotecaItem {
 	titulo: string
 	tipo: string
 	descripcion: string
-	icono: string
+	iconos: string
 	fecha: string
 	image: string
 }

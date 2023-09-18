@@ -6,37 +6,27 @@ export const useBibliotecaStore = defineStore({
 	state: () => ({
 		items: [
 			{
+				titulo: 'API Portafolio',
+				tipo: 'back-end',
+				descripcion: 'Api Restful para el portafolio',
+				iconos: [
+					'logos:vue',
+					'logos:nuxt-icon',
+					'logos:tailwindcss-icon',
+					'logos:nodejs',
+				],
+				fecha: '2023-09-03',
+				image: '/images/backend-nest.png',
+			},
+			{
 				titulo: 'Portafolio',
 				tipo: 'front-end',
-				descripcion: 'Descripción del recurso',
-				icono: 'url_del_icono',
+				descripcion: 'Portafolio web',
+				iconos: ['logos:nodejs', 'logos:nextjs-icon'],
 				fecha: '2023-09-03',
-				image: 'not image',
+				image: '/images/portafolio.png',
 			},
-			{
-				titulo: 'API Portafolio',
-				tipo: 'back-end',
-				descripcion: 'Descripción del recurso',
-				icono: 'url_del_icono',
-				fecha: '2023-09-03',
-				image: 'not image',
-			},
-			{
-				titulo: 'API Portafolio',
-				tipo: 'back-end',
-				descripcion: 'Descripción del recurso',
-				icono: 'url_del_icono',
-				fecha: '2023-09-03',
-				image: 'not image',
-			},
-			{
-				titulo: 'API Portafolio',
-				tipo: 'back-end',
-				descripcion: 'Descripción del recurso',
-				icono: 'url_del_icono',
-				fecha: '2023-09-03',
-				image: 'not image',
-			},
+
 			// ... otros recursos
 		],
 	}),
