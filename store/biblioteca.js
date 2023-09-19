@@ -17,6 +17,7 @@ export const useBibliotecaStore = defineStore({
 				],
 				fecha: '2023-09-03',
 				image: '/images/backend-nest.png',
+				url: 'client-api',
 			},
 			{
 				titulo: 'Portafolio',
@@ -25,6 +26,7 @@ export const useBibliotecaStore = defineStore({
 				iconos: ['logos:nodejs', 'logos:nextjs-icon'],
 				fecha: '2023-09-03',
 				image: '/images/portafolio.png',
+				url: '/biblioteca',
 			},
 
 			// ... otros recursos

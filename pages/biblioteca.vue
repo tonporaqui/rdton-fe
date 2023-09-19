@@ -87,26 +87,28 @@
 						v-for="item in filteredItems"
 						:key="item.titulo"
 						class="rounded-lg bg-light-bg100 p-4 shadow-md transition-transform hover:scale-105 dark:bg-dark-bg100">
-						<img
-							:src="item.image"
-							alt="Image"
-							class="mb-2 h-48 w-full rounded object-cover"
-							quality="80"
-							sizes="70px" />
-						<h2
-							class="text-lg font-semibold text-light-text100 dark:text-dark-text100">
-							{{ item.titulo }}
-						</h2>
-						<p class="text-sm text-light-text200 dark:text-dark-text200">
-							{{ item.descripcion }}
-						</p>
-						<span v-for="(icono, iconIndex) in item.iconos" :key="iconIndex">
-							<!-- Mostrar icono y descripción -->
-							<Icon
-								:name="icono"
-								size="27px"
-								class="m-1 rounded-md border p-1 shadow-md"></Icon>
-						</span>
+						<NuxtLink :to="item.url">
+							<img
+								:src="item.image"
+								alt="Image"
+								class="mb-2 h-48 w-full rounded object-cover"
+								quality="80"
+								sizes="70px" />
+							<h2
+								class="text-lg font-semibold text-light-text100 dark:text-dark-text100">
+								{{ item.titulo }}
+							</h2>
+							<p class="text-sm text-light-text200 dark:text-dark-text200">
+								{{ item.descripcion }}
+							</p>
+							<span v-for="(icono, iconIndex) in item.iconos" :key="iconIndex">
+								<!-- Mostrar icono y descripción -->
+								<Icon
+									:name="icono"
+									size="27px"
+									class="m-1 rounded-md border p-1 shadow-md"></Icon>
+							</span>
+						</NuxtLink>
 					</div>
 				</div>
 			</div>
@@ -133,6 +135,7 @@ interface BibliotecaItem {
 	iconos: string
 	fecha: string
 	image: string
+	url: string
 }
 
 const filteredItems = computed(() => {
