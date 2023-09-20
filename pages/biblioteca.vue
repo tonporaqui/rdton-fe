@@ -47,7 +47,7 @@
 				<div class="mb-4 flex items-center">
 					<!-- Icono de búsqueda e Input -->
 					<div
-						class="relative ml-2 flex items-center rounded border border-light-accent200 dark:border-dark-accent100">
+						class="relative flex items-center rounded border border-light-accent200 dark:border-dark-accent100">
 						<Icon
 							name="mdi:magnify"
 							size="27px"
@@ -55,7 +55,7 @@
 						<input
 							v-model="search"
 							placeholder="Buscar..."
-							class="ml-2 mr-1 w-full appearance-none bg-light-bg200 p-2 focus:border-light-accent100 focus:bg-light-bg100 focus:outline-none dark:bg-dark-bg200 dark:focus:bg-dark-bg100" />
+							class="ml-2 w-full appearance-none rounded bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:bg-dark-bg100 dark:focus:bg-dark-bg200" />
 					</div>
 					<!-- Icono desplegable -->
 					<div class="relative ml-2 flex items-center">
@@ -145,7 +145,9 @@ const filteredItems = computed(() => {
 	}
 
 	if (search.value) {
-		items = items.filter((item) => item.titulo.includes(search.value))
+		items = items.filter((item) =>
+			item.titulo.toLowerCase().includes(search.value.toLowerCase()),
+		)
 	}
 
 	return sortOrder.value === 'desc'
