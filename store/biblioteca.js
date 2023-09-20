@@ -9,12 +9,8 @@ export const useBibliotecaStore = defineStore({
 				titulo: 'API Portafolio',
 				tipo: 'back-end',
 				descripcion: 'Api Restful para el portafolio',
-				iconos: [
-					'logos:vue',
-					'logos:nuxt-icon',
-					'logos:tailwindcss-icon',
-					'logos:nodejs',
-				],
+				iconos: ['logos:nodejs', 'logos:nextjs-icon'],
+
 				fecha: '2023-09-03',
 				image: '/images/backend-nest.png',
 				url: 'client-api',
@@ -23,7 +19,12 @@ export const useBibliotecaStore = defineStore({
 				titulo: 'Portafolio',
 				tipo: 'front-end',
 				descripcion: 'Portafolio web',
-				iconos: ['logos:nodejs', 'logos:nextjs-icon'],
+				iconos: [
+					'logos:vue',
+					'logos:nuxt-icon',
+					'logos:tailwindcss-icon',
+					'logos:nodejs',
+				],
 				fecha: '2023-09-03',
 				image: '/images/portafolio.png',
 				url: '/biblioteca',
