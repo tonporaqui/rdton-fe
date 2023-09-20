@@ -49,5 +49,12 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require('tailwind-scrollbar'), require('tailwindcss-animated')],
+	plugins: [
+		require('tailwind-scrollbar'),
+		require('tailwindcss-animated'),
+		require('@tailwindcss/typography'),
+		require('@tailwindcss/forms'),
+		require('@tailwindcss/aspect-ratio'),
+		require('@tailwindcss/container-queries'),
+	],
 }
