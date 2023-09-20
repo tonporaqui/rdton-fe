@@ -78,7 +78,7 @@ interface User {
 const data = ref<User[]>([])
 
 onMounted(async () => {
-	await $fetch('http://localhost:3001/users')
+	await $fetch('https://rdton-be.vercel.app/')
 		.then((res) => {
 			data.value = res as User[]
 		})

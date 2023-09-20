@@ -12,8 +12,12 @@ module.exports = {
 	],
 	theme: {
 		extend: {
-			animation: { shine: 'shine 1s' },
-			keyframes: { shine: { '100%': { left: '125%' } } },
+			animation: {
+				shine: 'shine 1s',
+			},
+			keyframes: {
+				shine: { '100%': { left: '125%' } },
+			},
 			colors: {
 				dark: {
 					primary100: '#FFD700',

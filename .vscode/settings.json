@@ -1,4 +1,7 @@
 {
+	"[vue]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
 	"breadcrumbs.symbolPath": "on",
 	"breadcrumbs.symbolSortOrder": "position",
 	"css.customData": [".vscode/tailwind.json"],
@@ -40,7 +43,7 @@
 		["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
 		["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
 	],
-	"tailwindCSS.experimental.configFile": "tailwind.config.js",
+	"tailwindCSS.experimental.configFile": "tailwind.config.ts",
 	"tailwindCSS.includeLanguages": {
 		"css": "css",
 		"html": "html",

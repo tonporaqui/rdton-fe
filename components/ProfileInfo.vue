@@ -11,8 +11,9 @@
 			<div class="space-y-4 pt-6 text-center md:p-8 md:text-left">
 				<blockquote>
 					<p
+						ref="descriptionParagraph"
 						class="text-sm font-medium text-light-text200 dark:text-dark-text100">
-						{{ description }}
+						<!-- El contenido de 'description' se añadirá aquí a través de JavaScript -->
 					</p>
 				</blockquote>
 				<figcaption>
@@ -29,9 +30,35 @@
 		</figure>
 	</div>
 </template>
+
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
+
 const nombre = titleNameGlobal().value.miNombre
 const tituloUniersitario = titleNameGlobal().value.miTituloUniversitario
 const description = titleNameGlobal().value.miDescripcion
+
+const descriptionParagraph = ref<HTMLElement | null>(null)
+onMounted(() => {
+	const content = description
+	const ele = content
+		.split('')
+		.map((char) => `<span style="display: inline; opacity: 0;">${char}</span>`)
+		.join('')
+
+	if (descriptionParagraph.value) {
+		descriptionParagraph.value.innerHTML = ele
+
+		const spans = descriptionParagraph.value.querySelectorAll('span')
+		spans.forEach((span, i) => {
+			setTimeout(() => {
+				span.style.opacity = '1'
+			}, 70 * i)
+		})
+	}
+})
 </script>
-<style lang=""></style>
+
+<style lang="css">
+/* Aquí puedes añadir estilos adicionales si es necesario */
+</style>
