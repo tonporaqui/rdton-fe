@@ -16,30 +16,78 @@
 						: 'Eliminar Usuario'
 				}}
 			</h2>
-			<form v-if="actionType !== 'delete'" @submit.prevent="confirmAction">
-				<!-- Campos del formulario para crear/editar (v-model con userData) -->
-				<!-- ... -->
-				<button
-					type="submit"
-					class="text-light-accent200 dark:text-dark-accent200">
-					Aceptar
-				</button>
+			<form
+				v-if="actionType !== 'delete'"
+				class="w-full max-w-sm"
+				@submit.prevent="confirmAction">
+				<div class="mb-6 md:flex md:items-center">
+					<div class="md:w-1/3">
+						<label
+							class="mb-1 block pr-4 font-bold text-gray-500 md:mb-0 md:text-right"
+							for="inline-full-name">
+							Nombre
+						</label>
+					</div>
+					<div class="md:w-2/3">
+						<input
+							id="inline-full-name"
+							class="w-full appearance-none rounded bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:bg-dark-bg100 dark:focus:bg-dark-bg200"
+							type="text" />
+					</div>
+				</div>
+				<div class="mb-6 md:flex md:items-center">
+					<div class="md:w-1/3">
+						<label
+							class="mb-1 block pr-4 font-bold text-gray-500 md:mb-0 md:text-right"
+							for="inline-full-name">
+							Apellido Paterno
+						</label>
+					</div>
+					<div class="md:w-2/3">
+						<input
+							id="inline-full-name"
+							class="w-full appearance-none rounded bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:bg-dark-bg100 dark:focus:bg-dark-bg200"
+							type="text" />
+					</div>
+				</div>
+				<div class="mb-6 md:flex md:items-center">
+					<div class="md:w-1/3">
+						<label
+							class="mb-1 block pr-4 font-bold text-gray-500 md:mb-0 md:text-right"
+							for="inline-full-name">
+							Apellido Materno
+						</label>
+					</div>
+					<div class="md:w-2/3">
+						<input
+							id="inline-full-name"
+							class="w-full appearance-none rounded bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:bg-dark-bg100 dark:focus:bg-dark-bg200"
+							type="text" />
+					</div>
+				</div>
+				<div class="flex items-center justify-between">
+					<button
+						class="rounded border border-light-accent200 px-4 py-2 text-light-accent200 hover:border-light-accent100 hover:text-light-accent100 dark:border-dark-accent100 dark:bg-dark-bg100 dark:text-dark-primary100 dark:hover:bg-dark-bg200"
+						type="submit">
+						Aceptar
+					</button>
+					<div
+						v-if="actionType === 'delete'"
+						class="text-light-text200 dark:text-dark-text100">
+						<p>¿Estás seguro de que deseas eliminar a este usuario?</p>
+						<button
+							class="text-light-accent200 dark:text-dark-accent200"
+							@click="confirmAction">
+							Aceptar
+						</button>
+					</div>
+					<button
+						class="text-light-accent200 dark:text-dark-accent200"
+						@click="closeWithAnimation">
+						Cancelar
+					</button>
+				</div>
 			</form>
-			<div
-				v-if="actionType === 'delete'"
-				class="text-light-text200 dark:text-dark-text100">
-				<p>¿Estás seguro de que deseas eliminar a este usuario?</p>
-				<button
-					class="text-light-accent200 dark:text-dark-accent200"
-					@click="confirmAction">
-					Aceptar
-				</button>
-			</div>
-			<button
-				class="text-light-accent200 dark:text-dark-accent200"
-				@click="closeWithAnimation">
-				Cancelar
-			</button>
 		</div>
 	</div>
 </template>
