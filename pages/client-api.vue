@@ -18,7 +18,7 @@
 						<input
 							v-model="searchText"
 							placeholder="Buscar..."
-							class="ml-2 w-full appearance-none rounded bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:bg-dark-bg100 dark:focus:bg-dark-bg200" />
+							class="ml-2 w-full appearance-none rounded border-0 bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:bg-dark-bg100 dark:focus:bg-dark-bg200" />
 					</div>
 					<!-- boton crear -->
 					<button
@@ -157,7 +157,3 @@ const deleteUser = (id: string) => {
 	openModal('delete', user)
 }
 </script>
-
-<style>
-/* Aquí puedes agregar estilos adicionales si es necesario */
-</style>

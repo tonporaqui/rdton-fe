@@ -32,7 +32,7 @@
 						<input
 							id="name"
 							name="name"
-							class="w-full appearance-none rounded bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:bg-dark-bg100 dark:focus:bg-dark-bg200"
+							class="w-full appearance-none rounded border-light-accent200 bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:border-dark-accent100 dark:bg-dark-bg100 dark:focus:bg-dark-bg200"
 							type="text"
 							v-bind="name"
 							autocomplete="off" />
@@ -53,7 +53,7 @@
 						<input
 							id="firstName"
 							name="firstName"
-							class="w-full appearance-none rounded bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:bg-dark-bg100 dark:focus:bg-dark-bg200"
+							class="w-full appearance-none rounded border-light-accent200 bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:border-dark-accent100 dark:bg-dark-bg100 dark:focus:bg-dark-bg200"
 							type="text"
 							v-bind="firstName"
 							autocomplete="off" />
@@ -72,7 +72,7 @@
 						<input
 							id="lastName"
 							name="lastName"
-							class="w-full appearance-none rounded bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:bg-dark-bg100 dark:focus:bg-dark-bg200"
+							class="w-full appearance-none rounded border-light-accent200 bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:border-dark-accent100 dark:bg-dark-bg100 dark:focus:bg-dark-bg200"
 							type="text"
 							v-bind="lastName"
 							autocomplete="off" />
@@ -137,7 +137,6 @@ const lastName = defineInputBinds('lastName')
 // Submit handler
 const onSubmit = handleSubmit((userData) => {
 	// Submit to API
-	console.log(userData)
 	isAnimatingOut.value = true
 	setTimeout(() => {
 		emits('confirm', userData)
@@ -155,7 +154,3 @@ const closeWithAnimation = () => {
 	}, 1000) // Ajusta este valor al tiempo de duración de la animación de salida
 }
 </script>
-
-<style>
-/* Estilos para el modal */
-</style>
