@@ -34,7 +34,11 @@
 							name="name"
 							class="w-full appearance-none rounded bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:bg-dark-bg100 dark:focus:bg-dark-bg200"
 							type="text"
-							v-bind="name" /><span>{{ errors.name }}</span>
+							v-bind="name"
+							autocomplete="off" />
+						<span v-if="errors.name" class="text-red-600"
+							>⛔️{{ errors.name }}</span
+						>
 					</div>
 				</div>
 				<div class="mb-6 md:flex md:items-center">
@@ -51,7 +55,8 @@
 							name="firstName"
 							class="w-full appearance-none rounded bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:bg-dark-bg100 dark:focus:bg-dark-bg200"
 							type="text"
-							v-bind="firstName" />
+							v-bind="firstName"
+							autocomplete="off" />
 						<span>{{ errors.firstName }}</span>
 					</div>
 				</div>
@@ -69,7 +74,9 @@
 							name="lastName"
 							class="w-full appearance-none rounded bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:bg-dark-bg100 dark:focus:bg-dark-bg200"
 							type="text"
-							v-bind="lastName" /><span>{{ errors.lastName }}</span>
+							v-bind="lastName"
+							autocomplete="off" />
+						<span>{{ errors.lastName }}</span>
 					</div>
 				</div>
 				<div class="flex items-center justify-between">
@@ -96,36 +103,7 @@
 <script setup lang="ts">
 import { User } from '@/types/User'
 import { useForm } from 'vee-validate'
-
-// Validation, or use `yup` or `zod`
-function required(value: any) {
-	return value ? true : 'This field is required'
-}
-
-// Create the form
-const { defineInputBinds, handleSubmit, errors } = useForm({
-	validationSchema: {
-		name: required,
-		firstName: required,
-		lastName: required,
-	},
-})
-
-// Define fields
-const name = defineInputBinds('name')
-const firstName = defineInputBinds('firstName')
-const lastName = defineInputBinds('lastName')
-
-// Submit handler
-const onSubmit = handleSubmit((values) => {
-	// Submit to API
-	console.log(values)
-	isAnimatingOut.value = true
-	setTimeout(() => {
-		emits('confirm', values)
-		isAnimatingOut.value = false
-	}, 1000)
-})
+import { object, string } from 'yup'
 
 interface Props {
 	isOpen: boolean
@@ -135,15 +113,45 @@ interface Props {
 
 const isAnimatingOut = ref(false)
 
-const { isOpen, actionType, userData } = defineProps<Props>()
+const { isOpen, actionType } = defineProps<Props>()
 
 const emits = defineEmits(['confirm', 'close'])
+
+// Create the form
+const { defineInputBinds, handleSubmit, errors, resetForm } = useForm({
+	validationSchema: object({
+		name: string()
+			.required('Nombre requerido')
+			.min(3, 'Minimo 3 caracteres')
+			.matches(/^[a-zA-Z\s]*$/, 'Solo se permiten letras'),
+		firstName: string(),
+		lastName: string(),
+	}),
+})
+
+// Define fields
+const name = defineInputBinds('name')
+const firstName = defineInputBinds('firstName')
+const lastName = defineInputBinds('lastName')
+
+// Submit handler
+const onSubmit = handleSubmit((userData) => {
+	// Submit to API
+	console.log(userData)
+	isAnimatingOut.value = true
+	setTimeout(() => {
+		emits('confirm', userData)
+		isAnimatingOut.value = false
+		resetForm()
+	}, 1000)
+})
 
 const closeWithAnimation = () => {
 	isAnimatingOut.value = true
 	setTimeout(() => {
 		emits('close')
 		isAnimatingOut.value = false
+		resetForm()
 	}, 1000) // Ajusta este valor al tiempo de duración de la animación de salida
 }
 </script>
