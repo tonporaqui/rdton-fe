@@ -3,6 +3,7 @@
 		"@heroicons/vue": "^2.0.18",
 		"@pinia/nuxt": "^0.4.11",
 		"@vee-validate/nuxt": "^4.11.6",
+		"@vee-validate/yup": "^4.11.6",
 		"aos": "^2.3.4",
 		"nuxt-icon": "^0.5.0",
 		"vee-validate": "^4.11.6",
