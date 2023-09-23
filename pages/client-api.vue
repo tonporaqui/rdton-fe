@@ -111,7 +111,7 @@ const modalActionType = ref('')
 const modalUserData = ref<User | null>(null)
 
 const filteredData = computed(() => {
-	return data.value.filter((user) =>
+	return data.value.filter((user: { name: string }) =>
 		user.name.toLowerCase().includes(searchText.value.toLowerCase()),
 	)
 })
@@ -148,12 +148,12 @@ const createUser = () => {
 }
 
 const editUser = (id: string) => {
-	const user = data.value.find((user) => user.id === id)
+	const user = data.value.find((user: { id: string }) => user.id === id)
 	openModal('edit', user)
 }
 
 const deleteUser = (id: string) => {
-	const user = data.value.find((user) => user.id === id)
+	const user = data.value.find((user: { id: string }) => user.id === id)
 	openModal('delete', user)
 }
 </script>
