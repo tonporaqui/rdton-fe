@@ -16,6 +16,7 @@
 							size="27px"
 							class="ml-2 h-6 w-6 font-semibold text-light-accent200 hover:text-light-accent100 dark:text-dark-primary100 dark:hover:text-dark-text200" />
 						<input
+							id="buscar-client-api"
 							v-model="searchText"
 							placeholder="Buscar..."
 							class="ml-2 w-full appearance-none rounded border-0 bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:bg-dark-bg100 dark:focus:bg-dark-bg200" />
