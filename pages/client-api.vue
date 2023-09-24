@@ -117,7 +117,7 @@ const filteredData = computed(() => {
 })
 
 onMounted(async () => {
-	await $fetch('https://rdton-be.vercel.app/users')
+	await $fetch('http://localhost:3001/users')
 		.then((res) => {
 			data.value = res as User[]
 		})

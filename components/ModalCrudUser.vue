@@ -122,10 +122,16 @@ const { defineInputBinds, handleSubmit, errors, resetForm } = useForm({
 	validationSchema: object({
 		name: string()
 			.required('Nombre requerido')
-			.min(3, 'Minimo 3 caracteres')
+			.min(4, 'Minimo 4 caracteres')
 			.matches(/^[a-zA-Z\s]*$/, 'Solo se permiten letras'),
-		firstName: string(),
-		lastName: string(),
+		firstName: string()
+			.required('Primer Apellido requerido')
+			.min(4, 'Minimo 4 caracteres')
+			.matches(/^[a-zA-Z\s]*$/, 'Solo se permiten letras'),
+		lastName: string()
+			.required('Segundo Apellido requerido')
+			.min(4, 'Minimo 4 caracteres')
+			.matches(/^[a-zA-Z\s]*$/, 'Solo se permiten letras'),
 	}),
 })
 
