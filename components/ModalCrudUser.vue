@@ -18,9 +18,26 @@ const props = defineProps({
 		default: null,
 	},
 })
+const editNew = ref<User | null>(null)
 
-const editNew = computed(() => props.userData)
-console.log(editNew.value?.name)
+watch(
+	() => props.userData,
+	(newValue) => {
+		// Actualizar editNew con el nuevo valor de props.userData
+		editNew.value = newValue
+		console.log(newValue?.name + ' aca el nuevo dato ')
+	},
+	{ deep: true },
+)
+// const editNew = computed(() => props.userData)
+// console.log(editNew.value?.name + ' viendo esto ??? ')
+watch(
+	() => editNew.value,
+	(newValue) => {
+		console.log(newValue?.name + ' viendo esto ??? ')
+	},
+	{ deep: true },
+)
 
 const emits = defineEmits(['confirm', 'close'])
 
@@ -41,18 +58,32 @@ const validationSchema = object({
 
 const { handleSubmit, defineInputBinds, errors, resetForm } = useForm({
 	validationSchema,
-	initialValues: editNew.value
-		? {
-				name: editNew.value.name,
-				first_name: editNew.value.first_name,
-				last_name: editNew.value.last_name,
-		  }
-		: {
-				name: '',
-				first_name: '',
-				last_name: '',
-		  },
+	initialValues: {
+		name: '',
+		first_name: '',
+		last_name: '',
+	},
 })
+
+watch(
+	() => editNew.value,
+	(newValue) => {
+		resetForm({
+			values: newValue
+				? {
+						name: newValue.name,
+						first_name: newValue.first_name,
+						last_name: newValue.last_name,
+				  }
+				: {
+						name: '',
+						first_name: '',
+						last_name: '',
+				  },
+		})
+	},
+	{ deep: true },
+)
 
 const name = defineInputBinds('name')
 const first_name = defineInputBinds('first_name')
@@ -66,6 +97,7 @@ const onSubmit = handleSubmit((values) => {
 
 const close = () => {
 	emits('close')
+	resetForm()
 }
 </script>
 
@@ -157,6 +189,7 @@ const close = () => {
 					</button>
 					<button
 						class="text-light-accent200 dark:text-dark-accent200"
+						type="button"
 						@click="close">
 						Cancelar
 					</button>
