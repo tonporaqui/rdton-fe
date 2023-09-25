@@ -23,8 +23,11 @@
 	"editor.guides.bracketPairs": true,
 	"editor.guides.bracketPairsHorizontal": true,
 	"editor.linkedEditing": true,
-	"editor.minimap.autohide": true,
+	"editor.minimap.autohide": false,
 	"editor.minimap.maxColumn": 60,
+	"editor.minimap.scale": 1,
+	"editor.minimap.side": "right",
+	"editor.minimap.size": "fit",
 	"editor.quickSuggestions": {
 		"strings": true
 	},

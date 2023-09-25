@@ -1,3 +1,51 @@
+<script lang="ts" setup>
+import { User } from '@/types/User'
+import { useForm } from 'vee-validate'
+import { defineEmits, defineProps } from 'vue'
+import { object, string } from 'yup'
+
+const props = defineProps<{
+	isOpen: boolean
+	actionType: string
+	userData: PropType<User | null>
+}>()
+const edit = ref(props.actionType)
+console.log(edit.value)
+const emits = defineEmits(['confirm', 'close'])
+
+const validationSchema = object({
+	name: string()
+		.required('Nombre requerido')
+		.min(4, 'Minimo 4 caracteres')
+		.matches(/^[a-zA-Z\s]*$/, 'Solo se permiten letras'),
+	first_name: string()
+		.required('Primer Apellido requerido')
+		.min(4, 'Minimo 4 caracteres')
+		.matches(/^[a-zA-Z\s]*$/, 'Solo se permiten letras'),
+	last_name: string()
+		.required('Segundo Apellido requerido')
+		.min(4, 'Minimo 4 caracteres')
+		.matches(/^[a-zA-Z\s]*$/, 'Solo se permiten letras'),
+})
+
+const { handleSubmit, defineInputBinds, errors, resetForm } = useForm({
+	validationSchema,
+})
+const name = defineInputBinds('name')
+const first_name = defineInputBinds('first_name')
+const last_name = defineInputBinds('last_name')
+
+const onSubmit = handleSubmit((values) => {
+	console.log(values)
+	emits('confirm', values)
+	resetForm()
+})
+
+const close = () => {
+	emits('close')
+}
+</script>
+
 <template>
 	<div
 		v-show="isOpen"
@@ -13,7 +61,7 @@
 				}}
 			</h2>
 			<form
-				v-if="actionType === 'create'"
+				v-if="actionType === 'create' || actionType === 'edit'"
 				class="w-full max-w-sm"
 				@submit="onSubmit">
 				<div class="mb-6 md:flex md:items-center">
@@ -41,20 +89,20 @@
 					<div class="md:w-1/3">
 						<label
 							class="mb-1 block pr-4 font-bold text-gray-500 md:mb-0 md:text-right"
-							for="first-name">
+							for="first_Name">
 							Apellido Paterno
 						</label>
 					</div>
 					<div class="md:w-2/3">
 						<input
-							id="first-name"
-							v-bind="firstName"
+							id="first_Name"
+							v-bind="first_name"
 							name="firstName"
 							class="w-full appearance-none rounded border-light-accent200 bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:border-dark-accent100 dark:bg-dark-bg100 dark:focus:bg-dark-bg200"
 							type="text"
 							autocomplete="off" />
-						<span v-if="errors.firstName" class="text-red-600">
-							⛔️{{ errors.firstName }}
+						<span v-if="errors.first_name" class="text-red-600">
+							⛔️{{ errors.first_name }}
 						</span>
 					</div>
 				</div>
@@ -62,20 +110,20 @@
 					<div class="md:w-1/3">
 						<label
 							class="mb-1 block pr-4 font-bold text-gray-500 md:mb-0 md:text-right"
-							for="last-name">
+							for="last_Name">
 							Apellido Materno
 						</label>
 					</div>
 					<div class="md:w-2/3">
 						<input
-							id="last-name"
-							v-bind="lastName"
+							id="last_Name"
+							v-bind="last_name"
 							name="lastName"
 							class="w-full appearance-none rounded border-light-accent200 bg-light-bg200 p-2 text-light-bg100 focus:border-light-accent100 focus:bg-light-bg300 focus:text-light-bg100 focus:outline-none dark:border-dark-accent100 dark:bg-dark-bg100 dark:focus:bg-dark-bg200"
 							type="text"
 							autocomplete="off" />
-						<span v-if="errors.lastName" class="text-red-600">
-							⛔️{{ errors.lastName }}
+						<span v-if="errors.last_name" class="text-red-600">
+							⛔️{{ errors.last_name }}
 						</span>
 					</div>
 				</div>
@@ -95,51 +143,4 @@
 	</div>
 </template>
 
-<script setup lang="ts">
-import { User } from '@/types/User'
-import { useForm } from 'vee-validate'
-import { defineEmits, defineProps } from 'vue'
-import { object, string } from 'yup'
-
-interface Props {
-	isOpen: boolean
-	actionType: string
-	userData?: User | null
-}
-
-const props = defineProps<Props>()
-console.log(props.userData)
-const emits = defineEmits(['confirm', 'close'])
-
-const validationSchema = object({
-	name: string()
-		.required('Nombre requerido')
-		.min(4, 'Minimo 4 caracteres')
-		.matches(/^[a-zA-Z\s]*$/, 'Solo se permiten letras'),
-	firstName: string()
-		.required('Primer Apellido requerido')
-		.min(4, 'Minimo 4 caracteres')
-		.matches(/^[a-zA-Z\s]*$/, 'Solo se permiten letras'),
-	lastName: string()
-		.required('Segundo Apellido requerido')
-		.min(4, 'Minimo 4 caracteres')
-		.matches(/^[a-zA-Z\s]*$/, 'Solo se permiten letras'),
-})
-
-const { handleSubmit, defineInputBinds, errors, resetForm } = useForm({
-	validationSchema,
-})
-const name = defineInputBinds('name')
-const firstName = defineInputBinds('firstName')
-const lastName = defineInputBinds('lastName')
-
-const onSubmit = handleSubmit((values) => {
-	console.log(values)
-	// emits('confirm', values)
-	resetForm()
-})
-
-const close = () => {
-	emits('close')
-}
-</script>
+<style scoped></style>
