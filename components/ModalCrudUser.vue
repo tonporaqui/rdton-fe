@@ -1,16 +1,26 @@
 <script lang="ts" setup>
 import { User } from '@/types/User'
 import { useForm } from 'vee-validate'
-import { defineEmits, defineProps } from 'vue'
+import { defineEmits, defineProps, PropType } from 'vue'
 import { object, string } from 'yup'
 
-const props = defineProps<{
-	isOpen: boolean
-	actionType: string
-	userData: PropType<User | null>
-}>()
-const edit = ref(props.actionType)
-console.log(edit.value)
+const props = defineProps({
+	isOpen: {
+		type: Boolean,
+		required: true,
+	},
+	actionType: {
+		type: String,
+		required: true,
+	},
+	userData: {
+		type: Object as PropType<User | null>,
+		default: null,
+	},
+})
+
+const editNew = computed(() => props.userData)
+
 const emits = defineEmits(['confirm', 'close'])
 
 const validationSchema = object({
@@ -30,6 +40,17 @@ const validationSchema = object({
 
 const { handleSubmit, defineInputBinds, errors, resetForm } = useForm({
 	validationSchema,
+	initialValues: editNew.value
+		? {
+				name: editNew.value.name,
+				first_name: editNew.value.first_name,
+				last_name: editNew.value.last_name,
+		  }
+		: {
+				name: '',
+				first_name: '',
+				last_name: '',
+		  },
 })
 const name = defineInputBinds('name')
 const first_name = defineInputBinds('first_name')
@@ -37,7 +58,7 @@ const last_name = defineInputBinds('last_name')
 
 const onSubmit = handleSubmit((values) => {
 	console.log(values)
-	emits('confirm', values)
+	// emits('confirm', values)
 	resetForm()
 })
 
