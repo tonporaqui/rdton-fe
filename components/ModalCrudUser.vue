@@ -189,7 +189,6 @@ const close = () => {
 					</button>
 					<button
 						class="text-light-accent200 dark:text-dark-accent200"
-						type="button"
 						@click="close">
 						Cancelar
 					</button>
