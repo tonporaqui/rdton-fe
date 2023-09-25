@@ -20,6 +20,7 @@ const props = defineProps({
 })
 
 const editNew = computed(() => props.userData)
+console.log(editNew.value?.name)
 
 const emits = defineEmits(['confirm', 'close'])
 
@@ -52,13 +53,14 @@ const { handleSubmit, defineInputBinds, errors, resetForm } = useForm({
 				last_name: '',
 		  },
 })
+
 const name = defineInputBinds('name')
 const first_name = defineInputBinds('first_name')
 const last_name = defineInputBinds('last_name')
 
 const onSubmit = handleSubmit((values) => {
 	console.log(values)
-	// emits('confirm', values)
+	emits('confirm', values)
 	resetForm()
 })
 

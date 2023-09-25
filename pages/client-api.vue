@@ -1,3 +1,91 @@
+<script setup lang="ts">
+import ModalCrudUser from '@/components/ModalCrudUser.vue'
+import { User } from '@/types/User'
+
+const data = ref<User[]>([])
+const loading = ref(true)
+const searchText = ref('')
+const isModalOpen = ref(false)
+const modalActionType = ref('')
+const modalUserData = ref<User | null>(null)
+
+const filteredData = computed(() => {
+	return data.value.filter((user: { name: string }) =>
+		user.name.toLowerCase().includes(searchText.value.toLowerCase()),
+	)
+})
+
+onMounted(async () => {
+	await $fetch('http://localhost:3001/users')
+		.then((res) => {
+			data.value = res as User[]
+		})
+		.catch((error) => console.error('Error fetching data:', error))
+		.finally(() => {
+			loading.value = false
+		})
+})
+
+const closeModal = () => {
+	isModalOpen.value = false
+}
+
+const openModal = (actionType: string, userData: User | null = null) => {
+	modalActionType.value = actionType
+	modalUserData.value = userData
+	isModalOpen.value = true
+}
+
+const confirmModalAction = async (userData: User) => {
+	// Preparar el objeto de datos para enviar en la solicitud
+	const postData = {
+		id: 'asignado', // Este valor será asignado por la API, no es necesario cambiarlo
+		name: userData.name,
+		first_name: userData.first_name || '', // Si firstName no está disponible, enviar una cadena vacía
+		last_name: userData.last_name || '', // Si lastName no está disponible, enviar una cadena vacía
+		status: 'CREATE',
+		date_create: new Date().toISOString().slice(0, 19).replace('T', ' '), // Formatear la fecha y hora actual al formato requerido
+		password: '123456782', // Valor fijo, como se mencionó en los comentarios
+	}
+
+	fetch('http://localhost:3001/users', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(postData),
+	})
+		.then(async (response: Response) => {
+			if (response.ok) {
+				const responseData = await response.json()
+				console.log('User created successfully:', responseData)
+				data.value.push(responseData)
+			} else {
+				console.error('Error creating user:', response.statusText)
+			}
+		})
+		.catch((error) => {
+			console.error('Error creating user:', error)
+		})
+		.finally(() => {
+			closeModal()
+		})
+}
+
+const createUser = () => {
+	openModal('create')
+}
+
+const editUser = (id: string) => {
+	const user = data.value.find((user: { id: string }) => user.id === id)
+	openModal('edit', user)
+}
+
+const deleteUser = (id: string) => {
+	const user = data.value.find((user: { id: string }) => user.id === id)
+	openModal('delete', user)
+}
+</script>
 <template>
 	<section class="min-h-screen bg-light-bg200 py-8 dark:bg-dark-bg100">
 		<div class="container mx-auto flex justify-center gap-8">
@@ -89,102 +177,13 @@
 					</table>
 				</div>
 			</div>
+			<!-- Modal Component -->
+			<ModalCrudUser
+				:is-open="isModalOpen"
+				:action-type="modalActionType"
+				:user-data="modalUserData"
+				@close="closeModal"
+				@confirm="confirmModalAction" />
 		</div>
-		<!-- Modal Component -->
-		<ModalCrudUser
-			:is-open="isModalOpen"
-			:action-type="modalActionType"
-			:user-data="modalUserData"
-			@close="closeModal"
-			@confirm="confirmModalAction" />
 	</section>
 </template>
-
-<script setup lang="ts">
-import ModalCrudUser from '@/components/ModalCrudUser.vue'
-import { User } from '@/types/User'
-
-const data = ref<User[]>([])
-const loading = ref(true)
-const searchText = ref('')
-const isModalOpen = ref(false)
-const modalActionType = ref('')
-const modalUserData = ref<User | null>(null)
-
-const filteredData = computed(() => {
-	return data.value.filter((user: { name: string }) =>
-		user.name.toLowerCase().includes(searchText.value.toLowerCase()),
-	)
-})
-
-onMounted(async () => {
-	await $fetch('http://localhost:3001/users')
-		.then((res) => {
-			data.value = res as User[]
-		})
-		.catch((error) => console.error('Error fetching data:', error))
-		.finally(() => {
-			loading.value = false
-		})
-})
-
-const closeModal = () => {
-	isModalOpen.value = false
-}
-
-const openModal = (actionType: string, userData: User | null = null) => {
-	modalActionType.value = actionType
-	modalUserData.value = userData
-	isModalOpen.value = true
-}
-
-const confirmModalAction = async (userData: User) => {
-	// Preparar el objeto de datos para enviar en la solicitud
-	const postData = {
-		id: 'asignado', // Este valor será asignado por la API, no es necesario cambiarlo
-		name: userData.name,
-		first_name: userData.first_name || '', // Si firstName no está disponible, enviar una cadena vacía
-		last_name: userData.last_name || '', // Si lastName no está disponible, enviar una cadena vacía
-		status: 'CREATE',
-		date_create: new Date().toISOString().slice(0, 19).replace('T', ' '), // Formatear la fecha y hora actual al formato requerido
-		password: '123456782', // Valor fijo, como se mencionó en los comentarios
-	}
-
-	fetch('http://localhost:3001/users', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify(postData),
-	})
-		.then(async (response: Response) => {
-			if (response.ok) {
-				const responseData = await response.json()
-				console.log('User created successfully:', responseData)
-				data.value.push(responseData)
-			} else {
-				console.error('Error creating user:', response.statusText)
-			}
-		})
-		.catch((error) => {
-			console.error('Error creating user:', error)
-		})
-		.finally(() => {
-			closeModal()
-		})
-}
-
-const createUser = () => {
-	openModal('create')
-}
-
-const editUser = (id: string) => {
-	const user = data.value.find((user: { id: string }) => user.id === id)
-	openModal('edit', user)
-}
-
-const deleteUser = (id: string) => {
-	const user = data.value.find((user: { id: string }) => user.id === id)
-	openModal('delete', user)
-}
-</script>
