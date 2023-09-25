@@ -25,7 +25,9 @@ watch(
 	(newValue) => {
 		// Actualizar editNew con el nuevo valor de props.userData
 		editNew.value = newValue
-		console.log(newValue?.name + ' aca el nuevo dato ')
+		console.log(
+			newValue?.name + ' aca el nuevo dato ' + newValue?.id + 'el id?',
+		)
 	},
 	{ deep: true },
 )
@@ -59,6 +61,7 @@ const validationSchema = object({
 const { handleSubmit, defineInputBinds, errors, resetForm } = useForm({
 	validationSchema,
 	initialValues: {
+		id: '',
 		name: '',
 		first_name: '',
 		last_name: '',
@@ -71,11 +74,13 @@ watch(
 		resetForm({
 			values: newValue
 				? {
+						id: newValue.id,
 						name: newValue.name,
 						first_name: newValue.first_name,
 						last_name: newValue.last_name,
 				  }
 				: {
+						id: '',
 						name: '',
 						first_name: '',
 						last_name: '',
@@ -85,6 +90,7 @@ watch(
 	{ deep: true },
 )
 
+const id = defineInputBinds('id')
 const name = defineInputBinds('name')
 const first_name = defineInputBinds('first_name')
 const last_name = defineInputBinds('last_name')
@@ -192,6 +198,7 @@ const close = () => {
 						@click="close">
 						Cancelar
 					</button>
+					<input type="hidden" v-bind="id" />
 				</div>
 			</form>
 		</div>
