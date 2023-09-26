@@ -18,9 +18,10 @@ const filteredData = computed(() => {
 onMounted(async () => {
 	getAllData()
 })
-
+// const urlLocalHost = 'http://localhost:3001/users'
+const urlNubeHost = 'https://rdton-be.vercel.app/users'
 const getAllData = async () => {
-	await $fetch('http://localhost:3001/users')
+	await $fetch(urlNubeHost)
 		.then((res) => {
 			data.value = res as User[]
 		})
@@ -51,7 +52,7 @@ const confirmModalAction = async (userData: User) => {
 			date_create: new Date().toISOString().slice(0, 19).replace('T', ' '), // Formatear la fecha y hora actual al formato requerido
 		}
 
-		fetch('http://localhost:3001/users', {
+		fetch(urlNubeHost, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -81,8 +82,9 @@ const confirmModalAction = async (userData: User) => {
 			status: 'UPDATE',
 			date_create: new Date().toISOString().slice(0, 19).replace('T', ' '), // Formatear la fecha y hora actual al formato requerido
 		}
-		const url = 'http://localhost:3001/users/' + userData.id
-		fetch(url, {
+		// const urlConIdLocal = urlLocalHost + userData.id
+		const urlConIdNube = urlNubeHost + userData.id
+		fetch(urlConIdNube, {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json',
