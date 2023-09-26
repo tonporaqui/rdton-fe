@@ -83,8 +83,8 @@ const confirmModalAction = async (userData: User) => {
 			status: 'UPDATE',
 			date_create: new Date().toISOString().slice(0, 19).replace('T', ' '), // Formatear la fecha y hora actual al formato requerido
 		}
-		// const urlConIdLocal = urlLocalHost + userData.id
-		const urlConIdNube = urlNubeHost + userData.id
+		// const urlConIdLocal = urlLocalHost + '/' + userData.id
+		const urlConIdNube = urlNubeHost + '/' + userData.id
 		fetch(urlConIdNube, {
 			method: 'PATCH',
 			headers: {
