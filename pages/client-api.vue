@@ -18,10 +18,10 @@ const filteredData = computed(() => {
 onMounted(async () => {
 	getAllData()
 })
-// const urlLocalHost = 'http://localhost:3001/users'
-const urlNubeHost = 'https://rdton-be.vercel.app/users'
+const urlLocalHost = 'http://localhost:3001/users'
+// const urlNubeHost = 'https://rdton-be.vercel.app/users'
 const getAllData = async () => {
-	await $fetch(urlNubeHost)
+	await $fetch(urlLocalHost)
 		.then((res) => {
 			data.value = res as User[]
 		})
@@ -42,6 +42,8 @@ const openModal = (actionType: string, userData: User | null = null) => {
 }
 
 const confirmModalAction = async (userData: User) => {
+	// const urlConIdLocal = urlLocalHost + '/' + userData.id
+	const urlConIdLocal = urlLocalHost + '/' + userData.id
 	// Preparar el objeto de datos para enviar en la solicitud
 	if (modalActionType.value === 'create') {
 		const postData = {
@@ -52,7 +54,7 @@ const confirmModalAction = async (userData: User) => {
 			date_create: new Date().toISOString().slice(0, 19).replace('T', ' '), // Formatear la fecha y hora actual al formato requerido
 		}
 
-		fetch(urlNubeHost, {
+		fetch(urlLocalHost, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -63,7 +65,6 @@ const confirmModalAction = async (userData: User) => {
 			.then(async (response: Response) => {
 				if (response.ok) {
 					const responseData = await response.json()
-					console.log('User created successfully:', responseData)
 					data.value.push(responseData)
 				} else {
 					console.error('Error creating user:', response.statusText)
@@ -75,7 +76,7 @@ const confirmModalAction = async (userData: User) => {
 			.finally(() => {
 				closeModal()
 			})
-	} else {
+	} else if (modalActionType.value === 'edit') {
 		const pathData = {
 			name: userData.name,
 			first_name: userData.first_name || '', // Si firstName no está disponible, enviar una cadena vacía
@@ -83,9 +84,8 @@ const confirmModalAction = async (userData: User) => {
 			status: 'UPDATE',
 			date_create: new Date().toISOString().slice(0, 19).replace('T', ' '), // Formatear la fecha y hora actual al formato requerido
 		}
-		// const urlConIdLocal = urlLocalHost + '/' + userData.id
-		const urlConIdNube = urlNubeHost + '/' + userData.id
-		fetch(urlConIdNube, {
+
+		fetch(urlConIdLocal, {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json',
@@ -96,15 +96,36 @@ const confirmModalAction = async (userData: User) => {
 			.then(async (response: Response) => {
 				if (response.ok) {
 					const responseData = await response.json()
-					console.log('User created successfully:', responseData)
 					data.value.push(responseData)
 					getAllData()
 				} else {
-					console.error('Error creating user:', response.statusText)
+					console.error('Error edit user:', response.statusText)
 				}
 			})
 			.catch((error) => {
-				console.error('Error creating user:', error)
+				console.error('Error edit user:', error)
+			})
+			.finally(() => {
+				closeModal()
+			})
+	} else if (modalActionType.value === 'delete') {
+		fetch(urlConIdLocal, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+				cors: 'no-cors',
+			},
+		})
+			.then(async (response: Response) => {
+				if (response.ok) {
+					// const responseData = await response.json()
+					getAllData()
+				} else {
+					console.error('Error delete user:', response.statusText)
+				}
+			})
+			.catch((error) => {
+				console.error('Error delete user:', error)
 			})
 			.finally(() => {
 				closeModal()
