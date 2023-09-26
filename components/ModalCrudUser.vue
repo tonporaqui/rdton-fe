@@ -23,20 +23,7 @@ const editNew = ref<User | null>(null)
 watch(
 	() => props.userData,
 	(newValue) => {
-		// Actualizar editNew con el nuevo valor de props.userData
 		editNew.value = newValue
-		console.log(
-			newValue?.name + ' aca el nuevo dato ' + newValue?.id + 'el id?',
-		)
-	},
-	{ deep: true },
-)
-// const editNew = computed(() => props.userData)
-// console.log(editNew.value?.name + ' viendo esto ??? ')
-watch(
-	() => editNew.value,
-	(newValue) => {
-		console.log(newValue?.name + ' viendo esto ??? ')
 	},
 	{ deep: true },
 )
@@ -96,7 +83,6 @@ const first_name = defineInputBinds('first_name')
 const last_name = defineInputBinds('last_name')
 
 const onSubmit = handleSubmit((values) => {
-	console.log(values)
 	emits('confirm', values)
 	resetForm()
 })

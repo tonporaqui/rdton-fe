@@ -16,6 +16,10 @@ const filteredData = computed(() => {
 })
 
 onMounted(async () => {
+	getAllData()
+})
+
+const getAllData = async () => {
 	await $fetch('http://localhost:3001/users')
 		.then((res) => {
 			data.value = res as User[]
@@ -24,7 +28,7 @@ onMounted(async () => {
 		.finally(() => {
 			loading.value = false
 		})
-})
+}
 
 const closeModal = () => {
 	isModalOpen.value = false
@@ -40,13 +44,11 @@ const confirmModalAction = async (userData: User) => {
 	// Preparar el objeto de datos para enviar en la solicitud
 	if (modalActionType.value === 'create') {
 		const postData = {
-			id: 'asignado', // Este valor será asignado por la API, no es necesario cambiarlo
 			name: userData.name,
 			first_name: userData.first_name || '', // Si firstName no está disponible, enviar una cadena vacía
 			last_name: userData.last_name || '', // Si lastName no está disponible, enviar una cadena vacía
 			status: 'CREATE',
 			date_create: new Date().toISOString().slice(0, 19).replace('T', ' '), // Formatear la fecha y hora actual al formato requerido
-			password: '123456782', // Valor fijo, como se mencionó en los comentarios
 		}
 
 		fetch('http://localhost:3001/users', {
@@ -72,16 +74,37 @@ const confirmModalAction = async (userData: User) => {
 				closeModal()
 			})
 	} else {
-		console.log(modalActionType.value + ' user data: ' + userData.id)
 		const pathData = {
-			id: 'asignado', // Este valor será asignado por la API, no es necesario cambiarlo
 			name: userData.name,
 			first_name: userData.first_name || '', // Si firstName no está disponible, enviar una cadena vacía
 			last_name: userData.last_name || '', // Si lastName no está disponible, enviar una cadena vacía
 			status: 'UPDATE',
 			date_create: new Date().toISOString().slice(0, 19).replace('T', ' '), // Formatear la fecha y hora actual al formato requerido
-			password: '123456782', // Valor fijo, como se mencionó en los comentarios
 		}
+		const url = 'http://localhost:3001/users/' + userData.id
+		fetch(url, {
+			method: 'PATCH',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(pathData),
+		})
+			.then(async (response: Response) => {
+				if (response.ok) {
+					const responseData = await response.json()
+					console.log('User created successfully:', responseData)
+					data.value.push(responseData)
+					getAllData()
+				} else {
+					console.error('Error creating user:', response.statusText)
+				}
+			})
+			.catch((error) => {
+				console.error('Error creating user:', error)
+			})
+			.finally(() => {
+				closeModal()
+			})
 	}
 }
 
