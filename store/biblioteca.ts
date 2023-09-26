@@ -1,9 +1,22 @@
 // store/biblioteca.js
 import { defineStore } from 'pinia'
+interface BibliotecaItem {
+	titulo: string
+	tipo: string
+	descripcion: string
+	iconos: string[]
+	fecha: string
+	image: string
+	url: string
+}
+
+interface BibliotecaState {
+	items: BibliotecaItem[]
+}
 
 export const useBibliotecaStore = defineStore({
 	id: 'biblioteca',
-	state: () => ({
+	state: (): BibliotecaState => ({
 		items: [
 			{
 				titulo: 'API Portafolio',
@@ -34,7 +47,7 @@ export const useBibliotecaStore = defineStore({
 		],
 	}),
 	getters: {
-		allBiblioteca() {
+		allBiblioteca(): BibliotecaItem[] {
 			return this.items
 		},
 	},

@@ -1,5 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+	runtimeConfig: {
+		public: {
+			apiURL:
+				process.env.NODE_ENV === 'production'
+					? 'https://rdton-be.vercel.app/users'
+					: 'http://localhost:3001/users',
+		},
+	},
 	postcss: {
 		plugins: {
 			tailwindcss: {},

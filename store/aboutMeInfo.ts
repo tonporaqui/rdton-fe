@@ -1,8 +1,19 @@
 import { defineStore } from 'pinia'
 
+interface AboutMeInfo {
+	id: number
+	title: string
+	image: string
+	description: string
+}
+
+interface MainState {
+	aboutMeInfo: AboutMeInfo[]
+}
+
 export const useMainStore = defineStore({
 	id: 'main',
-	state: () => ({
+	state: (): MainState => ({
 		aboutMeInfo: [
 			{
 				id: 1,
@@ -38,7 +49,7 @@ export const useMainStore = defineStore({
 		],
 	}),
 	getters: {
-		allAboutMe() {
+		allAboutMe(): AboutMeInfo[] {
 			return this.aboutMeInfo
 		},
 	},

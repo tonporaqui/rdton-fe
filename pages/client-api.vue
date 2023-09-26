@@ -1,35 +1,30 @@
 <script setup lang="ts">
 import ModalCrudUser from '@/components/ModalCrudUser.vue'
-import { User } from '@/types/User'
+import { useUsers } from '@/composables/useUsers'
+import { User, UserRequest } from '@/types/User'
+const { data, loading, loadUsers, createUser, updateUser, deleteUser } =
+	useUsers()
+const apiURL = useRuntimeConfig().public.apiURL
 
-const data = ref<User[]>([])
-const loading = ref(true)
 const searchText = ref('')
 const isModalOpen = ref(false)
 const modalActionType = ref('')
 const modalUserData = ref<User | null>(null)
 
 const filteredData = computed(() => {
+	if (!data.value) {
+		return []
+	}
 	return data.value.filter((user: { name: string }) =>
 		user.name.toLowerCase().includes(searchText.value.toLowerCase()),
 	)
 })
 
 onMounted(async () => {
-	getAllData()
+	await loadUsers(apiURL)
 })
-const urlLocalHost = 'http://localhost:3001/users'
+// const urlLocalHost = 'http://localhost:3001/users'
 // const urlNubeHost = 'https://rdton-be.vercel.app/users'
-const getAllData = async () => {
-	await $fetch(urlLocalHost)
-		.then((res) => {
-			data.value = res as User[]
-		})
-		.catch((error) => console.error('Error fetching data:', error))
-		.finally(() => {
-			loading.value = false
-		})
-}
 
 const closeModal = () => {
 	isModalOpen.value = false
@@ -42,107 +37,46 @@ const openModal = (actionType: string, userData: User | null = null) => {
 }
 
 const confirmModalAction = async (userData: User) => {
-	// const urlConIdLocal = urlLocalHost + '/' + userData.id
-	const urlConIdLocal = urlLocalHost + '/' + userData.id
-	// Preparar el objeto de datos para enviar en la solicitud
-	if (modalActionType.value === 'create') {
-		const postData = {
-			name: userData.name,
-			first_name: userData.first_name || '', // Si firstName no está disponible, enviar una cadena vacía
-			last_name: userData.last_name || '', // Si lastName no está disponible, enviar una cadena vacía
-			status: 'CREATE',
-			date_create: new Date().toISOString().slice(0, 19).replace('T', ' '), // Formatear la fecha y hora actual al formato requerido
+	const postData: UserRequest = {
+		name: userData.name,
+		first_name: userData.first_name || '', // Si firstName no está disponible, enviar una cadena vacía
+		last_name: userData.last_name || '', // Si lastName no está disponible, enviar una cadena vacía
+		status: 'CREATE',
+		date_create: new Date().toISOString().slice(0, 19).replace('T', ' '), // Formatear la fecha y hora actual al formato requerido
+	}
+	const pathData: UserRequest = {
+		name: userData.name,
+		first_name: userData.first_name || '', // Si firstName no está disponible, enviar una cadena vacía
+		last_name: userData.last_name || '', // Si lastName no está disponible, enviar una cadena vacía
+		status: 'UPDATE',
+		date_create: new Date().toISOString().slice(0, 19).replace('T', ' '), // Formatear la fecha y hora actual al formato requerido
+	}
+	try {
+		if (modalActionType.value === 'create') {
+			await createUser(postData, apiURL)
+		} else if (modalActionType.value === 'edit') {
+			await updateUser(userData.id, pathData, apiURL)
+		} else if (modalActionType.value === 'delete') {
+			await deleteUser(userData.id, apiURL)
 		}
-
-		fetch(urlLocalHost, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				cors: 'no-cors',
-			},
-			body: JSON.stringify(postData),
-		})
-			.then(async (response: Response) => {
-				if (response.ok) {
-					const responseData = await response.json()
-					data.value.push(responseData)
-				} else {
-					console.error('Error creating user:', response.statusText)
-				}
-			})
-			.catch((error) => {
-				console.error('Error creating user:', error)
-			})
-			.finally(() => {
-				closeModal()
-			})
-	} else if (modalActionType.value === 'edit') {
-		const pathData = {
-			name: userData.name,
-			first_name: userData.first_name || '', // Si firstName no está disponible, enviar una cadena vacía
-			last_name: userData.last_name || '', // Si lastName no está disponible, enviar una cadena vacía
-			status: 'UPDATE',
-			date_create: new Date().toISOString().slice(0, 19).replace('T', ' '), // Formatear la fecha y hora actual al formato requerido
-		}
-
-		fetch(urlConIdLocal, {
-			method: 'PATCH',
-			headers: {
-				'Content-Type': 'application/json',
-				cors: 'no-cors',
-			},
-			body: JSON.stringify(pathData),
-		})
-			.then(async (response: Response) => {
-				if (response.ok) {
-					const responseData = await response.json()
-					data.value.push(responseData)
-					getAllData()
-				} else {
-					console.error('Error edit user:', response.statusText)
-				}
-			})
-			.catch((error) => {
-				console.error('Error edit user:', error)
-			})
-			.finally(() => {
-				closeModal()
-			})
-	} else if (modalActionType.value === 'delete') {
-		fetch(urlConIdLocal, {
-			method: 'DELETE',
-			headers: {
-				'Content-Type': 'application/json',
-				cors: 'no-cors',
-			},
-		})
-			.then(async (response: Response) => {
-				if (response.ok) {
-					// const responseData = await response.json()
-					getAllData()
-				} else {
-					console.error('Error delete user:', response.statusText)
-				}
-			})
-			.catch((error) => {
-				console.error('Error delete user:', error)
-			})
-			.finally(() => {
-				closeModal()
-			})
+		await loadUsers(apiURL) // Recargar los datos después de cada operación
+	} catch (error) {
+		console.error('Error:', error)
+	} finally {
+		closeModal()
 	}
 }
 
-const createUser = () => {
+const createUserModal = () => {
 	openModal('create')
 }
 
-const editUser = (id: string) => {
+const editUserModal = (id: string) => {
 	const user = data.value.find((user: { id: string }) => user.id === id)
 	openModal('edit', user)
 }
 
-const deleteUser = (id: string) => {
+const deleteUserModal = (id: string) => {
 	const user = data.value.find((user: { id: string }) => user.id === id)
 	openModal('delete', user)
 }
@@ -173,7 +107,7 @@ const deleteUser = (id: string) => {
 					<!-- boton crear -->
 					<button
 						class="rounded border border-light-accent200 px-4 py-2 text-light-accent200 hover:border-light-accent100 hover:text-light-accent100 dark:border-dark-accent100 dark:bg-dark-bg100 dark:text-dark-primary100 dark:hover:bg-dark-bg200"
-						@click="createUser">
+						@click="createUserModal">
 						Crear
 					</button>
 				</div>
@@ -216,7 +150,7 @@ const deleteUser = (id: string) => {
 								<!-- editar usuario -->
 								<td
 									class="cursor-pointer border p-2"
-									@click="editUser(user.id)">
+									@click="editUserModal(user.id)">
 									<Icon
 										name="material-symbols:edit-outline"
 										size="27px"
@@ -226,7 +160,7 @@ const deleteUser = (id: string) => {
 								<!-- borrar usuario -->
 								<td
 									class="cursor-pointer border p-2"
-									@click="deleteUser(user.id)">
+									@click="deleteUserModal(user.id)">
 									<Icon
 										name="material-symbols:delete-outline"
 										size="27px"

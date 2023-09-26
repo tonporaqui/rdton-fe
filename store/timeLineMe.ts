@@ -1,9 +1,24 @@
 // store/timeLineMe.js
 import { defineStore } from 'pinia'
 
+interface TimeLineEvent {
+	type: string
+	icon: string
+	institution?: string
+	title: string
+	startDate: string
+	endDate: string | null
+	position?: string
+	company?: string
+}
+
+interface TimeLineState {
+	events: TimeLineEvent[]
+}
+
 export const useTimeLineStore = defineStore({
 	id: 'timeLine',
-	state: () => ({
+	state: (): TimeLineState => ({
 		events: [
 			{
 				type: 'Estudios',
@@ -105,14 +120,14 @@ export const useTimeLineStore = defineStore({
 		],
 	}),
 	getters: {
-		meTimeLine() {
+		meTimeLine(): TimeLineEvent[] {
 			return this.events
 		},
-		sortedTimeLine() {
+		sortedTimeLine(): TimeLineEvent[] {
 			return this.events.sort((a, b) => {
 				const endDateA = a.endDate ? new Date(a.endDate) : new Date()
 				const endDateB = b.endDate ? new Date(b.endDate) : new Date()
-				return endDateB - endDateA
+				return +endDateB - +endDateA
 			})
 		},
 	},

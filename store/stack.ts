@@ -1,9 +1,24 @@
 // store/stack.js
 import { defineStore } from 'pinia'
 
+interface SkillDescription {
+	title: string
+	icon: string
+}
+interface SkillItem {
+	id: number
+	title: string
+	image: string
+	description: SkillDescription[]
+}
+
+interface StackState {
+	skills: SkillItem[]
+}
+
 export const useStackStore = defineStore({
 	id: 'stack',
-	state: () => ({
+	state: (): StackState => ({
 		skills: [
 			{
 				id: 1,
@@ -72,7 +87,7 @@ export const useStackStore = defineStore({
 		],
 	}),
 	getters: {
-		allSkills() {
+		allSkills(): SkillItem[] {
 			return this.skills
 		},
 	},
