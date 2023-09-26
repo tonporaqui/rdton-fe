@@ -56,6 +56,7 @@ const confirmModalAction = async (userData: User) => {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
+				cors: 'no-cors',
 			},
 			body: JSON.stringify(postData),
 		})
@@ -88,6 +89,7 @@ const confirmModalAction = async (userData: User) => {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json',
+				cors: 'no-cors',
 			},
 			body: JSON.stringify(pathData),
 		})
