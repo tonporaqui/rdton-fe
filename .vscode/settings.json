@@ -1,6 +1,6 @@
 {
 	"[vue]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "Vue.volar"
 	},
 	"breadcrumbs.symbolPath": "on",
 	"breadcrumbs.symbolSortOrder": "position",
