@@ -1,3 +1,24 @@
+<script setup lang="ts">
+const route = useRoute()
+const isHomePage = computed(() => route.path === '/')
+const titleNamePage = titleNameGlobal().value.titleNamePage
+const titlePage = titleNameGlobal().value.titlePage
+
+const isOpen = ref(false)
+const isToggled = ref(false)
+
+const toggleNav = (): void => {
+	isToggled.value = true
+	isOpen.value = !isOpen.value
+}
+const animationClasses = computed(() => {
+	if (!isToggled.value) return ''
+	return isOpen.value
+		? 'animate-fade-down animate-duration-300 animate-delay-75 animate-ease-linear'
+		: 'animate-fade-up animate-duration-300 animate-delay-75 animate-ease-linear'
+})
+</script>
+
 <template>
 	<header
 		id="header-inicio"
@@ -81,27 +102,6 @@
 		</div>
 	</header>
 </template>
-
-<script setup lang="ts">
-const route = useRoute()
-const isHomePage = computed(() => route.path === '/')
-const titleNamePage = titleNameGlobal().value.titleNamePage
-const titlePage = titleNameGlobal().value.titlePage
-
-const isOpen = ref(false)
-const isToggled = ref(false)
-
-const toggleNav = (): void => {
-	isToggled.value = true
-	isOpen.value = !isOpen.value
-}
-const animationClasses = computed(() => {
-	if (!isToggled.value) return ''
-	return isOpen.value
-		? 'animate-fade-down animate-duration-300 animate-delay-75 animate-ease-linear'
-		: 'animate-fade-up animate-duration-300 animate-delay-75 animate-ease-linear'
-})
-</script>
 
 <style lang="scss">
 /* Estilos css */

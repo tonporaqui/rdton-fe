@@ -1,3 +1,8 @@
+<script setup lang="ts">
+const titleNamePage = titleNameGlobal().value.titleNamePage
+const titlePage = titleNameGlobal().value.titlePage
+const currentYear: number = new Date().getUTCFullYear()
+</script>
 <template>
 	<div class="mx-auto h-32 text-center">
 		<h1
@@ -10,9 +15,3 @@
 		</h1>
 	</div>
 </template>
-
-<script setup lang="ts">
-const titleNamePage = titleNameGlobal().value.titleNamePage
-const titlePage = titleNameGlobal().value.titlePage
-const currentYear: number = new Date().getUTCFullYear()
-</script>

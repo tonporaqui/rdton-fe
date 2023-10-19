@@ -1,3 +1,66 @@
+<script setup lang="ts">
+import { useBibliotecaStore } from '~/store/biblioteca'
+
+const store = useBibliotecaStore()
+const search = ref('')
+const filter = ref('')
+const sortOrder = ref('desc')
+const isDropdownOpen = ref(false)
+const titleNamePage = titleNameGlobal().value.titleBiblioteca
+const subtitlePage = titleNameGlobal().value.subTitleBiblioteca
+const descriptionPage = titleNameGlobal().value.descriptionBibliotecaTitle
+
+interface BibliotecaItem {
+	titulo: string
+	tipo: string
+	descripcion: string
+	iconos: string
+	fecha: string
+	image: string
+	url: string
+}
+
+const filteredItems = computed(() => {
+	let items: BibliotecaItem[] = store.allBiblioteca
+	if (filter.value) {
+		items = items.filter((item) => item.tipo === filter.value)
+	}
+
+	if (search.value) {
+		items = items.filter((item) =>
+			item.titulo.toLowerCase().includes(search.value.toLowerCase()),
+		)
+	}
+
+	return sortOrder.value === 'desc'
+		? items.sort(
+				(a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime(),
+		  )
+		: items.sort(
+				(a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime(),
+		  )
+})
+
+const setFilter = (tipo: string) => {
+	filter.value = tipo
+}
+
+const resetFilters = () => {
+	search.value = ''
+	filter.value = ''
+}
+const setOrder = (order: string) => {
+	sortOrder.value = order
+	isDropdownOpen.value = false
+}
+
+const dropdownIcon = computed(() => {
+	return isDropdownOpen.value
+		? 'mdi:arrow-up-drop-circle-outline'
+		: 'mdi:arrow-down-drop-circle-outline'
+})
+</script>
+
 <template>
 	<section class="min-h-screen py-8">
 		<h3
@@ -115,70 +178,6 @@
 		</div>
 	</section>
 </template>
-
-<script setup lang="ts">
-import { useBibliotecaStore } from '~/store/biblioteca'
-
-const store = useBibliotecaStore()
-const search = ref('')
-const filter = ref('')
-const sortOrder = ref('desc')
-const isDropdownOpen = ref(false)
-const titleNamePage = titleNameGlobal().value.titleBiblioteca
-const subtitlePage = titleNameGlobal().value.subTitleBiblioteca
-const descriptionPage = titleNameGlobal().value.descriptionBibliotecaTitle
-
-interface BibliotecaItem {
-	titulo: string
-	tipo: string
-	descripcion: string
-	iconos: string
-	fecha: string
-	image: string
-	url: string
-}
-
-const filteredItems = computed(() => {
-	let items: BibliotecaItem[] = store.allBiblioteca
-	if (filter.value) {
-		items = items.filter((item) => item.tipo === filter.value)
-	}
-
-	if (search.value) {
-		items = items.filter((item) =>
-			item.titulo.toLowerCase().includes(search.value.toLowerCase()),
-		)
-	}
-
-	return sortOrder.value === 'desc'
-		? items.sort(
-				(a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime(),
-		  )
-		: items.sort(
-				(a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime(),
-		  )
-})
-
-const setFilter = (tipo: string) => {
-	filter.value = tipo
-}
-
-const resetFilters = () => {
-	search.value = ''
-	filter.value = ''
-}
-const setOrder = (order: string) => {
-	sortOrder.value = order
-	isDropdownOpen.value = false
-}
-
-const dropdownIcon = computed(() => {
-	return isDropdownOpen.value
-		? 'mdi:arrow-up-drop-circle-outline'
-		: 'mdi:arrow-down-drop-circle-outline'
-})
-</script>
-
 <style scoped>
 /* You can add specific styles here with Tailwind or pure CSS */
 </style>

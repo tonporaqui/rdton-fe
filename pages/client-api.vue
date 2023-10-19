@@ -21,7 +21,11 @@ const filteredData = computed(() => {
 })
 
 onMounted(async () => {
-	await loadUsers(apiURL)
+	if (typeof apiURL === 'string') {
+		await loadUsers(apiURL)
+	} else {
+		console.error('apiURL is not a string:', apiURL)
+	}
 })
 // const urlLocalHost = 'http://localhost:3001/users'
 // const urlNubeHost = 'https://rdton-be.vercel.app/users'

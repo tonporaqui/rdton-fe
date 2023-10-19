@@ -1,10 +1,3 @@
-<template>
-	<div>
-		<NuxtLayout>
-			<NuxtPage />
-		</NuxtLayout>
-	</div>
-</template>
 <script setup lang="ts">
 useHead({
 	bodyAttrs: {
@@ -13,3 +6,10 @@ useHead({
 	},
 })
 </script>
+<template>
+	<div>
+		<NuxtLayout>
+			<NuxtPage />
+		</NuxtLayout>
+	</div>
+</template>

@@ -1,3 +1,24 @@
+<script setup lang="ts">
+interface AboutMeInfo {
+	id: string
+	image?: string
+	title: string
+	description: string
+}
+
+const props = defineProps({
+	aboutMeInfo: {
+		type: Array as () => AboutMeInfo[],
+		required: true,
+	},
+})
+
+const getAosEffect = (index: number): string => {
+	const effects = ['fade-up-right', 'fade-up-left', 'fade-up', 'zoom-in']
+	return effects[index % effects.length]
+}
+</script>
+
 <template>
 	<section
 		id="about-me-section"
@@ -33,28 +54,6 @@
 		</div>
 	</section>
 </template>
-
-<script setup lang="ts">
-interface AboutMeInfo {
-	id: string
-	image?: string
-	title: string
-	description: string
-}
-
-const props = defineProps({
-	aboutMeInfo: {
-		type: Array as () => AboutMeInfo[],
-		required: true,
-	},
-})
-
-const getAosEffect = (index: number): string => {
-	const effects = ['fade-up-right', 'fade-up-left', 'fade-up', 'zoom-in']
-	return effects[index % effects.length]
-}
-</script>
-
 <style scoped>
 /* Estilos */
 </style>

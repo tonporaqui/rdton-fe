@@ -1,3 +1,32 @@
+<script setup lang="ts">
+interface TimeLineEvent {
+	type: string
+	icon: string
+	title?: string
+	position?: string
+	institution?: string
+	company?: string
+	startDate: string
+	endDate?: string
+}
+
+const props = defineProps({
+	timeLineMe: {
+		type: Array as () => TimeLineEvent[],
+		required: true,
+	},
+})
+
+const getAosEffect = (type: string): string => {
+	return type === 'Estudios' ? 'fade-left' : 'fade-right'
+}
+
+const formatDate = (dateStr: string): string => {
+	const date = new Date(dateStr + '-01')
+	return date.toLocaleString('es-ES', { month: 'long', year: 'numeric' })
+}
+</script>
+
 <template>
 	<section
 		id="timeline-section"
@@ -87,36 +116,6 @@
 		</div>
 	</section>
 </template>
-
-<script setup lang="ts">
-interface TimeLineEvent {
-	type: string
-	icon: string
-	title?: string
-	position?: string
-	institution?: string
-	company?: string
-	startDate: string
-	endDate?: string
-}
-
-const props = defineProps({
-	timeLineMe: {
-		type: Array as () => TimeLineEvent[],
-		required: true,
-	},
-})
-
-const getAosEffect = (type: string): string => {
-	return type === 'Estudios' ? 'fade-left' : 'fade-right'
-}
-
-const formatDate = (dateStr: string): string => {
-	const date = new Date(dateStr + '-01')
-	return date.toLocaleString('es-ES', { month: 'long', year: 'numeric' })
-}
-</script>
-
 <style scoped>
 .dark .dark-bg300 {
 	background-color: #1e1e1e;

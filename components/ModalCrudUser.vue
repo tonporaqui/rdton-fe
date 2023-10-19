@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { User } from '@/types/User'
 import { useForm } from 'vee-validate'
-import { defineEmits, defineProps, PropType } from 'vue'
 import { object, string } from 'yup'
 
 const props = defineProps({

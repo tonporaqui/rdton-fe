@@ -1,3 +1,15 @@
+<script setup lang="ts">
+const colorMode = useColorMode()
+
+const toggleDarkMode = (): void => {
+	colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
+}
+
+const currentIcon = computed<string>(() => {
+	return colorMode.preference === 'dark' ? 'i-carbon-moon' : 'i-carbon:sun'
+})
+</script>
+
 <template>
 	<div
 		role="button"
@@ -12,19 +24,6 @@
 		</Icon>
 	</div>
 </template>
-
-<script setup lang="ts">
-const colorMode = useColorMode()
-
-const toggleDarkMode = (): void => {
-	colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
-}
-
-const currentIcon = computed<string>(() => {
-	return colorMode.preference === 'dark' ? 'i-carbon-moon' : 'i-carbon:sun'
-})
-</script>
-
 <style>
 /* algun css */
 </style>

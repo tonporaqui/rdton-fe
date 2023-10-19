@@ -1,3 +1,24 @@
+<script setup lang="ts">
+interface Skill {
+	id: string
+	image?: string
+	title: string
+	description: { icon: string; title: string }[]
+}
+
+const props = defineProps({
+	skills: {
+		type: Array as () => Skill[],
+		required: true,
+	},
+})
+
+const getAosEffect = (index: number): string => {
+	const effects = ['fade-up-right', 'fade-up-left', 'fade-up', 'zoom-in']
+	return effects[index % effects.length]
+}
+</script>
+
 <template>
 	<section
 		id="stack-section"
@@ -42,27 +63,6 @@
 		</div>
 	</section>
 </template>
-
-<script setup lang="ts">
-interface Skill {
-	id: string
-	image?: string
-	title: string
-	description: { icon: string; title: string }[]
-}
-
-const props = defineProps({
-	skills: {
-		type: Array as () => Skill[],
-		required: true,
-	},
-})
-
-const getAosEffect = (index: number): string => {
-	const effects = ['fade-up-right', 'fade-up-left', 'fade-up', 'zoom-in']
-	return effects[index % effects.length]
-}
-</script>
 
 <style scoped>
 /* Puedes agregar estilos aquí si lo necesitas */
